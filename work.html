@@ -74,7 +74,17 @@ nav_active: work
     gap: clamp(2.5rem, 5vw, 3.5rem) clamp(1.5rem, 4vw, 3rem);
     align-items: start;
   }
+  .pf-photo-wrap { position: relative; }
   .pf-card .pf-photo { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: center; border-radius: 6px; }
+
+  /* small blurred patch over the house number on the Alvarado photo */
+  .pf-mask {
+    position: absolute; left: 31%; top: 64.5%; width: 1.5%; height: 7.3%;
+    background: linear-gradient(#6f706d, #878684);
+    -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+    pointer-events: none;
+  }
+
   .pf-card h3 {
     font-family: 'Montserrat', Arial, sans-serif; font-weight: 800;
     font-size: clamp(1.3rem, 2.4vw, 1.7rem); line-height: 1.2; letter-spacing: -0.02em;
@@ -170,7 +180,10 @@ nav_active: work
 
       <!-- ALVARADO -->
       <div class="pf-card">
-        <img class="pf-photo" src="/roof-replacement-alvarado.jpg" alt="Completed roof replacement in Alvarado, TX with Estate Gray shingles" loading="lazy">
+        <div class="pf-photo-wrap">
+          <img class="pf-photo" style="object-position: center 28%;" src="/Aubrey%20Hess%20Burleson.jpg" alt="Completed roof replacement in Alvarado, TX with Estate Gray shingles" loading="lazy">
+          <span class="pf-mask" aria-hidden="true"></span>
+        </div>
         <h3>Roof Replacement – Alvarado, TX</h3>
         <dl class="pf-specs">
           <div class="pf-row"><dt>Manufacturer</dt><dd>Owens Corning</dd></div>
