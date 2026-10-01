@@ -41,17 +41,6 @@ nav_active: home
   .hero .hero-inner > p { color: #e8eef3 !important; }
   .hero .hero-badges span { color: var(--white) !important; }
   .hero .hero-badges svg { color: var(--sky) !important; }
-  .hero .hero-logo {
-    position: absolute; z-index: 20;
-    right: clamp(1rem, 4vw, 3.5rem);
-    bottom: clamp(1rem, 3vw, 2.5rem);
-    width: clamp(120px, 13vw, 180px); height: auto;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,.45);
-  }
-  @media (max-width: 900px) {
-    .hero .hero-inner { padding-bottom: 170px; }  /* leaves room for the logo under the buttons */
-  }
 
   /* ============ BUTTONS ============ */
   .hero .btn-primary, .features .btn-primary, .inspection .btn-primary, .cta-banner .btn-white {
@@ -72,7 +61,34 @@ nav_active: home
   .hero .btn-outline:hover { background: var(--white) !important; color: var(--black) !important; transform: translateY(-2px); }
 
   /* ============ WHY HOMEOWNERS TRUST US ============ */
-  .features { background: var(--white) !important; background-image: none !important; padding: clamp(4rem, 8vw, 7rem) 0 !important; }
+  .features { background: var(--white) !important; background-image: none !important; padding: clamp(3.5rem, 7vw, 6rem) 0 clamp(4rem, 8vw, 7rem) !important; }
+
+  /* trust badge strip (top of the section) */
+  .features .trust-strip {
+    display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.25rem;
+    align-items: stretch; margin: 0 0 clamp(3rem, 6vw, 4.5rem);
+  }
+  .features .trust-badge {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; gap: .4rem; min-height: 170px; padding: 1.25rem 1rem;
+    background: var(--white); border: 1px solid var(--baby-line); border-radius: 16px;
+    box-shadow: 0 1px 2px rgba(0,0,0,.04);
+  }
+  .features .trust-badge img { height: 128px; width: auto; max-width: 100%; object-fit: contain; display: block; }
+  .features .trust-badge .badge-big {
+    font-family: 'Montserrat', Arial, sans-serif; font-weight: 900;
+    font-size: clamp(2.1rem, 3.4vw, 2.7rem); line-height: 1; letter-spacing: -0.02em; color: var(--black);
+  }
+  .features .trust-badge .badge-label {
+    font-family: 'Inter', Arial, sans-serif; font-weight: 600;
+    font-size: .95rem; line-height: 1.35; color: var(--body-text); max-width: 14rem;
+  }
+  .features .trust-badge .stars { font-size: 1.7rem; letter-spacing: .12em; color: #F5B301; line-height: 1; }
+  .features .trust-badge.badge-dark { background: var(--black); border-color: var(--black); }
+  .features .trust-badge.badge-dark .badge-big { color: var(--sky); }
+  .features .trust-badge.badge-dark .badge-label { color: var(--white); }
+  .features .trust-badge.badge-baby { background: var(--baby); }
+
   .features .features-heading { text-align: center; }
   .features .features-heading .eyebrow { color: var(--sky-deep) !important; }
   .features .features-heading .section-title { color: var(--black) !important; max-width: 52rem; margin-left: auto; margin-right: auto; }
@@ -119,10 +135,15 @@ nav_active: home
   .features .trust-cta p { color: #d3dde5 !important; max-width: 40rem; font-size: 1.05rem; }
   .features .trust-cta .btn { flex-shrink: 0; }
 
-  @media (max-width: 980px) { .features .trust-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 980px) {
+    .features .trust-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .features .trust-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
   @media (max-width: 640px) {
     .features .trust-grid { grid-template-columns: 1fr; }
     .features .trust-card.trust-cta { flex-direction: column; align-items: flex-start; }
+    .features .trust-badge { min-height: 150px; }
+    .features .trust-badge img { height: 100px; }
   }
   @media (prefers-reduced-motion: reduce) {
     .features .trust-card, .btn { transition: none !important; }
@@ -197,12 +218,31 @@ nav_active: home
       <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> 5-Star Rated</span>
     </div>
   </div>
-  <img class="hero-logo" src="preferred-contractor-logo.jpg" alt="Owens Corning Preferred Contractor">
 </section>
 
 <!-- ===== FEATURES ===== -->
 <section class="features">
   <div class="container">
+
+    <!-- trust badges -->
+    <div class="trust-strip">
+      <div class="trust-badge">
+        <img src="preferred-contractor-logo.jpg" alt="Owens Corning Preferred Contractor">
+      </div>
+      <div class="trust-badge badge-dark">
+        <span class="badge-big">1,000s</span>
+        <span class="badge-label">of Roofs Inspected in DFW</span>
+      </div>
+      <div class="trust-badge badge-baby">
+        <span class="badge-big">A+</span>
+        <span class="badge-label">Better Business Bureau Rating</span>
+      </div>
+      <div class="trust-badge">
+        <span class="stars" role="img" aria-label="5 out of 5 stars">★★★★★</span>
+        <span class="badge-label">5-Star Google Rating</span>
+      </div>
+    </div>
+
     <div class="features-heading">
       <span class="eyebrow">Why Homeowners Trust Us</span>
       <h2 class="section-title">Confidence in Your Contractor. Pride in Your Roof.</h2>
