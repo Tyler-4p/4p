@@ -11,15 +11,25 @@ nav_active: work
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
-  /* ===== HERO: black, wording on the left ===== */
+  /* ===== HERO: video background, wording on the left ===== */
   .page-hero {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
     background: #000000 !important;
     background-image: none !important;
-    min-height: clamp(380px, 42vw, 560px);
+    min-height: clamp(420px, 44vw, 600px);
     display: flex;
     align-items: center;
   }
-  .page-hero .container { width: 100%; text-align: left; }
+  .page-hero .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+  .page-hero .hero-shade {
+    position: absolute; inset: 0; z-index: 1;
+    background:
+      linear-gradient(90deg, rgba(0,0,0,.84) 0%, rgba(0,0,0,.62) 50%, rgba(0,0,0,.35) 100%),
+      linear-gradient(0deg, rgba(0,0,0,.5), transparent 40%);
+  }
+  .page-hero .container { position: relative; z-index: 2; width: 100%; text-align: left; }
   .page-hero .hero-copy { max-width: 40rem; margin: 0; }
   .page-hero h1 {
     font-family: 'Montserrat', Arial, sans-serif; font-weight: 900;
@@ -43,7 +53,44 @@ nav_active: work
     font-weight: 700 !important; transition: background .2s ease, color .2s ease, transform .2s ease;
   }
   .page-hero .btn-outline:hover { background: #fff !important; color: #000 !important; transform: translateY(-2px); }
-  @media (max-width: 760px) { .page-hero { min-height: 340px; } }
+
+  /* ===== Find Inspiration section ===== */
+  .inspire { background: #ffffff; padding: clamp(3rem, 6vw, 5rem) 0 clamp(1.75rem, 3.5vw, 2.5rem); }
+  .inspire h2 {
+    font-family: 'Montserrat', Arial, sans-serif; font-weight: 900;
+    font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1.05; letter-spacing: -0.025em;
+    color: #000000 !important; margin: 0 0 1.2rem; max-width: 46rem; text-align: left;
+  }
+  .inspire h2::after { content: ""; display: block; width: 56px; height: 3px; background: #5CB8F0; margin-top: 1.2rem; }
+  .inspire p {
+    font-family: 'Inter', Arial, sans-serif; font-size: 1.12rem; line-height: 1.8;
+    color: #3d4852 !important; margin: 0; max-width: 44rem; text-align: left;
+  }
+
+  /* ===== Featured project: photo centered, spec list under it ===== */
+  .project-feature { background: #ffffff; padding: 0 0 clamp(3rem, 6vw, 4.5rem); }
+  .project-feature .pf-wrap { max-width: 560px; margin: 0 auto; }
+  .project-feature .pf-photo { display: block; width: 100%; height: auto; border-radius: 6px; }
+  .project-feature h3 {
+    font-family: 'Montserrat', Arial, sans-serif; font-weight: 800;
+    font-size: clamp(1.4rem, 2.6vw, 1.9rem); line-height: 1.2; letter-spacing: -0.02em;
+    color: #000000 !important; margin: 1.4rem 0 1rem; text-align: center;
+  }
+  .project-feature .pf-specs { margin: 0; padding: 0; border-top: 1px solid rgba(0,0,0,.14); }
+  .project-feature .pf-row {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 1.5rem;
+    padding: .85rem 0; border-bottom: 1px solid rgba(0,0,0,.14);
+  }
+  .project-feature .pf-row dt {
+    font-family: 'Inter', Arial, sans-serif; font-weight: 600; font-size: .85rem;
+    letter-spacing: .06em; text-transform: uppercase; color: #146EAB; margin: 0;
+  }
+  .project-feature .pf-row dd {
+    font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; font-size: 1.02rem;
+    color: #000000; margin: 0; text-align: right;
+  }
+
+  @media (max-width: 760px) { .page-hero { min-height: 360px; } }
   @media (prefers-reduced-motion: reduce) { .page-hero .btn { transition: none !important; } }
 </style>
 </head>
@@ -53,6 +100,10 @@ nav_active: work
 
 <!-- ===== PAGE HERO ===== -->
 <section class="page-hero">
+  <video class="hero-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+    <source src="/Website%20Home%20Page%20Background%201.mp4" type="video/mp4">
+  </video>
+  <div class="hero-shade"></div>
   <div class="container">
     <div class="hero-copy">
       <h1>Our Pride.<br><span class="text-accent">Your Protection.</span></h1>
@@ -67,6 +118,31 @@ nav_active: work
           (817) 713-1407
         </a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FIND INSPIRATION ===== -->
+<section class="inspire">
+  <div class="container">
+    <h2>Find Inspiration for Your Next Roof</h2>
+    <p>Explore our completed projects and see the shingles, colors, and impact ratings homeowners across DFW chose for their homes.</p>
+  </div>
+</section>
+
+<!-- ===== FEATURED PROJECT ===== -->
+<section class="project-feature">
+  <div class="container">
+    <div class="pf-wrap">
+      <img class="pf-photo" src="/roof-replacement-springtown.jpg" alt="Completed roof replacement in Springtown, TX with Onyx Black shingles" loading="lazy">
+      <h3>Roof Replacement – Springtown, TX</h3>
+      <dl class="pf-specs">
+        <div class="pf-row"><dt>Manufacturer</dt><dd>Owens Corning</dd></div>
+        <div class="pf-row"><dt>Shingle</dt><dd>TruDef Duration</dd></div>
+        <div class="pf-row"><dt>Color</dt><dd>Onyx Black</dd></div>
+        <div class="pf-row"><dt>Impact Rating</dt><dd>Class 3</dd></div>
+        <div class="pf-row"><dt>Project Scope</dt><dd>Full Roof Replacement</dd></div>
+      </dl>
     </div>
   </div>
 </section>
@@ -172,5 +248,13 @@ nav_active: work
 {% include footer.html %}
 
 {% include nav-script.html %}
+
+<script>
+(function(){
+  var v = document.querySelector('.page-hero .hero-video');
+  if (v && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { v.pause(); }
+})();
+</script>
+
 </body>
 </html>
