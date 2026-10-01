@@ -12,28 +12,14 @@ nav_active: home
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
-  /* ============ BRAND COLORS ============ */
-  :root {
-    --sky: #5CB8F0;        /* sky blue: buttons and accents on black */
-    --sky-deep: #146EAB;   /* deeper sky blue: small text on white / baby blue */
-    --baby: #EAF5FD;       /* baby blue: soft section backgrounds */
-    --baby-line: #D3E8F7;  /* baby blue borders */
-    --black: #000000;
-    --white: #ffffff;
-    --body-text: #3d4852;
-  }
+  :root { --sky: #5CB8F0; --sky-deep: #146EAB; --line: rgba(0,0,0,.14); --black: #000000; --white: #ffffff; --body-text: #3d4852; }
   html { scroll-behavior: smooth; }
   a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 3px solid var(--sky); outline-offset: 3px; }
 
   /* ============ HERO ============ */
   .hero { position: relative; overflow: hidden; isolation: isolate; background: #000 !important; background-image: none !important; }
   .hero .bg-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: translateX(100%); opacity: 0; z-index: 0; will-change: transform, opacity; backface-visibility: hidden; }
-  .hero .hero-shade {
-    position: absolute; inset: 0; z-index: 10;
-    background:
-      linear-gradient(90deg, rgba(0,0,0,.80) 0%, rgba(0,0,0,.55) 48%, rgba(0,0,0,.25) 100%),
-      linear-gradient(0deg, rgba(0,0,0,.55), transparent 35%);
-  }
+  .hero .hero-shade { position: absolute; inset: 0; z-index: 10; background: linear-gradient(90deg, rgba(0,0,0,.80) 0%, rgba(0,0,0,.55) 48%, rgba(0,0,0,.25) 100%), linear-gradient(0deg, rgba(0,0,0,.55), transparent 35%); }
   .hero .hero-inner { position: relative; z-index: 20; }
   .hero .eyebrow { color: var(--sky) !important; }
   .hero h1 { color: var(--white) !important; }
@@ -41,131 +27,59 @@ nav_active: home
   .hero .hero-inner > p { color: #e8eef3 !important; }
   .hero .hero-badges span { color: var(--white) !important; }
   .hero .hero-badges svg { color: var(--sky) !important; }
-
-  /* Parker the Panther, bottom right of the hero */
-  .hero .hero-mascot {
-    position: absolute; z-index: 15;
-    right: clamp(1rem, 6vw, 7rem);
-    bottom: 0;
-    height: min(82%, 560px);
-    width: auto;
-    pointer-events: none;
-    filter: drop-shadow(0 0 22px rgba(92,184,240,.5)) drop-shadow(0 14px 22px rgba(0,0,0,.55));
-  }
+  .hero .hero-mascot { position: absolute; z-index: 15; right: clamp(1rem, 6vw, 7rem); bottom: 0; height: min(82%, 560px); width: auto; pointer-events: none; filter: drop-shadow(0 0 22px rgba(92,184,240,.5)) drop-shadow(0 14px 22px rgba(0,0,0,.55)); }
   @media (max-width: 900px) {
     .hero .hero-mascot { height: 190px; right: .75rem; }
-    .hero .hero-inner { padding-bottom: 210px; }  /* leaves room for Parker under the buttons */
+    .hero .hero-inner { padding-bottom: 210px; }
   }
 
   /* ============ BUTTONS ============ */
-  .hero .btn-primary, .features .btn-primary, .inspection .btn-primary, .cta-banner .btn-white {
-    background: var(--sky) !important; color: var(--black) !important;
-    border: 2px solid var(--sky) !important; font-weight: 700 !important;
-    box-shadow: 0 8px 24px rgba(92,184,240,.35) !important; animation: none !important;
-    transition: background .2s ease, color .2s ease, transform .2s ease;
-  }
-  .hero .btn-primary:hover, .features .btn-primary:hover, .inspection .btn-primary:hover, .cta-banner .btn-white:hover {
-    background: var(--white) !important; border-color: var(--white) !important; color: var(--black) !important; transform: translateY(-2px);
-  }
-  .features .trust-cta .btn-primary:hover { background: var(--white) !important; }
-  .hero .btn-outline {
-    background: transparent !important; color: var(--white) !important;
-    border: 2px solid var(--white) !important; font-weight: 700 !important;
-    transition: background .2s ease, color .2s ease, transform .2s ease;
-  }
+  .hero .btn-primary, .features .btn-primary, .inspection .btn-primary, .cta-banner .btn-white { background: var(--sky) !important; color: var(--black) !important; border: 2px solid var(--sky) !important; font-weight: 700 !important; box-shadow: 0 8px 24px rgba(92,184,240,.35) !important; animation: none !important; transition: background .2s ease, color .2s ease, transform .2s ease; }
+  .hero .btn-primary:hover { background: var(--white) !important; border-color: var(--white) !important; color: var(--black) !important; transform: translateY(-2px); }
+  .features .btn-primary:hover, .inspection .btn-primary:hover, .cta-banner .btn-white:hover { background: var(--black) !important; border-color: var(--black) !important; color: var(--white) !important; transform: translateY(-2px); }
+  .hero .btn-outline { background: transparent !important; color: var(--white) !important; border: 2px solid var(--white) !important; font-weight: 700 !important; transition: background .2s ease, color .2s ease, transform .2s ease; }
   .hero .btn-outline:hover { background: var(--white) !important; color: var(--black) !important; transform: translateY(-2px); }
 
-  /* ============ WHY HOMEOWNERS TRUST US ============ */
-  .features { background: var(--white) !important; background-image: none !important; padding: clamp(4rem, 8vw, 7rem) 0 !important; }
+  /* ============ WHY HOMEOWNERS TRUST US: plain paragraphs ============ */
+  .features { background: var(--white) !important; background-image: none !important; padding: clamp(3rem, 6vw, 4.5rem) 0 !important; }
   .features .features-heading { text-align: center; }
   .features .features-heading .eyebrow { color: var(--sky-deep) !important; }
-  .features .features-heading .section-title { color: var(--black) !important; max-width: 52rem; margin-left: auto; margin-right: auto; }
-  .features .features-heading .rule { background: var(--sky) !important; width: 72px; height: 4px; border-radius: 2px; margin-left: auto; margin-right: auto; }
-  .features-heading .features-intro { max-width: 46rem; margin: 1.75rem auto 0; }
-  .features-heading .features-intro p { margin: 0; color: var(--body-text) !important; font-size: 1.1rem; line-height: 1.75; }
-  .features-heading .features-intro p + p { margin-top: 1.1rem; }
+  .features .features-heading .section-title { color: var(--black) !important; font-size: clamp(1.7rem, 3vw, 2.3rem) !important; line-height: 1.15 !important; max-width: 46rem; margin-left: auto; margin-right: auto; }
+  .features .features-heading .rule { background: var(--sky) !important; width: 48px; height: 3px; border-radius: 0; margin-left: auto; margin-right: auto; }
+  .features-heading .features-intro { max-width: 44rem; margin: 1.1rem auto 0; }
+  .features-heading .features-intro p { margin: 0; color: var(--body-text) !important; font-size: 1rem; line-height: 1.7; }
+  .features-heading .features-intro p + p { margin-top: .75rem; }
 
-  .features .trust-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; margin-top: 3.5rem; }
-  .features .trust-card {
-    position: relative; overflow: hidden;
-    display: flex; flex-direction: column;
-    background: #F1F8FD; border: 1px solid var(--baby-line); border-radius: 16px;
-    padding: 2.25rem 1.9rem 2.1rem; text-align: left;
-    box-shadow: 0 1px 2px rgba(0,0,0,.04);
-    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-  }
-  .features .trust-card::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 4px; background: var(--sky); }
-  .features .trust-card:hover { transform: translateY(-5px); border-color: var(--sky); box-shadow: 0 18px 40px rgba(0,0,0,.10); }
-  .features .trust-icon {
-    width: 54px; height: 54px; border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-    background: var(--black); color: var(--sky); margin-bottom: 1.4rem;
-  }
-  .features .trust-card h3 {
-    font-family: 'Montserrat', Arial, sans-serif;
-    font-size: 1.45rem; line-height: 1.25; font-weight: 800; letter-spacing: -0.01em;
-    color: var(--black) !important; margin: 0 0 .9rem;
-  }
-  .features .trust-card p {
-    font-family: 'Inter', Arial, sans-serif;
-    font-size: 1rem; line-height: 1.7; font-weight: 400;
-    color: var(--body-text) !important; margin: 0;
-  }
+  .features .trust-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(2rem, 5vw, 4rem); margin-top: 2.25rem; border-top: 1px solid var(--line); }
+  .features .trust-row { padding: 1.35rem 0 1.4rem; border-bottom: 1px solid var(--line); }
+  .features .trust-row h3 { font-family: 'Montserrat', Arial, sans-serif; font-weight: 800; font-size: 1.1rem; line-height: 1.3; letter-spacing: -0.01em; color: var(--black) !important; margin: 0 0 .45rem; }
+  .features .trust-row p { font-family: 'Inter', Arial, sans-serif; font-size: .97rem; line-height: 1.65; color: var(--body-text) !important; margin: 0; }
+  .features .trust-row.wide { grid-column: 1 / -1; }
+  .features .trust-row .btn { margin-top: 1rem; display: inline-block; }
+  @media (max-width: 820px) { .features .trust-list { grid-template-columns: 1fr; } }
 
-  /* box 7: full-width closing box */
-  .features .trust-card.trust-cta {
-    grid-column: 1 / -1;
-    flex-direction: row; align-items: center; justify-content: space-between; gap: 2rem;
-    padding: 2.75rem 2.5rem; background: var(--black); border-color: var(--black);
-  }
-  .features .trust-card.trust-cta:hover { transform: none; box-shadow: 0 18px 40px rgba(0,0,0,.25); border-color: var(--black); }
-  .features .trust-cta h3 { color: var(--white) !important; font-size: 1.85rem; }
-  .features .trust-cta p { color: #d3dde5 !important; max-width: 40rem; font-size: 1.05rem; }
-  .features .trust-cta .btn { flex-shrink: 0; }
+  /* ============ CALL ROW: plain, no black bar ============ */
+  .cta-banner { background: var(--white) !important; background-image: none !important; border-top: 1px solid var(--line); padding: clamp(1.75rem, 3.5vw, 2.5rem) 0 !important; }
+  .cta-banner .cta-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.25rem; }
+  .cta-banner .cta-left { display: block; }
+  .cta-banner h3 { font-family: 'Montserrat', Arial, sans-serif; font-weight: 800; font-size: clamp(1.25rem, 2.2vw, 1.6rem); line-height: 1.2; letter-spacing: -0.015em; color: var(--black) !important; margin: 0; }
+  .cta-banner p { font-family: 'Inter', Arial, sans-serif; font-size: .98rem; line-height: 1.6; color: var(--body-text) !important; margin: .4rem 0 0; }
 
-  @media (max-width: 980px) { .features .trust-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  @media (max-width: 640px) {
-    .features .trust-grid { grid-template-columns: 1fr; }
-    .features .trust-card.trust-cta { flex-direction: column; align-items: flex-start; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .features .trust-card, .btn { transition: none !important; }
-    .features .trust-card:hover { transform: none; }
-  }
-
-  /* ============ CALL BANNER ============ */
-  .cta-banner { background: var(--black) !important; background-image: none !important; }
-  .cta-banner h3 { color: var(--white) !important; }
-  .cta-banner p { color: #d3dde5 !important; }
-  .cta-banner .icon-circle { background: var(--sky) !important; }
-  .cta-banner .icon-circle svg { stroke: var(--black) !important; }
-
-  /* ============ INSPECTION FORM ============ */
-  .inspection { background: var(--baby) !important; background-image: none !important; }
+  /* ============ INSPECTION FORM: plain, no card ============ */
+  .inspection { background: var(--white) !important; background-image: none !important; border-top: 1px solid var(--line); padding: clamp(2.5rem, 5vw, 4rem) 0 !important; }
   .inspection .eyebrow { color: var(--sky-deep) !important; }
-  .inspection h2 { color: var(--black) !important; }
+  .inspection h2 { font-family: 'Montserrat', Arial, sans-serif; font-weight: 800; font-size: clamp(1.6rem, 2.8vw, 2.2rem); line-height: 1.15; letter-spacing: -0.02em; color: var(--black) !important; }
   .inspection .rule { background: var(--sky) !important; }
-  .inspection .inspection-copy p { color: var(--body-text) !important; }
+  .inspection .inspection-copy p { color: var(--body-text) !important; font-size: 1rem; line-height: 1.7; }
   .inspection .inspection-points li { color: var(--black) !important; font-weight: 600; }
   .inspection .inspection-points svg { color: var(--sky-deep) !important; }
-  .inspection .inspection-form-card {
-    background: var(--white) !important; border: 1px solid var(--baby-line) !important;
-    border-top: 5px solid var(--sky) !important; border-radius: 16px !important;
-    box-shadow: 0 22px 55px rgba(0,0,0,.12) !important;
-  }
+  .inspection .inspection-form-card { background: transparent !important; border: 0 !important; border-radius: 0 !important; box-shadow: none !important; padding: 0 !important; }
   .inspection .inspection-form-card label { color: var(--black) !important; font-weight: 600; }
-  .inspection .inspection-form-card input[type="text"],
-  .inspection .inspection-form-card input[type="tel"],
-  .inspection .inspection-form-card input[type="email"],
-  .inspection .inspection-form-card textarea {
-    background: var(--white) !important; color: var(--black) !important;
-    border: 1.5px solid #C5DCEC !important; border-radius: 10px !important;
-  }
-  .inspection .inspection-form-card input:focus,
-  .inspection .inspection-form-card textarea:focus {
-    border-color: var(--sky) !important; box-shadow: 0 0 0 4px rgba(92,184,240,.28) !important; outline: none;
-  }
+  .inspection .inspection-form-card input[type="text"], .inspection .inspection-form-card input[type="tel"], .inspection .inspection-form-card input[type="email"], .inspection .inspection-form-card textarea { background: var(--white) !important; color: var(--black) !important; border: 1.5px solid #C5DCEC !important; border-radius: 8px !important; }
+  .inspection .inspection-form-card input:focus, .inspection .inspection-form-card textarea:focus { border-color: var(--sky) !important; box-shadow: 0 0 0 4px rgba(92,184,240,.28) !important; outline: none; }
   .inspection .consent span { color: #55606b !important; }
+
+  @media (prefers-reduced-motion: reduce) { .btn { transition: none !important; } }
 </style>
 </head>
 <body>
@@ -204,7 +118,7 @@ nav_active: home
   <img class="hero-mascot" src="parker-panther.png" alt="Parker the Panther, the 4P Roofing mascot, waving">
 </section>
 
-<!-- ===== FEATURES ===== -->
+<!-- ===== WHY HOMEOWNERS TRUST US ===== -->
 <section class="features">
   <div class="container">
     <div class="features-heading">
@@ -217,65 +131,46 @@ nav_active: home
       </div>
     </div>
 
-    <div class="trust-grid">
-
-      <div class="trust-card">
-        <div class="trust-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+    <div class="trust-list">
+      <div class="trust-row">
         <h3>Locally Owned. Personally Invested.</h3>
         <p>4P Roofing is based in Burleson and serves homeowners throughout the surrounding DFW communities. This is where we live, work, and build our reputation.</p>
       </div>
-
-      <div class="trust-card">
-        <div class="trust-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M8.5 12.5l2.2 2.2 4.3-4.7"/></svg></div>
+      <div class="trust-row">
         <h3>Honest Recommendations You Can Understand</h3>
         <p>You shouldn't have to understand roofing terminology to make a good decision. We explain what we find, share inspection reports along with our 21-point inspection, and walk you through your options. If a repair is appropriate, we recommend it. If replacement makes more sense, we explain why so you can decide with confidence.</p>
       </div>
-
-      <div class="trust-card">
-        <div class="trust-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 4.5-9 4.5-9-4.5L12 3z"/><path d="M3 12l9 4.5 9-4.5"/><path d="M3 16.5L12 21l9-4.5"/></svg></div>
+      <div class="trust-row">
         <h3>Attention to the Details Beneath the Shingles</h3>
         <p>A dependable roof takes more than attractive shingles. Decking, underlayment, flashing, ventilation, and other components all play a role in protecting your home. We evaluate those details and explain what your project requires, with a scope that addresses the roofing system as a whole.</p>
       </div>
-
-      <div class="trust-card">
-        <div class="trust-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.4"/><path d="M17 14c2.5 0 4 1.8 4 4.5"/></svg></div>
+      <div class="trust-row">
         <h3>Experienced Crews We Know and Trust</h3>
         <p>The people installing your roof matter as much as the material being installed. We work with experienced crews we know and trust, and we set clear expectations for workmanship, care of your property, and cleanup. We take pride in delivering a finished project you can feel good about.</p>
       </div>
-
-      <div class="trust-card">
-        <div class="trust-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M10 13h6"/><path d="M10 17h6"/></svg></div>
+      <div class="trust-row">
         <h3>Clear Pricing and Communication</h3>
         <p>You deserve to know what you're paying for before work begins. We provide a written scope, explain material options and payment expectations, and keep you informed as your project moves forward. If hidden damage is discovered during the removal, we document it and discuss the necessary work and costs with you.</p>
       </div>
-
-      <div class="trust-card">
-        <div class="trust-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+      <div class="trust-row">
         <h3>Protection Backed by a Written Warranty</h3>
         <p>Our roof replacements include a 5-year workmanship warranty under its written terms. We explain coverage alongside the applicable manufacturer warranty, so you understand how your investment is protected and who to contact if a concern comes up.</p>
       </div>
-
-      <div class="trust-card trust-cta">
-        <div>
-          <h3>Experience the Difference for Yourself</h3>
-          <p>Start with a free roof inspection, photos of our findings, and a straightforward explanation of your options.</p>
-        </div>
+      <div class="trust-row wide">
+        <h3>Experience the Difference for Yourself</h3>
+        <p>Start with a free roof inspection, photos of our findings, and a straightforward explanation of your options.</p>
         <a href="#inspection-form" class="btn btn-primary btn-glow">Schedule My Free Inspection</a>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ===== CTA BANNER ===== -->
+<!-- ===== CALL ROW ===== -->
 <section class="cta-banner">
   <div class="container cta-inner">
     <div class="cta-left">
-      <span class="icon-circle"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
-      <div>
-        <h3>Ready for a Stronger Roof?</h3>
-        <p>Get a free, no-obligation inspection today — storms don't wait, and neither should you.</p>
-      </div>
+      <h3>Ready for a Stronger Roof?</h3>
+      <p>Get a free, no-obligation inspection today — storms don't wait, and neither should you.</p>
     </div>
     <a href="tel:8177131407" class="btn btn-white">Call (817) 713-1407 →</a>
   </div>
@@ -348,18 +243,23 @@ nav_active: home
 (function(){
   var vids = Array.prototype.slice.call(document.querySelectorAll('.hero .bg-video'));
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var RATE = 0.6;      // video speed: 1 = normal, 0.6 = slowed down (try 0.5 for slower, 0.8 for a little slower)
   var SLIDING = true;  // true = slide in from the right + fade, false = fade only
-  var SLIDE = 1.2;     // seconds each change takes
-  var OVERLAP = 1.2;   // next video starts this long before the current one ends
+  var SLIDE = 1.4;     // seconds each change takes
+  var OVERLAP = 1.4;   // next video starts this many real seconds before the current one ends
   var EASE = 'cubic-bezier(.4,0,.2,1)';
   var cur = -1, advancing = false;
+
+  vids.forEach(function(v){ v.defaultPlaybackRate = RATE; v.playbackRate = RATE; });
 
   // Start playing a video and wait until its first frame is actually on screen
   function whenReady(v, cb){
     var done = false;
     function go(){ if (!done){ done = true; cb(); } }
+    v.playbackRate = RATE;
     var p = v.play();
     function after(){
+      v.playbackRate = RATE;
       if ('requestVideoFrameCallback' in v) v.requestVideoFrameCallback(function(){ go(); });
       else setTimeout(go, 80);
       setTimeout(go, 600); // safety net
@@ -388,7 +288,7 @@ nav_active: home
       if (reduce){
         v.style.transition = 'none';
       } else if (first){
-        v.style.transition = 'opacity .5s ease';   // first video: no sliding, just appears
+        v.style.transition = 'opacity .6s ease';   // first video: no sliding, just appears
       } else {
         v.style.transition = (SLIDING ? 'transform ' + SLIDE + 's ' + EASE + ', ' : '') + 'opacity ' + SLIDE + 's ' + EASE;
       }
@@ -406,7 +306,8 @@ nav_active: home
 
   function watch(){
     var v = vids[cur];
-    if (!advancing && v && v.duration && v.currentTime >= v.duration - OVERLAP) next();
+    // OVERLAP is in real seconds, so convert it to video time using the slowed speed
+    if (!advancing && v && v.duration && v.currentTime >= v.duration - OVERLAP * RATE) next();
     requestAnimationFrame(watch);
   }
 
@@ -418,7 +319,7 @@ nav_active: home
   document.addEventListener('visibilitychange', function(){
     if (!document.hidden && cur >= 0){
       var v = vids[cur];
-      if (v.paused && !v.ended){ var p = v.play(); if (p && p.catch) p.catch(function(){}); }
+      if (v.paused && !v.ended){ v.playbackRate = RATE; var p = v.play(); if (p && p.catch) p.catch(function(){}); }
     }
   });
 
