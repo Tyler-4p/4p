@@ -12,10 +12,7 @@ nav_active: about
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
-  :root {
-    --sky: #5CB8F0; --sky-deep: #146EAB; --baby: #EAF5FD; --line: rgba(0,0,0,.14);
-    --black: #000000; --white: #ffffff; --body-text: #3d4852;
-  }
+  :root { --sky: #5CB8F0; --sky-deep: #146EAB; --line: rgba(0,0,0,.14); --black: #000000; --white: #ffffff; --body-text: #3d4852; }
   html { scroll-behavior: smooth; }
   a:focus-visible, button:focus-visible { outline: 3px solid var(--sky); outline-offset: 3px; }
 
@@ -35,81 +32,54 @@ nav_active: about
 
   /* BUTTONS */
   .hero .btn-primary, .about-cta .btn-primary { background: var(--sky) !important; color: var(--black) !important; border: 2px solid var(--sky) !important; font-weight: 700 !important; box-shadow: 0 8px 24px rgba(92,184,240,.35) !important; animation: none !important; transition: background .2s ease, color .2s ease, transform .2s ease; }
-  .hero .btn-primary:hover, .about-cta .btn-primary:hover { background: var(--white) !important; border-color: var(--white) !important; color: var(--black) !important; transform: translateY(-2px); }
-  .hero .btn-outline, .about-cta .btn-outline { background: transparent !important; color: var(--white) !important; border: 2px solid var(--white) !important; font-weight: 700 !important; transition: background .2s ease, color .2s ease, transform .2s ease; }
-  .hero .btn-outline:hover, .about-cta .btn-outline:hover { background: var(--white) !important; color: var(--black) !important; transform: translateY(-2px); }
+  .hero .btn-primary:hover { background: var(--white) !important; border-color: var(--white) !important; color: var(--black) !important; transform: translateY(-2px); }
+  .about-cta .btn-primary:hover { background: var(--black) !important; border-color: var(--black) !important; color: var(--white) !important; transform: translateY(-2px); }
+  .hero .btn-outline { background: transparent !important; color: var(--white) !important; border: 2px solid var(--white) !important; font-weight: 700 !important; transition: background .2s ease, color .2s ease, transform .2s ease; }
+  .hero .btn-outline:hover { background: var(--white) !important; color: var(--black) !important; transform: translateY(-2px); }
+  .about-cta .btn-outline { background: transparent !important; color: var(--black) !important; border: 2px solid var(--black) !important; font-weight: 700 !important; transition: background .2s ease, color .2s ease, transform .2s ease; }
+  .about-cta .btn-outline:hover { background: var(--black) !important; color: var(--white) !important; transform: translateY(-2px); }
 
-  /* SECTIONS */
-  .about-band { background: var(--white); padding: clamp(4.5rem, 9vw, 8rem) 0; }
-  .about-band.alt { background: var(--baby); }
-  .about-band.dark { background: radial-gradient(900px 420px at 88% 0%, rgba(92,184,240,.20), transparent 62%), var(--black); }
-  .about-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(1.75rem, 5vw, 5rem); align-items: start; }
-  .about-band h2 { font-family: 'Montserrat', Arial, sans-serif; font-weight: 800; font-size: clamp(2rem, 3.8vw, 3rem); line-height: 1.08; letter-spacing: -0.025em; color: var(--black) !important; margin: 0; }
-  .about-band h2::after { content: ""; display: block; width: 56px; height: 3px; background: var(--sky); margin-top: 1.2rem; }
-  .about-text p { font-family: 'Inter', Arial, sans-serif; font-size: 1.1rem; line-height: 1.8; color: var(--body-text) !important; margin: 0 0 1.3rem; max-width: 40rem; }
+  /* PAGE BODY: all white, plain paragraphs, thin lines between sections */
+  .about-body { background: var(--white); padding: clamp(.5rem, 2vw, 1.25rem) 0 0; }
+  .about-band { padding: clamp(1.75rem, 3.5vw, 2.6rem) 0; border-bottom: 1px solid var(--line); }
+  .about-grid { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(1rem, 4vw, 3.5rem); align-items: start; }
+  .about-band h2 { font-family: 'Montserrat', Arial, sans-serif; font-weight: 800; font-size: clamp(1.25rem, 2vw, 1.55rem); line-height: 1.2; letter-spacing: -0.015em; color: var(--black) !important; margin: 0; }
+  .about-band h2::after { content: ""; display: block; width: 36px; height: 3px; background: var(--sky); margin-top: .7rem; }
+  .about-text p { font-family: 'Inter', Arial, sans-serif; font-size: .98rem; line-height: 1.7; color: var(--body-text) !important; margin: 0 0 .85rem; max-width: 46rem; }
   .about-text p:last-child { margin-bottom: 0; }
-  .about-text p.about-lead { font-family: 'Montserrat', Arial, sans-serif; font-weight: 600; font-size: clamp(1.25rem, 2.1vw, 1.6rem); line-height: 1.5; letter-spacing: -0.01em; color: var(--black) !important; max-width: 44rem; }
-  .about-band.dark h2 { color: var(--white) !important; }
-  .about-band.dark .about-text p { color: #d3dde5 !important; }
+  .about-text p.about-lead { font-weight: 500; color: #1d252c !important; }
+  .about-text p.about-pull { font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; font-size: 1.02rem; line-height: 1.55; color: var(--black) !important; margin-top: .25rem; }
 
-  /* founded: plain type, hairline above */
-  .founded { display: flex; align-items: baseline; gap: 1.1rem; margin-top: 2.25rem; padding-top: 1.5rem; border-top: 1px solid var(--line); }
-  .founded .f-year { font-family: 'Montserrat', Arial, sans-serif; font-weight: 900; font-size: clamp(2.6rem, 5vw, 3.6rem); line-height: 1; letter-spacing: -0.03em; color: var(--black); }
-  .founded .f-label { font-family: 'Inter', Arial, sans-serif; font-weight: 600; font-size: 1.05rem; color: var(--sky-deep); }
-
-  /* What 4P Really Means: columns split by hairlines */
-  .fourp-head { text-align: center; max-width: 46rem; margin: 0 auto; }
-  .fourp-head .kicker { font-family: 'Inter', Arial, sans-serif; font-weight: 600; font-size: .95rem; color: var(--sky-deep); margin: 0 0 .75rem; }
-  .fourp-head h2::after { margin-left: auto; margin-right: auto; }
-  .fourp-head p.fourp-intro { font-family: 'Inter', Arial, sans-serif; font-size: 1.1rem; line-height: 1.8; color: var(--body-text) !important; margin: 1.5rem auto 0; }
-  .fourp-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: clamp(3rem, 6vw, 4.5rem); border-top: 1px solid var(--line); }
-  .fourp-item { padding: 2.25rem 1.75rem 0; border-left: 1px solid var(--line); }
+  /* What 4P Really Means */
+  .fourp-intro { margin: 0 0 1.25rem; }
+  .fourp-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--line); margin-top: 1.4rem; }
+  .fourp-item { padding: 1.1rem 1.25rem 0; border-left: 1px solid var(--line); }
   .fourp-item:first-child { border-left: 0; padding-left: 0; }
   .fourp-item:last-child { padding-right: 0; }
-  .fourp-item svg { color: var(--sky-deep); margin-bottom: 1.1rem; display: block; }
-  .fourp-item h4 { font-family: 'Montserrat', Arial, sans-serif; font-weight: 800; font-size: 1.6rem; line-height: 1.15; letter-spacing: -0.01em; color: var(--black) !important; margin: 0 0 .8rem; }
-  .fourp-item p { font-family: 'Inter', Arial, sans-serif; font-size: 1rem; line-height: 1.7; color: var(--body-text) !important; margin: 0; }
+  .fourp-item h4 { font-family: 'Montserrat', Arial, sans-serif; font-weight: 800; font-size: 1.05rem; line-height: 1.2; color: var(--black) !important; margin: 0 0 .4rem; }
+  .fourp-item p { font-family: 'Inter', Arial, sans-serif; font-size: .93rem; line-height: 1.6; color: var(--body-text) !important; margin: 0; }
 
-  /* experience (centered) */
-  .about-band.center .about-center { max-width: 48rem; margin: 0 auto; text-align: center; }
-  .about-band.center h2::after { margin-left: auto; margin-right: auto; }
-  .about-band.center .about-center p { font-family: 'Inter', Arial, sans-serif; font-size: 1.15rem; line-height: 1.85; color: var(--body-text) !important; margin: 1.6rem auto 0; max-width: 42rem; }
-
-  /* pull line: large type, hairline above */
-  .about-pull { margin-top: 2.25rem; padding-top: 1.75rem; border-top: 1px solid var(--line); font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; font-size: clamp(1.25rem, 2vw, 1.55rem); line-height: 1.45; letter-spacing: -0.01em; color: var(--black); }
-
-  /* values strip */
-  .values-band { background: var(--black); padding: clamp(2.5rem, 5vw, 3.75rem) 0; }
-  .values-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  .values-row span { text-align: center; padding: .75rem 1rem; border-left: 1px solid rgba(255,255,255,.2); font-family: 'Montserrat', Arial, sans-serif; font-weight: 800; font-size: clamp(1.05rem, 2vw, 1.5rem); letter-spacing: -0.01em; color: var(--white); }
-  .values-row span:first-child { border-left: 0; }
-
-  /* services: clean list */
-  .service-list { margin-top: clamp(2.5rem, 5vw, 3.75rem); border-top: 1px solid var(--line); }
-  .service-item { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding: 1.9rem 0; border-bottom: 1px solid var(--line); text-decoration: none; color: var(--black); transition: padding-left .25s ease, color .25s ease; }
-  .service-item h3 { font-family: 'Montserrat', Arial, sans-serif; font-weight: 800; font-size: clamp(1.4rem, 2.6vw, 2rem); letter-spacing: -0.02em; line-height: 1.15; color: inherit; margin: 0; }
+  /* services: compact link list */
+  .service-list { margin-top: 1.1rem; border-top: 1px solid var(--line); }
+  .service-item { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .85rem 0; border-bottom: 1px solid var(--line); text-decoration: none; color: var(--black); transition: padding-left .2s ease, color .2s ease; }
+  .service-item:last-child { border-bottom: 0; }
+  .service-item h3 { font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; font-size: 1.02rem; line-height: 1.3; color: inherit; margin: 0; }
   .service-item svg { flex-shrink: 0; color: var(--sky-deep); }
-  .service-item:hover { padding-left: .75rem; color: var(--sky-deep); }
+  .service-item:hover { padding-left: .5rem; color: var(--sky-deep); }
 
-  /* closing CTA */
-  .about-cta { padding: clamp(4.5rem, 9vw, 7rem) 0; text-align: center; background: radial-gradient(800px 360px at 50% 120%, rgba(92,184,240,.30), transparent 65%), var(--black); }
-  .about-cta h2 { font-family: 'Montserrat', Arial, sans-serif; font-weight: 800; font-size: clamp(2rem, 4.2vw, 3.2rem); line-height: 1.12; letter-spacing: -0.025em; color: var(--white) !important; margin: 0 auto; max-width: 46rem; }
-  .about-cta h2::after { content: ""; display: block; width: 56px; height: 3px; background: var(--sky); margin: 1.4rem auto 0; }
-  .about-cta p.cta-sub { font-family: 'Inter', Arial, sans-serif; font-size: 1.15rem; line-height: 1.6; color: #d3dde5; margin: 1.5rem auto 0; max-width: 36rem; }
-  .about-cta .cta-actions { margin-top: 2.25rem; display: flex; flex-wrap: wrap; gap: .9rem; justify-content: center; }
+  /* closing */
+  .about-cta { padding: clamp(2rem, 4vw, 3rem) 0 clamp(2.5rem, 5vw, 3.5rem); background: var(--white); }
+  .about-cta .cta-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem; }
+  .about-cta h2 { font-family: 'Montserrat', Arial, sans-serif; font-weight: 800; font-size: clamp(1.3rem, 2.4vw, 1.75rem); line-height: 1.2; letter-spacing: -0.015em; color: var(--black) !important; margin: 0; max-width: 34rem; }
+  .about-cta p.cta-sub { font-family: 'Inter', Arial, sans-serif; font-size: .98rem; line-height: 1.6; color: var(--body-text); margin: .5rem 0 0; }
+  .about-cta .cta-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
 
-  @media (max-width: 1060px) {
+  @media (max-width: 1000px) {
     .fourp-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 0; }
-    .fourp-item { border-left: 0; border-top: 1px solid var(--line); padding: 2rem 1.5rem 0 0; margin-top: 0; }
-    .fourp-item:last-child { padding-right: 1.5rem; }
+    .fourp-item { border-left: 0; border-top: 1px solid var(--line); padding: 1rem 1.25rem 0 0; margin-top: .25rem; }
   }
-  @media (max-width: 860px) { .about-grid { grid-template-columns: 1fr; gap: 1.4rem; } }
-  @media (max-width: 640px) {
-    .fourp-grid { grid-template-columns: 1fr; }
-    .values-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .values-row span:nth-child(3) { border-left: 0; }
-    .values-row span:nth-child(n+3) { border-top: 1px solid rgba(255,255,255,.2); }
-  }
+  @media (max-width: 760px) { .about-grid { grid-template-columns: 1fr; gap: .75rem; } }
+  @media (max-width: 520px) { .fourp-grid { grid-template-columns: 1fr; } }
   @media (prefers-reduced-motion: reduce) { .btn, .service-item { transition: none !important; } .service-item:hover { padding-left: 0; } }
 </style>
 </head>
@@ -142,139 +112,108 @@ nav_active: about
   <img class="hero-mascot" src="parker-panther.png" alt="Parker the Panther, the 4P Roofing mascot, waving">
 </section>
 
-<!-- ===== OUR MISSION ===== -->
-<section class="about-band">
-  <div class="container about-grid">
+<div class="about-body">
+<div class="container">
+
+  <!-- OUR MISSION -->
+  <section class="about-band about-grid">
     <h2>Our Mission</h2>
     <div class="about-text">
       <p class="about-lead">At 4P Roofing, our mission is to provide homeowners with dependable roofing services built on honesty, quality workmanship, and clear communication. We are committed to making the roofing process simple and stress-free while delivering results that homeowners can feel confident in.</p>
       <p>Serving Burleson and surrounding areas, we take pride in treating every customer with respect and every roofing project with the attention it deserves.</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ===== FAMILY OWNED. COMMUNITY ROOTED. ===== -->
-<section class="about-band alt">
-  <div class="container about-grid">
+  <!-- FAMILY OWNED. COMMUNITY ROOTED. -->
+  <section class="about-band about-grid">
     <h2>Family Owned. Community Rooted.</h2>
     <div class="about-text">
       <p>4P Roofing LLC is family owned and operated, and we reside right here in Burleson. Built on family values and backed by years of roofing experience, we treat every homeowner we work with like a neighbor — because most of the time, that's exactly what they are.</p>
       <p>Founded in Burleson, TX in 2022, 4P Roofing has been helping homeowners with every roofing need ever since.</p>
-      <div class="founded">
-        <span class="f-year">2022</span>
-        <span class="f-label">Founded in Burleson, TX</span>
-      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ===== HERE'S WHY YOU NEED US ===== -->
-<section class="about-band dark">
-  <div class="container about-grid">
+  <!-- HERE'S WHY YOU NEED US -->
+  <section class="about-band about-grid">
     <h2>Here’s Why You Need Us</h2>
     <div class="about-text">
       <p>When it comes to your home, you deserve a roofing company you can trust. At 4P Roofing, we focus on being reliable, responsive, and committed to doing the job right.</p>
       <p>From your initial inspection to the completion of your project, our goal is to provide a straightforward experience without unnecessary pressure or confusion.</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ===== WHAT 4P REALLY MEANS ===== -->
-<section class="about-band">
-  <div class="container">
-    <div class="fourp-head">
-      <p class="kicker">More Than a Name</p>
+  <!-- WHAT 4P REALLY MEANS -->
+  <section class="about-band">
+    <div class="about-grid">
       <h2>What 4P Really Means</h2>
-      <p class="fourp-intro">The 4P name means more to us than just roofing. It represents what matters most — and it guides every roof we install, every homeowner we serve, and every project we complete.</p>
+      <div class="about-text">
+        <p>The 4P name means more to us than just roofing. It represents what matters most — and it guides every roof we install, every homeowner we serve, and every project we complete.</p>
+      </div>
     </div>
     <div class="fourp-grid">
       <div class="fourp-item">
-        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         <h4>People</h4>
         <p>Every project starts and ends with the people we serve — our neighbors, right here in Burleson.</p>
       </div>
       <div class="fourp-item">
-        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg>
         <h4>Precision</h4>
         <p>No shortcuts. Every roof is installed with the same care and attention to detail, every single time.</p>
       </div>
       <div class="fourp-item">
-        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         <h4>Protection</h4>
         <p>Your home protects your family. We take that responsibility seriously on every single job.</p>
       </div>
       <div class="fourp-item">
-        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9"/></svg>
         <h4>Pride</h4>
         <p>We stand behind our work because our name is on it — and that means something to us.</p>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ===== EXPERIENCE YOU CAN COUNT ON ===== -->
-<section class="about-band alt center">
-  <div class="container">
-    <div class="about-center">
-      <h2>Experience You Can Count On</h2>
+  <!-- EXPERIENCE YOU CAN COUNT ON -->
+  <section class="about-band about-grid">
+    <h2>Experience You Can Count On</h2>
+    <div class="about-text">
       <p>With years of experience in the roofing industry, we understand the importance of proper installation, quality materials, and attention to detail. We use our knowledge and experience to help homeowners understand their options and make informed decisions about their roofs.</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ===== BUILT AROUND THE HOMEOWNER ===== -->
-<section class="about-band">
-  <div class="container about-grid">
+  <!-- BUILT AROUND THE HOMEOWNER -->
+  <section class="about-band about-grid">
     <h2>Built Around the Homeowner</h2>
     <div class="about-text">
       <p>We believe roofing should be about more than simply putting a new roof on a house. It's about earning your trust, communicating throughout the project, and standing behind the work we do.</p>
       <p>At 4P Roofing, we take the time to understand your needs, explain the process, and make sure you know what to expect every step of the way.</p>
-      <div class="about-pull">Our commitment to honesty, education, quality, and customer service is what sets us apart.</div>
+      <p class="about-pull">Our commitment to honesty, education, quality, and customer service is what sets us apart.</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<div class="values-band">
-  <div class="container values-row">
-    <span>Honesty</span>
-    <span>Education</span>
-    <span>Quality</span>
-    <span>Customer Service</span>
-  </div>
-</div>
-
-<!-- ===== ROOFING PROFESSIONALS AT YOUR SERVICE ===== -->
-<section class="about-band alt">
-  <div class="container">
+  <!-- ROOFING PROFESSIONALS AT YOUR SERVICE -->
+  <section class="about-band">
     <div class="about-grid">
       <h2>Roofing Professionals at Your Service</h2>
       <div class="about-text">
         <p>Whether you need a roof replacement, roof repair, or professional roof inspection, 4P Roofing is here to help.</p>
         <p>We take pride in providing dependable roofing solutions for homeowners throughout Burleson and the surrounding areas. Our team is committed to quality workmanship and a customer experience you can feel good about.</p>
+        <div class="service-list">
+          <a class="service-item" href="index.html#inspection-form"><h3>Roof Replacement</h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a>
+          <a class="service-item" href="index.html#inspection-form"><h3>Roof Repair</h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a>
+          <a class="service-item" href="index.html#inspection-form"><h3>Professional Roof Inspection</h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a>
+        </div>
       </div>
     </div>
-    <div class="service-list">
-      <a class="service-item" href="index.html#inspection-form">
-        <h3>Roof Replacement</h3>
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
-      </a>
-      <a class="service-item" href="index.html#inspection-form">
-        <h3>Roof Repair</h3>
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
-      </a>
-      <a class="service-item" href="index.html#inspection-form">
-        <h3>Professional Roof Inspection</h3>
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
-      </a>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ===== CLOSING CTA (inspection) ===== -->
+</div>
+</div>
+
+<!-- ===== CLOSING (inspection) ===== -->
 <section class="about-cta">
-  <div class="container">
-    <h2>Your home deserves a roof built right. Choose 4P Roofing.</h2>
-    <p class="cta-sub">Your inspection is always free — no pressure, no obligation.</p>
+  <div class="container cta-inner">
+    <div>
+      <h2>Your home deserves a roof built right. Choose 4P Roofing.</h2>
+      <p class="cta-sub">Your inspection is always free — no pressure, no obligation.</p>
+    </div>
     <div class="cta-actions">
       <a href="index.html#inspection-form" class="btn btn-primary btn-glow">Schedule My Free Inspection</a>
       <a href="tel:8177131407" class="btn btn-outline">Call (817) 713-1407</a>
@@ -290,10 +229,7 @@ nav_active: about
 (function(){
   var vids = Array.prototype.slice.call(document.querySelectorAll('.hero .bg-video'));
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var SLIDING = true;
-  var SLIDE = 1.2;
-  var OVERLAP = 1.2;
-  var EASE = 'cubic-bezier(.4,0,.2,1)';
+  var SLIDING = true, SLIDE = 1.2, OVERLAP = 1.2, EASE = 'cubic-bezier(.4,0,.2,1)';
   var cur = -1, advancing = false;
 
   function whenReady(v, cb){
