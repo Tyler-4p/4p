@@ -12,9 +12,21 @@ nav_active: home
 <link rel="stylesheet" href="styles.css">
 <style>
   .hero { position: relative; overflow: hidden; isolation: isolate; background: #08101e !important; background-image: none !important; }
-  .hero .bg-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: translateX(100%); opacity: 0; }
-  .hero .hero-shade { position: absolute; inset: 0; z-index: 3; background: rgba(8, 16, 30, 0.45); }
-  .hero .hero-inner { position: relative; z-index: 5; }
+  .hero .bg-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: translateX(100%); opacity: 0; z-index: 0; will-change: transform, opacity; backface-visibility: hidden; }
+  .hero .hero-shade { position: absolute; inset: 0; z-index: 10; background: rgba(8, 16, 30, 0.45); }
+  .hero .hero-inner { position: relative; z-index: 20; }
+  .hero .hero-logo {
+    position: absolute;
+    z-index: 20;
+    right: clamp(1rem, 4vw, 3.5rem);
+    bottom: clamp(1rem, 3vw, 2.5rem);
+    width: clamp(110px, 12vw, 170px);
+    height: auto;
+    filter: drop-shadow(0 0 .5px #fff) drop-shadow(0 0 1px #fff) drop-shadow(0 0 1.5px #fff) drop-shadow(0 0 3px rgba(255,255,255,.7));
+  }
+  @media (max-width: 900px) {
+    .hero .hero-inner { padding-bottom: 150px; }  /* leaves room for the logo under the buttons */
+  }
 </style>
 </head>
 <body>
@@ -32,7 +44,7 @@ nav_active: home
   <div class="container hero-inner">
     <span class="eyebrow" style="color:#5b9dff;">People. Precision. Protection. Pride.</span>
     <h1>Experience The<br><span class="accent">Difference.</span></h1>
-    <p>From storm damage to full replacements, we treat every roof like it's protecting our own family — because in Burleson, it just might be.</p>
+    <p>Locally owned in Burleson, 4P Roofing serves homeowners across DFW with honest recommendations, precise workmanship, and clear communication from the first inspection to the final cleanup. Your home deserves a roof built right, and a contractor who stands behind it.</p>
     <div class="hero-btns">
       <a href="#inspection-form" class="btn btn-primary btn-glow">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
@@ -50,6 +62,7 @@ nav_active: home
       <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> 5-Star Rated</span>
     </div>
   </div>
+  <img class="hero-logo" src="preferred-contractor-logo.png" alt="Owens Corning Preferred Contractor">
 </section>
 
 <!-- ===== FEATURES ===== -->
@@ -166,39 +179,81 @@ nav_active: home
 (function(){
   var vids = Array.prototype.slice.call(document.querySelectorAll('.hero .bg-video'));
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var SLIDE = 1.1;   // seconds each slide-in takes
-  var OVERLAP = 1.1; // next video starts coming in this long before the current one ends
-  var cur = -1, z = 1;
+  var SLIDING = true;  // true = slide in from the right + fade, false = fade only
+  var SLIDE = 1.2;     // seconds each change takes
+  var OVERLAP = 1.2;   // next video starts this long before the current one ends
+  var EASE = 'cubic-bezier(.4,0,.2,1)';
+  var cur = -1, advancing = false;
 
-  function show(n){
-    var v = vids[n], old = cur >= 0 ? vids[cur] : null;
-    v.style.transition = 'none';
-    v.style.transform = 'translateX(100%)';
-    v.style.opacity = '0';
-    v.style.zIndex = ++z;
-    v.currentTime = 0;
-    var p = v.play(); if (p && p.catch) p.catch(function(){});
-    void v.offsetWidth;
-    v.style.transition = reduce ? 'none' : 'transform ' + SLIDE + 's cubic-bezier(.45,0,.2,1), opacity ' + SLIDE + 's ease';
-    v.style.transform = 'translateX(0)';
-    v.style.opacity = '1';
-    if (old) setTimeout(function(){ old.pause(); }, SLIDE * 1000 + 200);
-    cur = n;
+  // Start playing a video and wait until its first frame is actually on screen
+  function whenReady(v, cb){
+    var done = false;
+    function go(){ if (!done){ done = true; cb(); } }
+    var p = v.play();
+    function after(){
+      if ('requestVideoFrameCallback' in v) v.requestVideoFrameCallback(function(){ go(); });
+      else setTimeout(go, 80);
+      setTimeout(go, 600); // safety net
+    }
+    if (p && p.then) p.then(after, go); else after();
   }
 
-  function next(){ show((cur + 1) % vids.length); }
+  function show(n, first){
+    var v = vids[n], old = cur >= 0 ? vids[cur] : null;
+    advancing = true;
+
+    // layers: incoming on top (2), outgoing under it (1), everything else at the bottom (0)
+    vids.forEach(function(x){ x.style.zIndex = 0; });
+    if (old) old.style.zIndex = 1;
+    v.style.zIndex = 2;
+
+    // park the incoming video, invisible, at frame 0
+    v.pause();
+    v.currentTime = 0;
+    v.style.transition = 'none';
+    v.style.opacity = '0';
+    v.style.transform = (first || !SLIDING) ? 'translateX(0)' : 'translateX(100%)';
+
+    whenReady(v, function(){
+      void v.offsetWidth;
+      if (reduce){
+        v.style.transition = 'none';
+      } else if (first){
+        v.style.transition = 'opacity .5s ease';   // first video: no sliding, just appears
+      } else {
+        v.style.transition = (SLIDING ? 'transform ' + SLIDE + 's ' + EASE + ', ' : '') + 'opacity ' + SLIDE + 's ' + EASE;
+      }
+      v.style.transform = 'translateX(0)';
+      v.style.opacity = '1';
+      cur = n;
+      advancing = false;
+
+      // once the old video is fully covered, stop it and rewind it for next time
+      if (old) setTimeout(function(){ old.pause(); old.currentTime = 0; }, SLIDE * 1000 + 150);
+    });
+  }
+
+  function next(){ show((cur + 1) % vids.length, false); }
 
   function watch(){
     var v = vids[cur];
-    if (v && v.duration && v.currentTime >= v.duration - OVERLAP) next();
+    if (!advancing && v && v.duration && v.currentTime >= v.duration - OVERLAP) next();
     requestAnimationFrame(watch);
   }
 
   vids.forEach(function(v, i){
-    v.addEventListener('ended', function(){ if (cur === i) next(); });
+    v.addEventListener('ended', function(){ if (cur === i && !advancing) next(); });
   });
 
-  show(0);
+  // if the browser pauses the video while the tab is hidden, resume it when the tab comes back
+  document.addEventListener('visibilitychange', function(){
+    if (!document.hidden && cur >= 0){
+      var v = vids[cur];
+      if (v.paused && !v.ended){ var p = v.play(); if (p && p.catch) p.catch(function(){}); }
+    }
+  });
+
+  show(0, true);
   requestAnimationFrame(watch);
 })();
 </script>
