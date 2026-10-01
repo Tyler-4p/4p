@@ -6,59 +6,350 @@ nav_active: about
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About Us | 4P Roofing LLC</title>
+<meta name="theme-color" content="#000000">
+<title>About 4P Roofing LLC | Why Homeowners Choose Us</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<style>
+  /* ============ BRAND COLORS ============ */
+  :root {
+    --sky: #5CB8F0;
+    --sky-deep: #146EAB;
+    --baby: #EAF5FD;
+    --baby-line: #D3E8F7;
+    --black: #000000;
+    --white: #ffffff;
+    --body-text: #3d4852;
+  }
+  html { scroll-behavior: smooth; }
+  a:focus-visible, button:focus-visible { outline: 3px solid var(--sky); outline-offset: 3px; }
+
+  /* ============ HERO ============ */
+  .hero { position: relative; overflow: hidden; isolation: isolate; background: #000 !important; background-image: none !important; }
+  .hero .bg-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: translateX(100%); opacity: 0; z-index: 0; will-change: transform, opacity; backface-visibility: hidden; }
+  .hero .hero-shade {
+    position: absolute; inset: 0; z-index: 10;
+    background:
+      linear-gradient(90deg, rgba(0,0,0,.82) 0%, rgba(0,0,0,.55) 48%, rgba(0,0,0,.25) 100%),
+      linear-gradient(0deg, rgba(0,0,0,.55), transparent 35%);
+  }
+  .hero .hero-inner {
+    position: relative; z-index: 20;
+    min-height: 520px;
+    display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
+  }
+  .hero .eyebrow { color: var(--sky) !important; }
+  .hero h1 { color: var(--white) !important; }
+  .hero h1 .accent { color: var(--sky) !important; }
+
+  .hero .hero-mascot {
+    position: absolute; z-index: 15;
+    right: clamp(1rem, 6vw, 7rem);
+    bottom: 0;
+    height: min(82%, 560px);
+    width: auto;
+    pointer-events: none;
+    filter: drop-shadow(0 0 22px rgba(92,184,240,.5)) drop-shadow(0 14px 22px rgba(0,0,0,.55));
+  }
+  @media (max-width: 900px) {
+    .hero .hero-mascot { height: 190px; right: .75rem; }
+    .hero .hero-inner { min-height: 0; padding-bottom: 210px; }
+  }
+
+  /* ============ BUTTONS ============ */
+  .hero .btn-primary, .about-cta .btn-primary {
+    background: var(--sky) !important; color: var(--black) !important;
+    border: 2px solid var(--sky) !important; font-weight: 700 !important;
+    box-shadow: 0 8px 24px rgba(92,184,240,.35) !important; animation: none !important;
+    transition: background .2s ease, color .2s ease, transform .2s ease;
+  }
+  .hero .btn-primary:hover, .about-cta .btn-primary:hover {
+    background: var(--white) !important; border-color: var(--white) !important; color: var(--black) !important; transform: translateY(-2px);
+  }
+  .hero .btn-outline, .about-cta .btn-outline {
+    background: transparent !important; color: var(--white) !important;
+    border: 2px solid var(--white) !important; font-weight: 700 !important;
+    transition: background .2s ease, color .2s ease, transform .2s ease;
+  }
+  .hero .btn-outline:hover, .about-cta .btn-outline:hover { background: var(--white) !important; color: var(--black) !important; transform: translateY(-2px); }
+
+  /* ============ ABOUT SECTIONS ============ */
+  .about-band { position: relative; background: var(--white); padding: clamp(4rem, 8vw, 7rem) 0; }
+  .about-band.alt { background: var(--baby); }
+  .about-band.dark {
+    background:
+      radial-gradient(900px 420px at 88% 0%, rgba(92,184,240,.20), transparent 62%),
+      var(--black);
+  }
+
+  .about-grid {
+    display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: clamp(1.75rem, 5vw, 5rem); align-items: start;
+  }
+  .about-band h2 {
+    font-family: 'Montserrat', Arial, sans-serif; font-weight: 800;
+    font-size: clamp(2rem, 3.8vw, 3rem); line-height: 1.08; letter-spacing: -0.025em;
+    color: var(--black) !important; margin: 0;
+  }
+  .about-band h2::after {
+    content: ""; display: block; width: 72px; height: 4px; border-radius: 2px;
+    background: var(--sky); margin-top: 1.2rem;
+  }
+  .about-text p {
+    font-family: 'Inter', Arial, sans-serif; font-size: 1.1rem; line-height: 1.8;
+    color: var(--body-text) !important; margin: 0 0 1.3rem; max-width: 40rem;
+  }
+  .about-text p:last-child { margin-bottom: 0; }
+  .about-text p.about-lead {
+    font-family: 'Montserrat', Arial, sans-serif; font-weight: 600;
+    font-size: clamp(1.25rem, 2.1vw, 1.6rem); line-height: 1.5; letter-spacing: -0.01em;
+    color: var(--black) !important; max-width: 44rem;
+  }
+
+  /* dark band */
+  .about-band.dark h2 { color: var(--white) !important; }
+  .about-band.dark .about-text p { color: #d3dde5 !important; }
+
+  /* founded callout */
+  .founded {
+    display: inline-flex; align-items: center; gap: 1.1rem;
+    margin-top: 1.9rem; padding: 1.1rem 1.5rem;
+    background: var(--black); border-radius: 14px;
+    box-shadow: 0 14px 34px rgba(0,0,0,.14);
+  }
+  .founded .f-year {
+    font-family: 'Montserrat', Arial, sans-serif; font-weight: 900; font-size: 2.2rem; line-height: 1;
+    letter-spacing: -0.02em; color: var(--sky);
+  }
+  .founded .f-label {
+    font-family: 'Inter', Arial, sans-serif; font-weight: 600; font-size: 1rem; line-height: 1.35; color: var(--white);
+  }
+
+  /* What 4P Really Means */
+  .fourp-head { text-align: center; max-width: 46rem; margin: 0 auto; }
+  .fourp-head .kicker { font-family: 'Inter', Arial, sans-serif; font-weight: 600; font-size: .95rem; color: var(--sky-deep); margin: 0 0 .75rem; }
+  .fourp-head h2::after { margin-left: auto; margin-right: auto; }
+  .fourp-head p.fourp-intro {
+    font-family: 'Inter', Arial, sans-serif; font-size: 1.1rem; line-height: 1.8;
+    color: var(--body-text) !important; margin: 1.5rem auto 0;
+  }
+  .fourp-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.5rem; margin-top: clamp(2.5rem, 5vw, 3.75rem); }
+  .fourp-card {
+    position: relative; overflow: hidden; display: flex; flex-direction: column;
+    padding: 2.25rem 1.75rem 2rem; background: #F1F8FD; border: 1px solid var(--baby-line); border-radius: 16px;
+    box-shadow: 0 1px 2px rgba(0,0,0,.04);
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .fourp-card::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 4px; background: var(--sky); }
+  .fourp-card:hover { transform: translateY(-5px); border-color: var(--sky); box-shadow: 0 18px 40px rgba(0,0,0,.10); }
+  .fourp-card .fp-icon {
+    width: 56px; height: 56px; border-radius: 14px; margin-bottom: 1.4rem;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--black); color: var(--sky);
+  }
+  .fourp-card h4 {
+    font-family: 'Montserrat', Arial, sans-serif; font-weight: 800; font-size: 1.55rem; line-height: 1.15; letter-spacing: -0.01em;
+    color: var(--black) !important; margin: 0 0 .8rem;
+  }
+  .fourp-card p {
+    font-family: 'Inter', Arial, sans-serif; font-size: 1rem; line-height: 1.7;
+    color: var(--body-text) !important; margin: 0;
+  }
+
+  /* centered band (Experience) */
+  .about-band.center .about-center { max-width: 48rem; margin: 0 auto; text-align: center; }
+  .about-band.center h2::after { margin-left: auto; margin-right: auto; }
+  .about-band.center .about-center p {
+    font-family: 'Inter', Arial, sans-serif; font-size: 1.15rem; line-height: 1.85;
+    color: var(--body-text) !important; margin: 1.6rem auto 0; max-width: 42rem;
+  }
+  .about-icon {
+    width: 64px; height: 64px; border-radius: 16px; margin: 0 auto 1.5rem;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--black); color: var(--sky);
+    box-shadow: 0 12px 28px rgba(0,0,0,.18);
+  }
+
+  /* pull line */
+  .about-pull {
+    margin-top: 1.9rem; padding: 1.4rem 1.6rem;
+    background: var(--baby); border-left: 5px solid var(--sky); border-radius: 0 14px 14px 0;
+    font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; font-size: 1.15rem; line-height: 1.5;
+    color: var(--black);
+  }
+
+  /* values row */
+  .values-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.25rem; margin-top: clamp(2.5rem, 5vw, 3.75rem); }
+  .value-tile {
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;
+    text-align: center; padding: 2rem 1rem;
+    background: var(--black); border-radius: 16px;
+    box-shadow: 0 14px 34px rgba(0,0,0,.14);
+  }
+  .value-tile .vt-icon {
+    width: 54px; height: 54px; border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(92,184,240,.14); color: var(--sky); border: 1px solid rgba(92,184,240,.35);
+  }
+  .value-tile span.vt-label {
+    font-family: 'Montserrat', Arial, sans-serif; font-weight: 800; font-size: 1.15rem; letter-spacing: -0.01em;
+    color: var(--white);
+  }
+
+  /* service cards */
+  .service-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; margin-top: clamp(2.5rem, 5vw, 3.75rem); }
+  .service-card {
+    position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: flex-start; gap: 1.25rem;
+    padding: 2.25rem 2rem; background: var(--white); border: 1px solid var(--baby-line); border-radius: 16px;
+    text-decoration: none; box-shadow: 0 1px 2px rgba(0,0,0,.04);
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .service-card::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 4px; background: var(--sky); }
+  .service-card:hover { transform: translateY(-5px); border-color: var(--sky); box-shadow: 0 18px 40px rgba(0,0,0,.12); }
+  .service-card .sc-icon {
+    width: 56px; height: 56px; border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--black); color: var(--sky);
+  }
+  .service-card h3 {
+    font-family: 'Montserrat', Arial, sans-serif; font-weight: 800; font-size: 1.45rem; line-height: 1.2; letter-spacing: -0.01em;
+    color: var(--black); margin: 0;
+  }
+
+  /* closing CTA */
+  .about-cta {
+    padding: clamp(4rem, 8vw, 6.5rem) 0; text-align: center;
+    background:
+      radial-gradient(800px 360px at 50% 120%, rgba(92,184,240,.30), transparent 65%),
+      var(--black);
+  }
+  .about-cta h2 {
+    font-family: 'Montserrat', Arial, sans-serif; font-weight: 800;
+    font-size: clamp(2rem, 4.2vw, 3.2rem); line-height: 1.12; letter-spacing: -0.025em;
+    color: var(--white) !important; margin: 0 auto; max-width: 46rem;
+  }
+  .about-cta h2::after { content: ""; display: block; width: 72px; height: 4px; border-radius: 2px; background: var(--sky); margin: 1.4rem auto 0; }
+  .about-cta p.cta-sub {
+    font-family: 'Inter', Arial, sans-serif; font-size: 1.15rem; line-height: 1.6;
+    color: #d3dde5; margin: 1.5rem auto 0; max-width: 36rem;
+  }
+  .about-cta .cta-actions { margin-top: 2.25rem; display: flex; flex-wrap: wrap; gap: .9rem; justify-content: center; }
+
+  @media (max-width: 1060px) {
+    .fourp-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 980px) {
+    .values-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .service-row { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 860px) {
+    .about-grid { grid-template-columns: 1fr; gap: 1.4rem; }
+  }
+  @media (max-width: 560px) {
+    .fourp-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 480px) {
+    .values-row { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .btn, .service-card, .fourp-card { transition: none !important; }
+    .service-card:hover, .fourp-card:hover { transform: none; }
+  }
+</style>
 </head>
 <body>
 
 {% include header.html %}
 
-<!-- ===== PAGE HERO ===== -->
-<section class="page-hero">
-  <div class="container">
-    <span class="eyebrow-badge">About 4P Roofing LLC</span>
-    <h1>Your Trusted, Local <span class="text-accent">Burleson Roofer</span></h1>
-    <p>Founded in Burleson, TX in 2022, 4P Roofing has been helping homeowners with every roofing need ever since.</p>
-  </div>
-</section>
-
-<!-- ===== STORY ===== -->
-<section class="story-section">
-  <div class="container">
-    <h2>Family Owned. Community Rooted.</h2>
-    <p>4P Roofing LLC is family owned and operated, and we reside right here in Burleson. Built on family values and backed by years of roofing experience, we treat every homeowner we work with like a neighbor — because most of the time, that's exactly what they are.</p>
-  </div>
-</section>
-
-<!-- ===== WHAT 4P MEANS ===== -->
-<section class="features">
-  <div class="container">
-    <div class="features-heading">
-      <span class="eyebrow">More Than a Name</span>
-      <h2 class="section-title">What 4P Really Means</h2>
-      <div class="rule"></div>
-      <p style="color:var(--gray);margin-top:16px;max-width:640px;margin-left:auto;margin-right:auto;">The 4P name means more to us than just roofing. It represents what matters most — and it guides every roof we install, every homeowner we serve, and every project we complete.</p>
+<!-- ===== HERO ===== -->
+<section class="hero" id="home">
+  <video class="bg-video" muted playsinline preload="auto" src="Website%20Home%20Page%20Background%201.mp4" aria-hidden="true"></video>
+  <video class="bg-video" muted playsinline preload="auto" src="Website%20Home%20Page%20Background%202.mp4" aria-hidden="true"></video>
+  <video class="bg-video" muted playsinline preload="auto" src="Website%20Home%20Page%20Background%203.mp4" aria-hidden="true"></video>
+  <video class="bg-video" muted playsinline preload="auto" src="Website%20Home%20Page%20Background%204.mp4" aria-hidden="true"></video>
+  <video class="bg-video" muted playsinline preload="auto" src="Website%20Home%20Page%20Background%205.mp4" aria-hidden="true"></video>
+  <div class="hero-shade"></div>
+  <div class="container hero-inner">
+    <span class="eyebrow">About 4P Roofing</span>
+    <h1>Why Homeowners<br><span class="accent">Choose Us.</span></h1>
+    <div class="hero-btns">
+      <a href="index.html#inspection-form" class="btn btn-primary btn-glow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Schedule My Free Inspection
+      </a>
+      <a href="tel:8177131407" class="btn btn-outline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Call (817) 713-1407
+      </a>
     </div>
-    <div class="features-grid">
-      <div class="feature">
-        <div class="feature-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+  </div>
+  <img class="hero-mascot" src="parker-panther.png" alt="Parker the Panther, the 4P Roofing mascot, waving">
+</section>
+
+<!-- ===== OUR MISSION ===== -->
+<section class="about-band">
+  <div class="container about-grid">
+    <h2>Our Mission</h2>
+    <div class="about-text">
+      <p class="about-lead">At 4P Roofing, our mission is to provide homeowners with dependable roofing services built on honesty, quality workmanship, and clear communication. We are committed to making the roofing process simple and stress-free while delivering results that homeowners can feel confident in.</p>
+      <p>Serving Burleson and surrounding areas, we take pride in treating every customer with respect and every roofing project with the attention it deserves.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAMILY OWNED. COMMUNITY ROOTED. ===== -->
+<section class="about-band alt">
+  <div class="container about-grid">
+    <h2>Family Owned. Community Rooted.</h2>
+    <div class="about-text">
+      <p>4P Roofing LLC is family owned and operated, and we reside right here in Burleson. Built on family values and backed by years of roofing experience, we treat every homeowner we work with like a neighbor — because most of the time, that's exactly what they are.</p>
+      <p>Founded in Burleson, TX in 2022, 4P Roofing has been helping homeowners with every roofing need ever since.</p>
+      <div class="founded">
+        <span class="f-year">2022</span>
+        <span class="f-label">Founded in Burleson, TX</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== HERE'S WHY YOU NEED US ===== -->
+<section class="about-band dark">
+  <div class="container about-grid">
+    <h2>Here’s Why You Need Us</h2>
+    <div class="about-text">
+      <p>When it comes to your home, you deserve a roofing company you can trust. At 4P Roofing, we focus on being reliable, responsive, and committed to doing the job right.</p>
+      <p>From your initial inspection to the completion of your project, our goal is to provide a straightforward experience without unnecessary pressure or confusion.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHAT 4P REALLY MEANS ===== -->
+<section class="about-band">
+  <div class="container">
+    <div class="fourp-head">
+      <p class="kicker">More Than a Name</p>
+      <h2>What 4P Really Means</h2>
+      <p class="fourp-intro">The 4P name means more to us than just roofing. It represents what matters most — and it guides every roof we install, every homeowner we serve, and every project we complete.</p>
+    </div>
+    <div class="fourp-grid">
+      <div class="fourp-card">
+        <div class="fp-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
         <h4>People</h4>
         <p>Every project starts and ends with the people we serve — our neighbors, right here in Burleson.</p>
       </div>
-      <div class="feature">
-        <div class="feature-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></div>
+      <div class="fourp-card">
+        <div class="fp-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></div>
         <h4>Precision</h4>
         <p>No shortcuts. Every roof is installed with the same care and attention to detail, every single time.</p>
       </div>
-      <div class="feature">
-        <div class="feature-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <div class="fourp-card">
+        <div class="fp-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
         <h4>Protection</h4>
         <p>Your home protects your family. We take that responsibility seriously on every single job.</p>
       </div>
-      <div class="feature">
-        <div class="feature-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9"/></svg></div>
+      <div class="fourp-card">
+        <div class="fp-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9"/></svg></div>
         <h4>Pride</h4>
         <p>We stand behind our work because our name is on it — and that means something to us.</p>
       </div>
@@ -66,32 +357,176 @@ nav_active: about
   </div>
 </section>
 
-<!-- ===== TRUST STRIP ===== -->
-<section class="trust-strip">
-  <div class="container trust-strip-inner">
-    <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> Inspections Always Free</span>
-    <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> 5-Star Rated on Google</span>
-    <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> Family Owned &amp; Operated</span>
-    <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> Fully Insured</span>
+<!-- ===== EXPERIENCE YOU CAN COUNT ON ===== -->
+<section class="about-band alt center">
+  <div class="container">
+    <div class="about-center">
+      <div class="about-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8.5" r="5.5"/><path d="M8.5 13.5L7 22l5-3 5 3-1.5-8.5"/></svg></div>
+      <h2>Experience You Can Count On</h2>
+      <p>With years of experience in the roofing industry, we understand the importance of proper installation, quality materials, and attention to detail. We use our knowledge and experience to help homeowners understand their options and make informed decisions about their roofs.</p>
+    </div>
   </div>
 </section>
 
-<!-- ===== CTA BANNER ===== -->
-<section class="cta-banner">
-  <div class="container cta-inner">
-    <div class="cta-left">
-      <span class="icon-circle"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
-      <div>
-        <h3>Ready to Experience the Difference?</h3>
-        <p>Your inspection is always free — no pressure, no obligation.</p>
+<!-- ===== BUILT AROUND THE HOMEOWNER ===== -->
+<section class="about-band">
+  <div class="container">
+    <div class="about-grid">
+      <h2>Built Around the Homeowner</h2>
+      <div class="about-text">
+        <p>We believe roofing should be about more than simply putting a new roof on a house. It's about earning your trust, communicating throughout the project, and standing behind the work we do.</p>
+        <p>At 4P Roofing, we take the time to understand your needs, explain the process, and make sure you know what to expect every step of the way.</p>
+        <div class="about-pull">Our commitment to honesty, education, quality, and customer service is what sets us apart.</div>
       </div>
     </div>
-    <a href="index.html#inspection-form" class="btn btn-white">Schedule My Free Inspection →</a>
+
+    <div class="values-row">
+      <div class="value-tile">
+        <div class="vt-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <span class="vt-label">Honesty</span>
+      </div>
+      <div class="value-tile">
+        <div class="vt-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5h7a3 3 0 0 1 3 3v12a2 2 0 0 0-2-2H2z"/><path d="M22 5h-7a3 3 0 0 0-3 3v12a2 2 0 0 1 2-2h8z"/></svg></div>
+        <span class="vt-label">Education</span>
+      </div>
+      <div class="value-tile">
+        <div class="vt-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9"/></svg></div>
+        <span class="vt-label">Quality</span>
+      </div>
+      <div class="value-tile">
+        <div class="vt-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
+        <span class="vt-label">Customer Service</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ROOFING PROFESSIONALS AT YOUR SERVICE ===== -->
+<section class="about-band alt">
+  <div class="container">
+    <div class="about-grid">
+      <h2>Roofing Professionals at Your Service</h2>
+      <div class="about-text">
+        <p>Whether you need a roof replacement, roof repair, or professional roof inspection, 4P Roofing is here to help.</p>
+        <p>We take pride in providing dependable roofing solutions for homeowners throughout Burleson and the surrounding areas. Our team is committed to quality workmanship and a customer experience you can feel good about.</p>
+      </div>
+    </div>
+
+    <div class="service-row">
+      <a class="service-card" href="index.html#inspection-form">
+        <div class="sc-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7"/><path d="M5 10v11h14V10"/><path d="M9 21v-7h6v7"/></svg></div>
+        <h3>Roof Replacement</h3>
+      </a>
+      <a class="service-card" href="index.html#inspection-form">
+        <div class="sc-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.2-.5-.5-2.2z"/></svg></div>
+        <h3>Roof Repair</h3>
+      </a>
+      <a class="service-card" href="index.html#inspection-form">
+        <div class="sc-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg></div>
+        <h3>Professional Roof Inspection</h3>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CLOSING CTA (inspection) ===== -->
+<section class="about-cta">
+  <div class="container">
+    <h2>Your home deserves a roof built right. Choose 4P Roofing.</h2>
+    <p class="cta-sub">Your inspection is always free — no pressure, no obligation.</p>
+    <div class="cta-actions">
+      <a href="index.html#inspection-form" class="btn btn-primary btn-glow">Schedule My Free Inspection</a>
+      <a href="tel:8177131407" class="btn btn-outline">Call (817) 713-1407</a>
+    </div>
   </div>
 </section>
 
 {% include footer.html %}
 
 {% include nav-script.html %}
+
+<script>
+(function(){
+  var vids = Array.prototype.slice.call(document.querySelectorAll('.hero .bg-video'));
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var SLIDING = true;  // true = slide in from the right + fade, false = fade only
+  var SLIDE = 1.2;     // seconds each change takes
+  var OVERLAP = 1.2;   // next video starts this long before the current one ends
+  var EASE = 'cubic-bezier(.4,0,.2,1)';
+  var cur = -1, advancing = false;
+
+  // Start playing a video and wait until its first frame is actually on screen
+  function whenReady(v, cb){
+    var done = false;
+    function go(){ if (!done){ done = true; cb(); } }
+    var p = v.play();
+    function after(){
+      if ('requestVideoFrameCallback' in v) v.requestVideoFrameCallback(function(){ go(); });
+      else setTimeout(go, 80);
+      setTimeout(go, 600); // safety net
+    }
+    if (p && p.then) p.then(after, go); else after();
+  }
+
+  function show(n, first){
+    var v = vids[n], old = cur >= 0 ? vids[cur] : null;
+    advancing = true;
+
+    // layers: incoming on top (2), outgoing under it (1), everything else at the bottom (0)
+    vids.forEach(function(x){ x.style.zIndex = 0; });
+    if (old) old.style.zIndex = 1;
+    v.style.zIndex = 2;
+
+    // park the incoming video, invisible, at frame 0
+    v.pause();
+    v.currentTime = 0;
+    v.style.transition = 'none';
+    v.style.opacity = '0';
+    v.style.transform = (first || !SLIDING) ? 'translateX(0)' : 'translateX(100%)';
+
+    whenReady(v, function(){
+      void v.offsetWidth;
+      if (reduce){
+        v.style.transition = 'none';
+      } else if (first){
+        v.style.transition = 'opacity .5s ease';   // first video: no sliding, just appears
+      } else {
+        v.style.transition = (SLIDING ? 'transform ' + SLIDE + 's ' + EASE + ', ' : '') + 'opacity ' + SLIDE + 's ' + EASE;
+      }
+      v.style.transform = 'translateX(0)';
+      v.style.opacity = '1';
+      cur = n;
+      advancing = false;
+
+      // once the old video is fully covered, stop it and rewind it for next time
+      if (old) setTimeout(function(){ old.pause(); old.currentTime = 0; }, SLIDE * 1000 + 150);
+    });
+  }
+
+  function next(){ show((cur + 1) % vids.length, false); }
+
+  function watch(){
+    var v = vids[cur];
+    if (!advancing && v && v.duration && v.currentTime >= v.duration - OVERLAP) next();
+    requestAnimationFrame(watch);
+  }
+
+  vids.forEach(function(v, i){
+    v.addEventListener('ended', function(){ if (cur === i && !advancing) next(); });
+  });
+
+  // if the browser pauses the video while the tab is hidden, resume it when the tab comes back
+  document.addEventListener('visibilitychange', function(){
+    if (!document.hidden && cur >= 0){
+      var v = vids[cur];
+      if (v.paused && !v.ended){ var p = v.play(); if (p && p.catch) p.catch(function(){}); }
+    }
+  });
+
+  show(0, true);
+  requestAnimationFrame(watch);
+})();
+</script>
+
 </body>
 </html>
