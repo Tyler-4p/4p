@@ -51,13 +51,17 @@ nav_active: about
   .about-text p.about-pull { font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; font-size: 1.02rem; line-height: 1.55; color: var(--black) !important; margin-top: .25rem; }
 
   /* What 4P Really Means */
-  .fourp-intro { margin: 0 0 1.25rem; }
   .fourp-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--line); margin-top: 1.4rem; }
   .fourp-item { padding: 1.1rem 1.25rem 0; border-left: 1px solid var(--line); }
   .fourp-item:first-child { border-left: 0; padding-left: 0; }
   .fourp-item:last-child { padding-right: 0; }
   .fourp-item h4 { font-family: 'Montserrat', Arial, sans-serif; font-weight: 800; font-size: 1.05rem; line-height: 1.2; color: var(--black) !important; margin: 0 0 .4rem; }
   .fourp-item p { font-family: 'Inter', Arial, sans-serif; font-size: .93rem; line-height: 1.6; color: var(--body-text) !important; margin: 0; }
+
+  /* Meet Tyler Parker */
+  .tyler-photo img { display: block; width: 100%; height: auto; border-radius: 6px; }
+  .tyler .about-text h2 { margin-bottom: .6rem; }
+  .about-text p.tyler-role { font-family: 'Inter', Arial, sans-serif; font-weight: 600; font-size: .95rem; color: var(--sky-deep) !important; margin: 0 0 1rem; }
 
   /* services: compact link list */
   .service-list { margin-top: 1.1rem; border-top: 1px solid var(--line); }
@@ -78,7 +82,7 @@ nav_active: about
     .fourp-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); border-top: 0; }
     .fourp-item { border-left: 0; border-top: 1px solid var(--line); padding: 1rem 1.25rem 0 0; margin-top: .25rem; }
   }
-  @media (max-width: 760px) { .about-grid { grid-template-columns: 1fr; gap: .75rem; } }
+  @media (max-width: 760px) { .about-grid { grid-template-columns: 1fr; gap: .75rem; } .tyler { gap: 1.25rem; } }
   @media (max-width: 520px) { .fourp-grid { grid-template-columns: 1fr; } }
   @media (prefers-reduced-motion: reduce) { .btn, .service-item { transition: none !important; } .service-item:hover { padding-left: 0; } }
 </style>
@@ -185,6 +189,26 @@ nav_active: about
       <p>We believe roofing should be about more than simply putting a new roof on a house. It's about earning your trust, communicating throughout the project, and standing behind the work we do.</p>
       <p>At 4P Roofing, we take the time to understand your needs, explain the process, and make sure you know what to expect every step of the way.</p>
       <p class="about-pull">Our commitment to honesty, education, quality, and customer service is what sets us apart.</p>
+    </div>
+  </section>
+
+  <!-- MEET TYLER PARKER -->
+  <section class="about-band">
+    <div class="about-grid tyler">
+      <div class="tyler-photo">
+        <img src="tyler%20Family.jpg" alt="Tyler Parker, owner of 4P Roofing, with his family" loading="lazy">
+      </div>
+      <div class="about-text">
+        <h2>Meet Tyler Parker</h2>
+        <p class="tyler-role">Owner of 4P Roofing, LLC</p>
+        <p>Tyler Parker is the owner of 4P Roofing, LLC, a residential roofing company serving Burleson and surrounding communities.</p>
+        <p>With more than 9 years of experience in the roofing industry, Tyler has worked on all sides of the roofing process, from inspections and estimating to installation and project management. That experience has given him a strong understanding of what it takes to complete a roofing project properly and, just as importantly, what homeowners should expect from the company they hire.</p>
+        <p>Tyler started 4P Roofing with the belief that a roofing company should be built on honest communication, dependable workmanship, and accountability. Rather than treating every project the same, he believes in taking the time to understand each homeowner's situation and provide recommendations based on what the property actually needs.</p>
+        <p>As the owner, Tyler remains involved in the day-to-day operation of the company and takes pride in maintaining a high standard throughout every project. From the initial inspection through the final walkthrough, his goal is to make sure homeowners understand the work being performed and are confident in the company they chose.</p>
+        <p>At the end of the day, 4P Roofing is built on a simple principle:</p>
+        <p class="about-pull">Do the work right. Treat people right. Stand behind what you do.</p>
+        <p>Tyler looks forward to continuing to build 4P Roofing through quality work, strong relationships, and a reputation homeowners can rely on.</p>
+      </div>
     </div>
   </section>
 
