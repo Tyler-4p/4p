@@ -11,8 +11,8 @@ nav_active: home
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
-  .hero { position: relative; overflow: hidden; isolation: isolate; }
-  .hero .bg-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: translateX(100%); }
+  .hero { position: relative; overflow: hidden; isolation: isolate; background: #08101e !important; background-image: none !important; }
+  .hero .bg-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: translateX(100%); opacity: 0; }
   .hero .hero-shade { position: absolute; inset: 0; z-index: 3; background: rgba(8, 16, 30, 0.45); }
   .hero .hero-inner { position: relative; z-index: 5; }
 </style>
@@ -25,6 +25,9 @@ nav_active: home
 <section class="hero" id="home">
   <video class="bg-video" muted playsinline preload="auto" src="Website%20Home%20Page%20Background%201.mp4" aria-hidden="true"></video>
   <video class="bg-video" muted playsinline preload="auto" src="Website%20Home%20Page%20Background%202.mp4" aria-hidden="true"></video>
+  <video class="bg-video" muted playsinline preload="auto" src="Website%20Home%20Page%20Background%203.mp4" aria-hidden="true"></video>
+  <video class="bg-video" muted playsinline preload="auto" src="Website%20Home%20Page%20Background%204.mp4" aria-hidden="true"></video>
+  <video class="bg-video" muted playsinline preload="auto" src="Website%20Home%20Page%20Background%205.mp4" aria-hidden="true"></video>
   <div class="hero-shade"></div>
   <div class="container hero-inner">
     <span class="eyebrow" style="color:#5b9dff;">People. Precision. Protection. Pride.</span>
@@ -163,21 +166,40 @@ nav_active: home
 (function(){
   var vids = Array.prototype.slice.call(document.querySelectorAll('.hero .bg-video'));
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function slideIn(n){
-    var v = vids[n], prev = vids[(n + vids.length - 1) % vids.length];
+  var SLIDE = 1.1;   // seconds each slide-in takes
+  var OVERLAP = 1.1; // next video starts coming in this long before the current one ends
+  var cur = -1, z = 1;
+
+  function show(n){
+    var v = vids[n], old = cur >= 0 ? vids[cur] : null;
     v.style.transition = 'none';
     v.style.transform = 'translateX(100%)';
-    v.style.zIndex = 2; prev.style.zIndex = 1;
+    v.style.opacity = '0';
+    v.style.zIndex = ++z;
     v.currentTime = 0;
     var p = v.play(); if (p && p.catch) p.catch(function(){});
     void v.offsetWidth;
-    v.style.transition = reduce ? 'none' : 'transform 1.2s ease-out';
+    v.style.transition = reduce ? 'none' : 'transform ' + SLIDE + 's cubic-bezier(.45,0,.2,1), opacity ' + SLIDE + 's ease';
     v.style.transform = 'translateX(0)';
+    v.style.opacity = '1';
+    if (old) setTimeout(function(){ old.pause(); }, SLIDE * 1000 + 200);
+    cur = n;
   }
+
+  function next(){ show((cur + 1) % vids.length); }
+
+  function watch(){
+    var v = vids[cur];
+    if (v && v.duration && v.currentTime >= v.duration - OVERLAP) next();
+    requestAnimationFrame(watch);
+  }
+
   vids.forEach(function(v, i){
-    v.addEventListener('ended', function(){ slideIn((i + 1) % vids.length); });
+    v.addEventListener('ended', function(){ if (cur === i) next(); });
   });
-  slideIn(0);
+
+  show(0);
+  requestAnimationFrame(watch);
 })();
 </script>
 
