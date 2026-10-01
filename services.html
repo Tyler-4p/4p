@@ -13,11 +13,15 @@ nav_active: services
 <style>
   /* hero photo background */
   .page-hero {
-    background:
+    background-color: #0b1b33 !important;
+    background-image:
       linear-gradient(90deg, rgba(0,0,0,.80) 0%, rgba(0,0,0,.58) 55%, rgba(0,0,0,.38) 100%),
       linear-gradient(0deg, rgba(0,0,0,.45), transparent 40%),
-      url("Services%20Page%20Hero%20Picture.jpg") center / cover no-repeat !important;
-    min-height: 420px;
+      url("/Services%20Page%20Hero%20Picture.jpg") !important;
+    background-position: center 40% !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    min-height: clamp(440px, 50vw, 700px);
     display: flex;
     align-items: center;
   }
@@ -31,7 +35,7 @@ nav_active: services
   .work-grid .w3 { grid-column: span 2; }
   .work-grid .w2 { grid-column: span 3; }
   @media (max-width: 760px) {
-    .page-hero { min-height: 340px; }
+    .page-hero { min-height: 380px; }
     .work-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
     .work-grid .w3, .work-grid .w2 { grid-column: span 1; }
     .work-grid .w-last { grid-column: span 2; }
@@ -105,11 +109,47 @@ nav_active: services
       <p style="color:var(--gray);margin-top:16px;max-width:640px;margin-left:auto;margin-right:auto;">Aerial footage from one of our roofing projects, showing the underlayment going down and the shingles going on.</p>
     </div>
     <div class="work-grid">
-      <video class="w3" muted loop playsinline preload="metadata" src="Colt%20Henderson%20Video.mp4" aria-label="Aerial view of a house during a roof replacement"></video>
-      <video class="w3" muted loop playsinline preload="metadata" src="Colt%20Henderson%20Video2.mp4" aria-label="Aerial view of a roof with underlayment installed"></video>
-      <video class="w3" muted loop playsinline preload="metadata" src="Colt%20Henderson%20Video3.mp4" aria-label="Overhead view of a roof with underlayment installed"></video>
-      <video class="w2" muted loop playsinline preload="metadata" src="Colt%20Henderson%20Video4.mp4" aria-label="Crew installing shingles on a roof"></video>
-      <video class="w2 w-last" muted loop playsinline preload="metadata" src="Colt%20Henderson%20Video5.mp4" aria-label="Crew installing shingles along a roof edge"></video>
+
+      <video class="w3" autoplay muted loop playsinline preload="auto" aria-label="Aerial view of a house during a roof replacement">
+        <source src="/Colt%20Henderson%20Video.mp4" type="video/mp4">
+        <source src="/Colt%20Henderson%20Video%201.mp4" type="video/mp4">
+        <source src="/Colt%20Henderson%20Video1.mp4" type="video/mp4">
+        <source src="/Colt_Henderson_Video.mp4" type="video/mp4">
+        <source src="/roof-project-1.mp4" type="video/mp4">
+      </video>
+
+      <video class="w3" autoplay muted loop playsinline preload="auto" aria-label="Aerial view of a roof with underlayment installed">
+        <source src="/Colt%20Henderson%20Video%202.mp4" type="video/mp4">
+        <source src="/Colt%20Henderson%20Video2.mp4" type="video/mp4">
+        <source src="/Colt%20Henderson%20Video_2.mp4" type="video/mp4">
+        <source src="/Colt_Henderson_Video_2.mp4" type="video/mp4">
+        <source src="/roof-project-2.mp4" type="video/mp4">
+      </video>
+
+      <video class="w3" autoplay muted loop playsinline preload="auto" aria-label="Overhead view of a roof with underlayment installed">
+        <source src="/Colt%20Henderson%20Video%203.mp4" type="video/mp4">
+        <source src="/Colt%20Henderson%20Video3.mp4" type="video/mp4">
+        <source src="/Colt%20Henderson%20Video_3.mp4" type="video/mp4">
+        <source src="/Colt_Henderson_Video_3.mp4" type="video/mp4">
+        <source src="/roof-project-3.mp4" type="video/mp4">
+      </video>
+
+      <video class="w2" autoplay muted loop playsinline preload="auto" aria-label="Crew installing shingles on a roof">
+        <source src="/Colt%20Henderson%20Video%204.mp4" type="video/mp4">
+        <source src="/Colt%20Henderson%20Video4.mp4" type="video/mp4">
+        <source src="/Colt%20Henderson%20Video_4.mp4" type="video/mp4">
+        <source src="/Colt_Henderson_Video_4.mp4" type="video/mp4">
+        <source src="/roof-project-4.mp4" type="video/mp4">
+      </video>
+
+      <video class="w2 w-last" autoplay muted loop playsinline preload="auto" aria-label="Crew installing shingles along a roof edge">
+        <source src="/Colt%20Henderson%20Video%205.mp4" type="video/mp4">
+        <source src="/Colt%20Henderson%20Video5.mp4" type="video/mp4">
+        <source src="/Colt%20Henderson%20Video_5.mp4" type="video/mp4">
+        <source src="/Colt_Henderson_Video_5.mp4" type="video/mp4">
+        <source src="/roof-project-5.mp4" type="video/mp4">
+      </video>
+
     </div>
   </div>
 </section>
@@ -146,11 +186,8 @@ nav_active: services
 (function(){
   var vids = document.querySelectorAll('.work-grid video');
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduce) { Array.prototype.forEach.call(vids, function(v){ v.controls = true; }); return; }
-  if (!('IntersectionObserver' in window)) {
-    Array.prototype.forEach.call(vids, function(v){ var p = v.play(); if (p && p.catch) p.catch(function(){}); });
-    return;
-  }
+  if (reduce) { Array.prototype.forEach.call(vids, function(v){ v.pause(); v.controls = true; }); return; }
+  if (!('IntersectionObserver' in window)) { return; }
   var io = new IntersectionObserver(function(entries){
     entries.forEach(function(e){
       var v = e.target;
