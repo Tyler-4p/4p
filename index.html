@@ -243,16 +243,12 @@ nav_active: home
 (function(){
   var vids = Array.prototype.slice.call(document.querySelectorAll('.hero .bg-video'));
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var RATE = 0.6;      // video speed: 1 = normal, 0.6 = slowed down (try 0.5 for slower, 0.8 for a little slower)
-  var SLIDING = true;  // true = slide in from the right + fade, false = fade only
-  var SLIDE = 1.4;     // seconds each change takes
-  var OVERLAP = 1.4;   // next video starts this many real seconds before the current one ends
-  var EASE = 'cubic-bezier(.4,0,.2,1)';
+  var RATE = 0.6;      // video speed: 1 = normal, 0.6 = slowed down (0.5 slower, 0.8 a little slower)
+  var SLIDING = true, SLIDE = 1.4, OVERLAP = 1.4, EASE = 'cubic-bezier(.4,0,.2,1)';
   var cur = -1, advancing = false;
 
   vids.forEach(function(v){ v.defaultPlaybackRate = RATE; v.playbackRate = RATE; });
 
-  // Start playing a video and wait until its first frame is actually on screen
   function whenReady(v, cb){
     var done = false;
     function go(){ if (!done){ done = true; cb(); } }
@@ -262,7 +258,7 @@ nav_active: home
       v.playbackRate = RATE;
       if ('requestVideoFrameCallback' in v) v.requestVideoFrameCallback(function(){ go(); });
       else setTimeout(go, 80);
-      setTimeout(go, 600); // safety net
+      setTimeout(go, 600);
     }
     if (p && p.then) p.then(after, go); else after();
   }
@@ -270,34 +266,23 @@ nav_active: home
   function show(n, first){
     var v = vids[n], old = cur >= 0 ? vids[cur] : null;
     advancing = true;
-
-    // layers: incoming on top (2), outgoing under it (1), everything else at the bottom (0)
     vids.forEach(function(x){ x.style.zIndex = 0; });
     if (old) old.style.zIndex = 1;
     v.style.zIndex = 2;
-
-    // park the incoming video, invisible, at frame 0
     v.pause();
     v.currentTime = 0;
     v.style.transition = 'none';
     v.style.opacity = '0';
     v.style.transform = (first || !SLIDING) ? 'translateX(0)' : 'translateX(100%)';
-
     whenReady(v, function(){
       void v.offsetWidth;
-      if (reduce){
-        v.style.transition = 'none';
-      } else if (first){
-        v.style.transition = 'opacity .6s ease';   // first video: no sliding, just appears
-      } else {
-        v.style.transition = (SLIDING ? 'transform ' + SLIDE + 's ' + EASE + ', ' : '') + 'opacity ' + SLIDE + 's ' + EASE;
-      }
+      if (reduce){ v.style.transition = 'none'; }
+      else if (first){ v.style.transition = 'opacity .6s ease'; }
+      else { v.style.transition = (SLIDING ? 'transform ' + SLIDE + 's ' + EASE + ', ' : '') + 'opacity ' + SLIDE + 's ' + EASE; }
       v.style.transform = 'translateX(0)';
       v.style.opacity = '1';
       cur = n;
       advancing = false;
-
-      // once the old video is fully covered, stop it and rewind it for next time
       if (old) setTimeout(function(){ old.pause(); old.currentTime = 0; }, SLIDE * 1000 + 150);
     });
   }
@@ -306,7 +291,6 @@ nav_active: home
 
   function watch(){
     var v = vids[cur];
-    // OVERLAP is in real seconds, so convert it to video time using the slowed speed
     if (!advancing && v && v.duration && v.currentTime >= v.duration - OVERLAP * RATE) next();
     requestAnimationFrame(watch);
   }
@@ -315,7 +299,6 @@ nav_active: home
     v.addEventListener('ended', function(){ if (cur === i && !advancing) next(); });
   });
 
-  // if the browser pauses the video while the tab is hidden, resume it when the tab comes back
   document.addEventListener('visibilitychange', function(){
     if (!document.hidden && cur >= 0){
       var v = vids[cur];
