@@ -66,15 +66,14 @@ nav_active: about
   .service-item svg { flex-shrink: 0; color: var(--sky-deep); }
   .service-item:hover { padding-left: .5rem; color: var(--sky-deep); }
 
-  /* Meet Tyler Parker: words left, big photo right */
-  .about-grid.tyler { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(1.5rem, 4vw, 3.5rem); }
+  /* Meet Tyler Parker: words left, big photo right (photo stays still) */
+  .about-grid.tyler { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(1.5rem, 4vw, 3.5rem); align-items: center; }
   .tyler .about-text h2 { margin-bottom: .6rem; }
   .about-text p.tyler-role { font-family: 'Inter', Arial, sans-serif; font-weight: 600; font-size: .95rem; color: var(--sky-deep) !important; margin: 0 0 1rem; }
-  .tyler-photo { position: sticky; top: 1.5rem; }
   .tyler-photo img { display: block; width: 100%; height: auto; border-radius: 6px; }
   @media (max-width: 760px) {
     .about-grid.tyler { grid-template-columns: 1fr; }
-    .tyler-photo { position: static; order: -1; }
+    .tyler-photo { order: -1; }
   }
 
   /* closing */
@@ -220,13 +219,10 @@ nav_active: about
       <div class="about-text">
         <h2>Meet Tyler Parker</h2>
         <p class="tyler-role">Owner of 4P Roofing, LLC</p>
-        <p>Tyler Parker is the owner of 4P Roofing, LLC, a residential roofing company serving Burleson and surrounding communities.</p>
-        <p>With more than 9 years of experience in the roofing industry, Tyler has worked on all sides of the roofing process, from inspections and estimating to installation and project management. That experience has given him a strong understanding of what it takes to complete a roofing project properly and, just as importantly, what homeowners should expect from the company they hire.</p>
-        <p>Tyler started 4P Roofing with the belief that a roofing company should be built on honest communication, dependable workmanship, and accountability. Rather than treating every project the same, he believes in taking the time to understand each homeowner's situation and provide recommendations based on what the property actually needs.</p>
-        <p>As the owner, Tyler remains involved in the day-to-day operation of the company and takes pride in maintaining a high standard throughout every project. From the initial inspection through the final walkthrough, his goal is to make sure homeowners understand the work being performed and are confident in the company they chose.</p>
-        <p>At the end of the day, 4P Roofing is built on a simple principle:</p>
+        <p>Tyler Parker is the owner of 4P Roofing, LLC, a residential roofing company serving Burleson and surrounding communities. With more than 9 years of experience in the roofing industry, he has worked on all sides of the process, from inspections and estimating to installation and project management.</p>
+        <p>Tyler started 4P Roofing with the belief that a roofing company should be built on honest communication, dependable workmanship, and accountability. As the owner, he stays involved in the day-to-day operation and makes sure homeowners understand the work being performed and are confident in the company they chose.</p>
+        <p>4P Roofing is built on a simple principle:</p>
         <p class="about-pull">Do the work right. Treat people right. Stand behind what you do.</p>
-        <p>Tyler looks forward to continuing to build 4P Roofing through quality work, strong relationships, and a reputation homeowners can rely on.</p>
       </div>
       <div class="tyler-photo">
         <img src="tyler%20Family.jpg" alt="Tyler Parker, owner of 4P Roofing, with his family" loading="lazy">
