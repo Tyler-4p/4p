@@ -6,26 +6,162 @@ nav_active: home
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#000000">
 <title>4P Roofing LLC | Built Strong. Protect What Matters.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
-  .hero { position: relative; overflow: hidden; isolation: isolate; background: #08101e !important; background-image: none !important; }
+  /* ============ BRAND COLORS ============ */
+  :root {
+    --sky: #5CB8F0;        /* sky blue: buttons and accents on black */
+    --sky-deep: #146EAB;   /* deeper sky blue: small text on white / baby blue */
+    --baby: #EAF5FD;       /* baby blue: soft section backgrounds */
+    --baby-line: #D3E8F7;  /* baby blue borders */
+    --black: #000000;
+    --white: #ffffff;
+    --body-text: #3d4852;
+  }
+  html { scroll-behavior: smooth; }
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 3px solid var(--sky); outline-offset: 3px; }
+
+  /* ============ HERO ============ */
+  .hero { position: relative; overflow: hidden; isolation: isolate; background: #000 !important; background-image: none !important; }
   .hero .bg-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: translateX(100%); opacity: 0; z-index: 0; will-change: transform, opacity; backface-visibility: hidden; }
-  .hero .hero-shade { position: absolute; inset: 0; z-index: 10; background: rgba(8, 16, 30, 0.45); }
+  .hero .hero-shade {
+    position: absolute; inset: 0; z-index: 10;
+    background:
+      linear-gradient(90deg, rgba(0,0,0,.80) 0%, rgba(0,0,0,.55) 48%, rgba(0,0,0,.25) 100%),
+      linear-gradient(0deg, rgba(0,0,0,.55), transparent 35%);
+  }
   .hero .hero-inner { position: relative; z-index: 20; }
+  .hero .eyebrow { color: var(--sky) !important; }
+  .hero h1 { color: var(--white) !important; }
+  .hero h1 .accent { color: var(--sky) !important; }
+  .hero .hero-inner > p { color: #e8eef3 !important; }
+  .hero .hero-badges span { color: var(--white) !important; }
+  .hero .hero-badges svg { color: var(--sky) !important; }
   .hero .hero-logo {
-    position: absolute;
-    z-index: 20;
+    position: absolute; z-index: 20;
     right: clamp(1rem, 4vw, 3.5rem);
     bottom: clamp(1rem, 3vw, 2.5rem);
-    width: clamp(120px, 13vw, 180px);
-    height: auto;
+    width: clamp(120px, 13vw, 180px); height: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.45);
   }
   @media (max-width: 900px) {
     .hero .hero-inner { padding-bottom: 170px; }  /* leaves room for the logo under the buttons */
   }
+
+  /* ============ BUTTONS ============ */
+  .hero .btn-primary, .features .btn-primary, .inspection .btn-primary, .cta-banner .btn-white {
+    background: var(--sky) !important; color: var(--black) !important;
+    border: 2px solid var(--sky) !important; font-weight: 700 !important;
+    box-shadow: 0 8px 24px rgba(92,184,240,.35) !important; animation: none !important;
+    transition: background .2s ease, color .2s ease, transform .2s ease;
+  }
+  .hero .btn-primary:hover, .features .btn-primary:hover, .inspection .btn-primary:hover, .cta-banner .btn-white:hover {
+    background: var(--white) !important; border-color: var(--white) !important; color: var(--black) !important; transform: translateY(-2px);
+  }
+  .features .trust-cta .btn-primary:hover { background: var(--white) !important; }
+  .hero .btn-outline {
+    background: transparent !important; color: var(--white) !important;
+    border: 2px solid var(--white) !important; font-weight: 700 !important;
+    transition: background .2s ease, color .2s ease, transform .2s ease;
+  }
+  .hero .btn-outline:hover { background: var(--white) !important; color: var(--black) !important; transform: translateY(-2px); }
+
+  /* ============ WHY HOMEOWNERS TRUST US ============ */
+  .features { background: var(--white) !important; background-image: none !important; padding: clamp(4rem, 8vw, 7rem) 0 !important; }
+  .features .features-heading { text-align: center; }
+  .features .features-heading .eyebrow { color: var(--sky-deep) !important; }
+  .features .features-heading .section-title { color: var(--black) !important; max-width: 52rem; margin-left: auto; margin-right: auto; }
+  .features .features-heading .rule { background: var(--sky) !important; width: 72px; height: 4px; border-radius: 2px; margin-left: auto; margin-right: auto; }
+  .features-heading .features-intro { max-width: 46rem; margin: 1.75rem auto 0; }
+  .features-heading .features-intro p { margin: 0; color: var(--body-text) !important; font-size: 1.1rem; line-height: 1.75; }
+  .features-heading .features-intro p + p { margin-top: 1.1rem; }
+
+  .features .trust-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; margin-top: 3.5rem; }
+  .features .trust-card {
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+    background: #F1F8FD; border: 1px solid var(--baby-line); border-radius: 16px;
+    padding: 2.25rem 1.9rem 2.1rem; text-align: left;
+    box-shadow: 0 1px 2px rgba(0,0,0,.04);
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .features .trust-card::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 4px; background: var(--sky); }
+  .features .trust-card:hover { transform: translateY(-5px); border-color: var(--sky); box-shadow: 0 18px 40px rgba(0,0,0,.10); }
+  .features .trust-icon {
+    width: 54px; height: 54px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--black); color: var(--sky); margin-bottom: 1.4rem;
+  }
+  .features .trust-card h3 {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 1.45rem; line-height: 1.25; font-weight: 800; letter-spacing: -0.01em;
+    color: var(--black) !important; margin: 0 0 .9rem;
+  }
+  .features .trust-card p {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 1rem; line-height: 1.7; font-weight: 400;
+    color: var(--body-text) !important; margin: 0;
+  }
+
+  /* box 7: full-width closing box */
+  .features .trust-card.trust-cta {
+    grid-column: 1 / -1;
+    flex-direction: row; align-items: center; justify-content: space-between; gap: 2rem;
+    padding: 2.75rem 2.5rem; background: var(--black); border-color: var(--black);
+  }
+  .features .trust-card.trust-cta:hover { transform: none; box-shadow: 0 18px 40px rgba(0,0,0,.25); border-color: var(--black); }
+  .features .trust-cta h3 { color: var(--white) !important; font-size: 1.85rem; }
+  .features .trust-cta p { color: #d3dde5 !important; max-width: 40rem; font-size: 1.05rem; }
+  .features .trust-cta .btn { flex-shrink: 0; }
+
+  @media (max-width: 980px) { .features .trust-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 640px) {
+    .features .trust-grid { grid-template-columns: 1fr; }
+    .features .trust-card.trust-cta { flex-direction: column; align-items: flex-start; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .features .trust-card, .btn { transition: none !important; }
+    .features .trust-card:hover { transform: none; }
+  }
+
+  /* ============ CALL BANNER ============ */
+  .cta-banner { background: var(--black) !important; background-image: none !important; }
+  .cta-banner h3 { color: var(--white) !important; }
+  .cta-banner p { color: #d3dde5 !important; }
+  .cta-banner .icon-circle { background: var(--sky) !important; }
+  .cta-banner .icon-circle svg { stroke: var(--black) !important; }
+
+  /* ============ INSPECTION FORM ============ */
+  .inspection { background: var(--baby) !important; background-image: none !important; }
+  .inspection .eyebrow { color: var(--sky-deep) !important; }
+  .inspection h2 { color: var(--black) !important; }
+  .inspection .rule { background: var(--sky) !important; }
+  .inspection .inspection-copy p { color: var(--body-text) !important; }
+  .inspection .inspection-points li { color: var(--black) !important; font-weight: 600; }
+  .inspection .inspection-points svg { color: var(--sky-deep) !important; }
+  .inspection .inspection-form-card {
+    background: var(--white) !important; border: 1px solid var(--baby-line) !important;
+    border-top: 5px solid var(--sky) !important; border-radius: 16px !important;
+    box-shadow: 0 22px 55px rgba(0,0,0,.12) !important;
+  }
+  .inspection .inspection-form-card label { color: var(--black) !important; font-weight: 600; }
+  .inspection .inspection-form-card input[type="text"],
+  .inspection .inspection-form-card input[type="tel"],
+  .inspection .inspection-form-card input[type="email"],
+  .inspection .inspection-form-card textarea {
+    background: var(--white) !important; color: var(--black) !important;
+    border: 1.5px solid #C5DCEC !important; border-radius: 10px !important;
+  }
+  .inspection .inspection-form-card input:focus,
+  .inspection .inspection-form-card textarea:focus {
+    border-color: var(--sky) !important; box-shadow: 0 0 0 4px rgba(92,184,240,.28) !important; outline: none;
+  }
+  .inspection .consent span { color: #55606b !important; }
 </style>
 </head>
 <body>
@@ -41,7 +177,7 @@ nav_active: home
   <video class="bg-video" muted playsinline preload="auto" src="Website%20Home%20Page%20Background%205.mp4" aria-hidden="true"></video>
   <div class="hero-shade"></div>
   <div class="container hero-inner">
-    <span class="eyebrow" style="color:#5b9dff;">People. Precision. Protection. Pride.</span>
+    <span class="eyebrow">People. Precision. Protection. Pride.</span>
     <h1>Experience The<br><span class="accent">Difference.</span></h1>
     <p>Locally owned in Burleson, 4P Roofing serves homeowners across DFW with honest recommendations, precise workmanship, and clear communication from the first inspection to the final cleanup. Your home deserves a roof built right, and a contractor who stands behind it.</p>
     <div class="hero-btns">
@@ -68,31 +204,61 @@ nav_active: home
 <section class="features">
   <div class="container">
     <div class="features-heading">
-      <span class="eyebrow">Why Burleson Trusts Us</span>
-      <h2 class="section-title">Built Different, Built Better</h2>
+      <span class="eyebrow">Why Homeowners Trust Us</span>
+      <h2 class="section-title">Confidence in Your Contractor. Pride in Your Roof.</h2>
       <div class="rule"></div>
+      <div class="features-intro">
+        <p>Choosing a roofing contractor means trusting someone with your home, your money, and your family's protection. You deserve clean answers, experienced workmanship, and a company that takes responsibility for the work.</p>
+        <p>At 4P Roofing, our approach is built around People, Precision, Protection, and Pride. From your first inspection to the completed project, those values guide how we treat you and how we care for your home.</p>
+      </div>
     </div>
-    <div class="features-grid">
-      <div class="feature">
-        <div class="feature-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
-        <h4>Storm-Ready Craftsmanship</h4>
-        <p>Premium materials, proven techniques, installed right the first time — built to take on Texas weather, not just look good until the next storm.</p>
+
+    <div class="trust-grid">
+
+      <div class="trust-card">
+        <div class="trust-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-5.2 7-11a7 7 0 1 0-14 0c0 5.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+        <h3>Locally Owned. Personally Invested.</h3>
+        <p>4P Roofing is based in Burleson and serves homeowners throughout the surrounding DFW communities. This is where we live, work, and build our reputation.</p>
       </div>
-      <div class="feature">
-        <div class="feature-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7"/><path d="M9 22V12h6v10"/></svg></div>
-        <h4>Local, Family-Owned Crew</h4>
-        <p>Based right here in Burleson. No subcontracted strangers — our own crew shows up on time and treats your home like it's ours.</p>
+
+      <div class="trust-card">
+        <div class="trust-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M8.5 12.5l2.2 2.2 4.3-4.7"/></svg></div>
+        <h3>Honest Recommendations You Can Understand</h3>
+        <p>You shouldn't have to understand roofing terminology to make a good decision. We explain what we find, share inspection reports along with our 21-point inspection, and walk you through your options. If a repair is appropriate, we recommend it. If replacement makes more sense, we explain why so you can decide with confidence.</p>
       </div>
-      <div class="feature">
-        <div class="feature-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15 9 22 9.5 17 14.5 18.5 22 12 18 5.5 22 7 14.5 2 9.5 9 9"/></svg></div>
-        <h4>Straightforward Pricing</h4>
-        <p>No upselling, no vague estimates, no surprise add-ons on the invoice. Just an honest number and a straight answer about what your roof needs.</p>
+
+      <div class="trust-card">
+        <div class="trust-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 4.5-9 4.5-9-4.5L12 3z"/><path d="M3 12l9 4.5 9-4.5"/><path d="M3 16.5L12 21l9-4.5"/></svg></div>
+        <h3>Attention to the Details Beneath the Shingles</h3>
+        <p>A dependable roof takes more than attractive shingles. Decking, underlayment, flashing, ventilation, and other components all play a role in protecting your home. We evaluate those details and explain what your project requires, with a scope that addresses the roofing system as a whole.</p>
       </div>
-      <div class="feature">
-        <div class="feature-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/></svg></div>
-        <h4>Backed By Our Word</h4>
-        <p>Every job is fully insured and backed by our workmanship guarantee. If something's not right, we come back and make it right — no runaround.</p>
+
+      <div class="trust-card">
+        <div class="trust-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.4"/><path d="M17 14c2.5 0 4 1.8 4 4.5"/></svg></div>
+        <h3>Experienced Crews We Know and Trust</h3>
+        <p>The people installing your roof matter as much as the material being installed. We work with experienced crews we know and trust, and we set clear expectations for workmanship, care of your property, and cleanup. We take pride in delivering a finished project you can feel good about.</p>
       </div>
+
+      <div class="trust-card">
+        <div class="trust-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M10 13h6"/><path d="M10 17h6"/></svg></div>
+        <h3>Clear Pricing and Communication</h3>
+        <p>You deserve to know what you're paying for before work begins. We provide a written scope, explain material options and payment expectations, and keep you informed as your project moves forward. If hidden damage is discovered during the removal, we document it and discuss the necessary work and costs with you.</p>
+      </div>
+
+      <div class="trust-card">
+        <div class="trust-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Protection Backed by a Written Warranty</h3>
+        <p>Our roof replacements include a 5-year workmanship warranty under its written terms. We explain coverage alongside the applicable manufacturer warranty, so you understand how your investment is protected and who to contact if a concern comes up.</p>
+      </div>
+
+      <div class="trust-card trust-cta">
+        <div>
+          <h3>Experience the Difference for Yourself</h3>
+          <p>Start with a free roof inspection, photos of our findings, and a straightforward explanation of your options.</p>
+        </div>
+        <a href="#inspection-form" class="btn btn-primary btn-glow">Schedule My Free Inspection</a>
+      </div>
+
     </div>
   </div>
 </section>
