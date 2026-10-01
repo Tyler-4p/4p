@@ -66,11 +66,12 @@ nav_active: about
   .service-item svg { flex-shrink: 0; color: var(--sky-deep); }
   .service-item:hover { padding-left: .5rem; color: var(--sky-deep); }
 
-  /* Meet Tyler Parker: words left, big photo right (photo stays still) */
+  /* Meet the team: words left, big photo right (photos stay still) */
   .about-grid.tyler { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(1.5rem, 4vw, 3.5rem); align-items: center; }
   .tyler .about-text h2 { margin-bottom: .6rem; }
   .about-text p.tyler-role { font-family: 'Inter', Arial, sans-serif; font-weight: 600; font-size: .95rem; color: var(--sky-deep) !important; margin: 0 0 1rem; }
   .tyler-photo img { display: block; width: 100%; height: auto; border-radius: 6px; }
+  .tyler-photo.joe-photo img { aspect-ratio: 5 / 4; object-fit: cover; object-position: center 15%; }
   @media (max-width: 760px) {
     .about-grid.tyler { grid-template-columns: 1fr; }
     .tyler-photo { order: -1; }
@@ -226,6 +227,21 @@ nav_active: about
       </div>
       <div class="tyler-photo">
         <img src="tyler%20Family.jpg" alt="Tyler Parker, owner of 4P Roofing, with his family" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- MEET JOE CARPENTER (words left, photo right) -->
+  <section class="about-band">
+    <div class="about-grid tyler">
+      <div class="about-text">
+        <h2>Meet Joe Carpenter</h2>
+        <p class="tyler-role">Project Manager</p>
+        <p>Joe Carpenter is a project manager at 4P Roofing, LLC. He has been helping homeowners for years now and brings a lot of experience to every project.</p>
+        <p>Joe takes pride in helping homeowners the way he would help his own family.</p>
+      </div>
+      <div class="tyler-photo joe-photo">
+        <img src="Joe%20Family.jpg" alt="Joe Carpenter, project manager at 4P Roofing, with his family" loading="lazy">
       </div>
     </div>
   </section>
