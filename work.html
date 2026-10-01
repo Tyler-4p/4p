@@ -67,30 +67,37 @@ nav_active: work
     color: #3d4852 !important; margin: 0; max-width: 44rem; text-align: left;
   }
 
-  /* ===== Featured projects: photo centered, spec list under it ===== */
-  .project-feature { background: #ffffff; padding: 0 0 clamp(3rem, 6vw, 4.5rem); }
-  .project-feature .pf-wrap { max-width: 560px; margin: 0 auto; }
-  .project-feature .pf-photo { display: block; width: 100%; height: auto; border-radius: 6px; }
-  .project-feature h3 {
+  /* ===== Projects: 2-column grid, square photo then spec list ===== */
+  .projects { background: #ffffff; padding: 0 0 clamp(3rem, 6vw, 4.5rem); }
+  .projects-grid {
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(2.5rem, 5vw, 3.5rem) clamp(1.5rem, 4vw, 3rem);
+    align-items: start;
+  }
+  .pf-card .pf-photo { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: center; border-radius: 6px; }
+  .pf-card h3 {
     font-family: 'Montserrat', Arial, sans-serif; font-weight: 800;
-    font-size: clamp(1.4rem, 2.6vw, 1.9rem); line-height: 1.2; letter-spacing: -0.02em;
-    color: #000000 !important; margin: 1.4rem 0 1rem; text-align: center;
+    font-size: clamp(1.3rem, 2.4vw, 1.7rem); line-height: 1.2; letter-spacing: -0.02em;
+    color: #000000 !important; margin: 1.2rem 0 .9rem; text-align: left;
   }
-  .project-feature .pf-specs { margin: 0; padding: 0; border-top: 1px solid rgba(0,0,0,.14); }
-  .project-feature .pf-row {
+  .pf-card .pf-specs { margin: 0; padding: 0; border-top: 1px solid rgba(0,0,0,.14); }
+  .pf-card .pf-row {
     display: flex; align-items: baseline; justify-content: space-between; gap: 1.5rem;
-    padding: .85rem 0; border-bottom: 1px solid rgba(0,0,0,.14);
+    padding: .8rem 0; border-bottom: 1px solid rgba(0,0,0,.14);
   }
-  .project-feature .pf-row dt {
-    font-family: 'Inter', Arial, sans-serif; font-weight: 600; font-size: .85rem;
+  .pf-card .pf-row dt {
+    font-family: 'Inter', Arial, sans-serif; font-weight: 600; font-size: .82rem;
     letter-spacing: .06em; text-transform: uppercase; color: #146EAB; margin: 0;
   }
-  .project-feature .pf-row dd {
-    font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; font-size: 1.02rem;
+  .pf-card .pf-row dd {
+    font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; font-size: 1rem;
     color: #000000; margin: 0; text-align: right;
   }
 
-  @media (max-width: 760px) { .page-hero { min-height: 360px; } }
+  @media (max-width: 760px) {
+    .page-hero { min-height: 360px; }
+    .projects-grid { grid-template-columns: 1fr; }
+  }
   @media (prefers-reduced-motion: reduce) { .page-hero .btn { transition: none !important; } }
 </style>
 </head>
@@ -130,36 +137,50 @@ nav_active: work
   </div>
 </section>
 
-<!-- ===== FEATURED PROJECT: SPRINGTOWN ===== -->
-<section class="project-feature">
+<!-- ===== PROJECTS (2-column grid) ===== -->
+<section class="projects">
   <div class="container">
-    <div class="pf-wrap">
-      <img class="pf-photo" src="/Brandon%20Rice%20Springtown.jpg" alt="Completed roof replacement in Springtown, TX with Onyx Black shingles" loading="lazy">
-      <h3>Roof Replacement – Springtown, TX</h3>
-      <dl class="pf-specs">
-        <div class="pf-row"><dt>Manufacturer</dt><dd>Owens Corning</dd></div>
-        <div class="pf-row"><dt>Shingle</dt><dd>TruDef Duration</dd></div>
-        <div class="pf-row"><dt>Color</dt><dd>Onyx Black</dd></div>
-        <div class="pf-row"><dt>Impact Rating</dt><dd>Class 3</dd></div>
-        <div class="pf-row"><dt>Project Scope</dt><dd>Full Roof Replacement</dd></div>
-      </dl>
-    </div>
-  </div>
-</section>
+    <div class="projects-grid">
 
-<!-- ===== FEATURED PROJECT: CLEBURNE ===== -->
-<section class="project-feature">
-  <div class="container">
-    <div class="pf-wrap">
-      <img class="pf-photo" src="/Roy%20Luna%20Cleburne.jpg" alt="Completed roof replacement in Cleburne, TX with Onyx Black shingles" loading="lazy">
-      <h3>Roof Replacement – Cleburne, TX</h3>
-      <dl class="pf-specs">
-        <div class="pf-row"><dt>Manufacturer</dt><dd>Owens Corning</dd></div>
-        <div class="pf-row"><dt>Shingle</dt><dd>TruDef Duration</dd></div>
-        <div class="pf-row"><dt>Color</dt><dd>Onyx Black</dd></div>
-        <div class="pf-row"><dt>Impact Rating</dt><dd>Class 3</dd></div>
-        <div class="pf-row"><dt>Project Scope</dt><dd>Full Roof Replacement</dd></div>
-      </dl>
+      <!-- SPRINGTOWN -->
+      <div class="pf-card">
+        <img class="pf-photo" style="object-position: center 20%;" src="/Brandon%20Rice%20Springtown.jpg" alt="Completed roof replacement in Springtown, TX with Onyx Black shingles" loading="lazy">
+        <h3>Roof Replacement – Springtown, TX</h3>
+        <dl class="pf-specs">
+          <div class="pf-row"><dt>Manufacturer</dt><dd>Owens Corning</dd></div>
+          <div class="pf-row"><dt>Shingle</dt><dd>TruDef Duration</dd></div>
+          <div class="pf-row"><dt>Color</dt><dd>Onyx Black</dd></div>
+          <div class="pf-row"><dt>Impact Rating</dt><dd>Class 3</dd></div>
+          <div class="pf-row"><dt>Project Scope</dt><dd>Full Roof Replacement</dd></div>
+        </dl>
+      </div>
+
+      <!-- CLEBURNE -->
+      <div class="pf-card">
+        <img class="pf-photo" style="object-position: center 50%;" src="/Roy%20Luna%20Cleburne.jpg" alt="Completed roof replacement in Cleburne, TX with Onyx Black shingles" loading="lazy">
+        <h3>Roof Replacement – Cleburne, TX</h3>
+        <dl class="pf-specs">
+          <div class="pf-row"><dt>Manufacturer</dt><dd>Owens Corning</dd></div>
+          <div class="pf-row"><dt>Shingle</dt><dd>TruDef Duration</dd></div>
+          <div class="pf-row"><dt>Color</dt><dd>Onyx Black</dd></div>
+          <div class="pf-row"><dt>Impact Rating</dt><dd>Class 3</dd></div>
+          <div class="pf-row"><dt>Project Scope</dt><dd>Full Roof Replacement</dd></div>
+        </dl>
+      </div>
+
+      <!-- ALVARADO -->
+      <div class="pf-card">
+        <img class="pf-photo" src="/roof-replacement-alvarado.jpg" alt="Completed roof replacement in Alvarado, TX with Estate Gray shingles" loading="lazy">
+        <h3>Roof Replacement – Alvarado, TX</h3>
+        <dl class="pf-specs">
+          <div class="pf-row"><dt>Manufacturer</dt><dd>Owens Corning</dd></div>
+          <div class="pf-row"><dt>Shingle</dt><dd>TruDef Duration</dd></div>
+          <div class="pf-row"><dt>Color</dt><dd>Estate Gray</dd></div>
+          <div class="pf-row"><dt>Impact Rating</dt><dd>Class 3</dd></div>
+          <div class="pf-row"><dt>Project Scope</dt><dd>Full Roof Replacement</dd></div>
+        </dl>
+      </div>
+
     </div>
   </div>
 </section>
