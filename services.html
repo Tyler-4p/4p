@@ -11,35 +11,82 @@ nav_active: services
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
-  /* hero photo background */
+  /* ===== HERO: photo background, wording on the left ===== */
   .page-hero {
     background-color: #0b1b33 !important;
     background-image:
-      linear-gradient(90deg, rgba(0,0,0,.80) 0%, rgba(0,0,0,.58) 55%, rgba(0,0,0,.38) 100%),
+      linear-gradient(90deg, rgba(0,0,0,.82) 0%, rgba(0,0,0,.6) 50%, rgba(0,0,0,.3) 100%),
       linear-gradient(0deg, rgba(0,0,0,.45), transparent 40%),
       url("/Services%20Page%20Hero%20Picture.jpg") !important;
     background-position: center 40% !important;
     background-size: cover !important;
     background-repeat: no-repeat !important;
-    min-height: clamp(440px, 50vw, 700px);
+    min-height: clamp(460px, 50vw, 700px);
     display: flex;
     align-items: center;
   }
-  .page-hero .container { width: 100%; }
-  .page-hero h1, .page-hero p { color: #ffffff !important; }
+  .page-hero .container { width: 100%; text-align: left; }
+  .page-hero .hero-copy { max-width: 40rem; margin: 0; }
+  .page-hero h1 {
+    font-family: 'Montserrat', Arial, sans-serif; font-weight: 900;
+    font-size: clamp(2.3rem, 5.2vw, 3.9rem); line-height: 1.05; letter-spacing: -0.02em;
+    color: #ffffff !important; margin: 0 0 1.2rem; text-align: left;
+  }
+  .page-hero h1 .text-accent { color: #5CB8F0 !important; }
+  .page-hero p {
+    font-family: 'Inter', Arial, sans-serif; font-size: 1.05rem; line-height: 1.75;
+    color: #e8eef3 !important; margin: 0; max-width: 38rem; text-align: left;
+  }
+  .page-hero .hero-btns { display: flex; flex-wrap: wrap; gap: .9rem; margin-top: 1.9rem; justify-content: flex-start; }
+  .page-hero .btn-primary {
+    background: #5CB8F0 !important; color: #000 !important; border: 2px solid #5CB8F0 !important;
+    font-weight: 700 !important; box-shadow: 0 8px 24px rgba(92,184,240,.35) !important; animation: none !important;
+    transition: background .2s ease, color .2s ease, transform .2s ease;
+  }
+  .page-hero .btn-primary:hover { background: #fff !important; border-color: #fff !important; color: #000 !important; transform: translateY(-2px); }
+  .page-hero .btn-outline {
+    background: transparent !important; color: #fff !important; border: 2px solid #fff !important;
+    font-weight: 700 !important; transition: background .2s ease, color .2s ease, transform .2s ease;
+  }
+  .page-hero .btn-outline:hover { background: #fff !important; color: #000 !important; transform: translateY(-2px); }
 
-  /* project videos */
+  /* ===== SERVICES: big title, paragraph, picture beside it ===== */
+  .svc-body { background: #fff; padding: .5rem 0 0; }
+  .svc-band { padding: clamp(2rem, 4vw, 3rem) 0; border-bottom: 1px solid rgba(0,0,0,.14); }
+  .svc-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(1.5rem, 4vw, 3.5rem); align-items: center; }
+  .svc-text h2 {
+    font-family: 'Montserrat', Arial, sans-serif; font-weight: 800;
+    font-size: clamp(1.5rem, 2.6vw, 2rem); line-height: 1.15; letter-spacing: -0.02em;
+    color: #000 !important; margin: 0 0 .9rem;
+  }
+  .svc-text h2::after { content: ""; display: block; width: 40px; height: 3px; background: #5CB8F0; margin-top: .75rem; }
+  .svc-text p { font-family: 'Inter', Arial, sans-serif; font-size: 1rem; line-height: 1.75; color: #3d4852 !important; margin: 0 0 .9rem; max-width: 42rem; }
+  .svc-link {
+    display: inline-flex; align-items: center; gap: .35rem;
+    font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; font-size: .95rem;
+    color: #146EAB; text-decoration: none; border-bottom: 2px solid transparent;
+    transition: border-color .2s ease, gap .2s ease;
+  }
+  .svc-link:hover { border-bottom-color: #146EAB; gap: .6rem; }
+  .svc-photo img { display: block; width: 100%; height: auto; border-radius: 6px; }
+  @media (max-width: 760px) {
+    .page-hero { min-height: 400px; }
+    .svc-grid { grid-template-columns: 1fr; gap: 1.1rem; }
+    .svc-photo { order: -1; }
+  }
+
+  /* ===== project videos ===== */
   .work-videos { padding: clamp(3rem, 6vw, 5rem) 0; }
   .work-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1rem; margin-top: 2.5rem; }
   .work-grid video { display: block; width: 100%; aspect-ratio: 848 / 464; object-fit: cover; border-radius: 8px; background: #0b1220; }
   .work-grid .w3 { grid-column: span 2; }
   .work-grid .w2 { grid-column: span 3; }
   @media (max-width: 760px) {
-    .page-hero { min-height: 380px; }
     .work-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
     .work-grid .w3, .work-grid .w2 { grid-column: span 1; }
     .work-grid .w-last { grid-column: span 2; }
   }
+  @media (prefers-reduced-motion: reduce) { .btn, .svc-link { transition: none !important; } }
 </style>
 </head>
 <body>
@@ -49,55 +96,82 @@ nav_active: services
 <!-- ===== PAGE HERO ===== -->
 <section class="page-hero">
   <div class="container">
-    <span class="eyebrow-badge">Our Services</span>
-    <h1>Roofing Services <span class="text-accent">Built To Last</span></h1>
-    <p>From a single repair to a full commercial reroof, every job gets the same standard: proper tear-off, sealed underlayment, and craftsmanship done right the first time.</p>
-  </div>
-</section>
-
-<!-- ===== SERVICES GRID ===== -->
-<section class="services-page">
-  <div class="container">
-    <div class="services-page-grid">
-
-      <a href="roof-replacement.html" class="service-card-detail">
-        <div class="service-icon-lg"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7"/><path d="M9 22V12h6v10"/></svg></div>
-        <h3>Roof Replacement</h3>
-        <p>When repairs aren't enough, we tear the old roof down to bare decking and build a brand new system from the ground up — damaged decking replaced, full synthetic underlayment installed, and dimensional shingles laid to manufacturer spec. Fully insured, start to finish.</p>
-        <span class="service-card-link">Learn More →</span>
-      </a>
-
-      <a href="roof-repair.html" class="service-card-detail">
-        <div class="service-icon-lg"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
-        <h3>Roof Repair</h3>
-        <p>A leak, storm damage, or a handful of missing shingles doesn't always mean a full replacement. We track down the actual source of the problem instead of patching what's visible, and fix it right the first time.</p>
-        <span class="service-card-link">Learn More →</span>
-      </a>
-
-      <a href="metal-roofing.html" class="service-card-detail">
-        <div class="service-icon-lg"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="1"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="9" y1="4" x2="9" y2="20"/></svg></div>
-        <h3>Metal Roofing</h3>
-        <p>Standing-seam and metal panel systems for homeowners who want maximum durability and energy efficiency out of a roof built to go decades without needing a replacement.</p>
-        <span class="service-card-link">Learn More →</span>
-      </a>
-
-      <a href="flat-roofing.html" class="service-card-detail">
-        <div class="service-icon-lg"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="12" rx="1"/><line x1="3" y1="7" x2="12" y2="3"/><line x1="21" y1="7" x2="12" y2="3"/></svg></div>
-        <h3>Flat Roofing</h3>
-        <p>Low-slope and flat roof systems for additions, porches, and outbuildings — installed with proper drainage and waterproofing so standing water never turns into a structural problem.</p>
-        <span class="service-card-link">Learn More →</span>
-      </a>
-
-      <a href="commercial-roofing.html" class="service-card-detail">
-        <div class="service-icon-lg"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="1"/><line x1="9" y1="8" x2="9" y2="8"/><line x1="15" y1="8" x2="15" y2="8"/><line x1="9" y1="13" x2="9" y2="13"/><line x1="15" y1="13" x2="15" y2="13"/><line x1="9" y1="21" x2="15" y2="21"/></svg></div>
-        <h3>Commercial Roofing</h3>
-        <p>Retail buildings, multi-unit properties, small commercial roofs — handled with the same tear-off-to-turnkey standard we use on every home, scaled to fit the property.</p>
-        <span class="service-card-link">Learn More →</span>
-      </a>
-
+    <div class="hero-copy">
+      <h1>Built on Trust.<br><span class="text-accent">Built on Excellence.</span></h1>
+      <p>Your home deserves a roof you can count on, and a contractor who stands behind it. 4P Roofing serves Burleson and the surrounding DFW area with thorough inspections, honest recommendations, and quality repairs and replacements. From your first call to the final cleanup, we keep you informed and pay attention to the details that protect your home.</p>
+      <div class="hero-btns">
+        <a href="index.html#inspection-form" class="btn btn-primary btn-glow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Schedule My Roof Inspection
+        </a>
+        <a href="tel:8177131407" class="btn btn-outline">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (817) 713-1407
+        </a>
+      </div>
     </div>
   </div>
 </section>
+
+<!-- ===== SERVICES ===== -->
+<div class="svc-body">
+<div class="container">
+
+  <section class="svc-band">
+    <div class="svc-grid">
+      <div class="svc-text">
+        <h2>Roof Replacement</h2>
+        <p>When repairs aren't enough, we tear the old roof down to bare decking and build a brand new system from the ground up — damaged decking replaced, full synthetic underlayment installed, and dimensional shingles laid to manufacturer spec. Fully insured, start to finish.</p>
+        <a class="svc-link" href="roof-replacement.html">Learn more <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a>
+      </div>
+      <div class="svc-photo">
+        <img src="/service-replacement.jpg" alt="Crew installing shingles during a roof replacement" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <section class="svc-band">
+    <div class="svc-grid">
+      <div class="svc-text">
+        <h2>Roof Repair</h2>
+        <p>A leak, storm damage, or a handful of missing shingles doesn't always mean a full replacement. We track down the actual source of the problem instead of patching what's visible, and fix it right the first time.</p>
+        <a class="svc-link" href="roof-repair.html">Learn more <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="svc-band">
+    <div class="svc-grid">
+      <div class="svc-text">
+        <h2>Metal Roofing</h2>
+        <p>Standing-seam and metal panel systems for homeowners who want maximum durability and energy efficiency out of a roof built to go decades without needing a replacement.</p>
+        <a class="svc-link" href="metal-roofing.html">Learn more <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="svc-band">
+    <div class="svc-grid">
+      <div class="svc-text">
+        <h2>Flat Roofing</h2>
+        <p>Low-slope and flat roof systems for additions, porches, and outbuildings — installed with proper drainage and waterproofing so standing water never turns into a structural problem.</p>
+        <a class="svc-link" href="flat-roofing.html">Learn more <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="svc-band">
+    <div class="svc-grid">
+      <div class="svc-text">
+        <h2>Commercial Roofing</h2>
+        <p>Retail buildings, multi-unit properties, small commercial roofs — handled with the same tear-off-to-turnkey standard we use on every home, scaled to fit the property.</p>
+        <a class="svc-link" href="commercial-roofing.html">Learn more <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+</div>
+</div>
 
 <!-- ===== PROJECT VIDEOS ===== -->
 <section class="work-videos">
