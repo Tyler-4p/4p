@@ -10,6 +10,66 @@ nav_active: reviews
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<style>
+  /* HERO: same look as the Services page, with Parker on the right */
+  .page-hero {
+    position: relative;
+    overflow: hidden;
+    background-color: #0b1b33 !important;
+    background-image:
+      linear-gradient(90deg, rgba(0,0,0,.82) 0%, rgba(0,0,0,.6) 50%, rgba(0,0,0,.3) 100%),
+      linear-gradient(0deg, rgba(0,0,0,.45), transparent 40%),
+      url("/Services%20Page%20Hero%20Picture.jpg") !important;
+    background-position: center 40% !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    min-height: clamp(460px, 50vw, 700px);
+    display: flex;
+    align-items: center;
+  }
+  .page-hero .container { position: relative; z-index: 3; width: 100%; text-align: left; }
+  .page-hero .hero-copy { max-width: 40rem; margin: 0; }
+  .page-hero h1 {
+    font-family: 'Montserrat', Arial, sans-serif; font-weight: 900;
+    font-size: clamp(2.3rem, 5.2vw, 3.9rem); line-height: 1.05; letter-spacing: -0.02em;
+    color: #ffffff !important; margin: 0 0 1.2rem; text-align: left;
+  }
+  .page-hero h1 .text-accent { color: #5CB8F0 !important; }
+  .page-hero p {
+    font-family: 'Inter', Arial, sans-serif; font-size: 1.05rem; line-height: 1.75;
+    color: #e8eef3 !important; margin: 0; max-width: 38rem; text-align: left;
+  }
+  .page-hero .hero-btns { display: flex; flex-wrap: wrap; gap: .9rem; margin-top: 1.9rem; justify-content: flex-start; }
+  .page-hero .btn-primary {
+    background: #5CB8F0 !important; color: #000 !important; border: 2px solid #5CB8F0 !important;
+    font-weight: 700 !important; box-shadow: 0 8px 24px rgba(92,184,240,.35) !important; animation: none !important;
+    transition: background .2s ease, color .2s ease, transform .2s ease;
+  }
+  .page-hero .btn-primary:hover { background: #fff !important; border-color: #fff !important; color: #000 !important; transform: translateY(-2px); }
+  .page-hero .btn-outline {
+    background: transparent !important; color: #fff !important; border: 2px solid #fff !important;
+    font-weight: 700 !important; transition: background .2s ease, color .2s ease, transform .2s ease;
+  }
+  .page-hero .btn-outline:hover { background: #fff !important; color: #000 !important; transform: translateY(-2px); }
+
+  /* Parker the Panther */
+  .page-hero .hero-mascot {
+    position: absolute; z-index: 2;
+    right: clamp(1rem, 6vw, 7rem);
+    bottom: 0;
+    height: min(82%, 560px);
+    width: auto;
+    pointer-events: none;
+    filter: drop-shadow(0 0 22px rgba(92,184,240,.5)) drop-shadow(0 14px 22px rgba(0,0,0,.55));
+  }
+
+  @media (max-width: 900px) {
+    .page-hero .hero-mascot { height: 190px; right: .75rem; }
+    .page-hero .hero-copy { padding-bottom: 190px; }
+  }
+  @media (max-width: 760px) { .page-hero { min-height: 400px; } }
+  @media (prefers-reduced-motion: reduce) { .page-hero .btn { transition: none !important; } }
+</style>
 </head>
 <body>
 
@@ -18,10 +78,22 @@ nav_active: reviews
 <!-- ===== PAGE HERO ===== -->
 <section class="page-hero">
   <div class="container">
-    <span class="eyebrow-badge">5-Star Rated on Google</span>
-    <h1>What Our <span class="text-accent">Customers Are Saying</span></h1>
-    <p>Real reviews from real Burleson-area homeowners — straight from our Google Business Profile.</p>
+    <div class="hero-copy">
+      <h1>What Our<br><span class="text-accent">Customers Are Saying.</span></h1>
+      <p>Real reviews from real Burleson-area homeowners — straight from our Google Business Profile.</p>
+      <div class="hero-btns">
+        <a href="index.html#inspection-form" class="btn btn-primary btn-glow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Schedule My Roof Inspection
+        </a>
+        <a href="tel:8177131407" class="btn btn-outline">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (817) 713-1407
+        </a>
+      </div>
+    </div>
   </div>
+  <img class="hero-mascot" src="/parker-panther.png" alt="Parker the Panther, the 4P Roofing mascot, waving">
 </section>
 
 <!-- ===== REVIEWS GRID ===== -->
