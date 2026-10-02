@@ -6,106 +6,264 @@ nav_active: services
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Roof Replacement | 4P Roofing LLC</title>
+<meta name="theme-color" content="#000000">
+<title>Roof Replacement | 4P Roofing LLC | Burleson, TX</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<style>
+  /* ===== HERO: video background, wording on the left ===== */
+  .page-hero {
+    position: relative; overflow: hidden; isolation: isolate;
+    background: #000000 !important; background-image: none !important;
+    min-height: clamp(420px, 44vw, 600px);
+    display: flex; align-items: center;
+  }
+  .page-hero .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+  .page-hero .hero-shade {
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(90deg, rgba(0,0,0,.84) 0%, rgba(0,0,0,.62) 50%, rgba(0,0,0,.35) 100%), linear-gradient(0deg, rgba(0,0,0,.5), transparent 40%);
+  }
+  .page-hero .container { position: relative; z-index: 2; width: 100%; text-align: left; }
+  .page-hero .hero-copy { max-width: 40rem; margin: 0; }
+  .page-hero h1 {
+    font-family: 'Montserrat', Arial, sans-serif; font-weight: 900;
+    font-size: clamp(2.3rem, 5.2vw, 3.9rem); line-height: 1.05; letter-spacing: -0.02em;
+    color: #ffffff !important; margin: 0 0 1.2rem; text-align: left;
+  }
+  .page-hero h1 .text-accent { color: #5CB8F0 !important; }
+  .page-hero p { font-family: 'Inter', Arial, sans-serif; font-size: 1.05rem; line-height: 1.75; color: #e8eef3 !important; margin: 0; max-width: 38rem; text-align: left; }
+  .page-hero .hero-btns { display: flex; flex-wrap: wrap; gap: .9rem; margin-top: 1.9rem; justify-content: flex-start; }
+  .page-hero .btn-primary {
+    background: #5CB8F0 !important; color: #000 !important; border: 2px solid #5CB8F0 !important;
+    font-weight: 700 !important; box-shadow: 0 8px 24px rgba(92,184,240,.35) !important; animation: none !important;
+    transition: background .2s ease, color .2s ease, transform .2s ease;
+  }
+  .page-hero .btn-primary:hover { background: #fff !important; border-color: #fff !important; color: #000 !important; transform: translateY(-2px); }
+  .page-hero .btn-outline {
+    background: transparent !important; color: #fff !important; border: 2px solid #fff !important;
+    font-weight: 700 !important; transition: background .2s ease, color .2s ease, transform .2s ease;
+  }
+  .page-hero .btn-outline:hover { background: #fff !important; color: #000 !important; transform: translateY(-2px); }
+
+  /* ===== Content rows: heading left, text right ===== */
+  .rr-body { background: #ffffff; padding: clamp(.5rem, 2vw, 1.25rem) 0 0; }
+  .rr-row {
+    display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    gap: clamp(1rem, 4vw, 3.5rem); padding: clamp(1.9rem, 3.8vw, 2.8rem) 0;
+    border-bottom: 1px solid rgba(0,0,0,.14); align-items: start;
+  }
+  .rr-row h2, .rr-row h3 {
+    font-family: 'Montserrat', Arial, sans-serif; font-weight: 800;
+    font-size: clamp(1.3rem, 2.2vw, 1.6rem); line-height: 1.2; letter-spacing: -0.015em;
+    color: #000000 !important; margin: 0;
+  }
+  .rr-row h2::after, .rr-row h3::after { content: ""; display: block; width: 36px; height: 3px; background: #5CB8F0; margin-top: .7rem; }
+  .rr-row .num { display: block; font-family: 'Montserrat', Arial, sans-serif; font-weight: 900; font-size: .95rem; letter-spacing: .08em; color: #146EAB; margin-bottom: .45rem; }
+  .rr-row p { font-family: 'Inter', Arial, sans-serif; font-size: 1rem; line-height: 1.75; color: #3d4852 !important; margin: 0 0 .85rem; max-width: 44rem; }
+  .rr-row p:last-child { margin-bottom: 0; }
+  .rr-row p.lead { font-weight: 500; color: #1d252c !important; }
+  .rr-row ul { list-style: none; margin: .2rem 0 .9rem; padding: 0; max-width: 44rem; }
+  .rr-row li { position: relative; padding-left: 1.2rem; margin: 0 0 .55rem; font-family: 'Inter', Arial, sans-serif; font-size: 1rem; line-height: 1.65; color: #3d4852; }
+  .rr-row li::before { content: ""; position: absolute; left: 0; top: .62em; width: 6px; height: 6px; background: #5CB8F0; }
+  .rr-row a.inline { color: #146EAB; font-weight: 600; text-decoration: none; border-bottom: 2px solid rgba(20,110,171,.3); }
+  .rr-row a.inline:hover { border-bottom-color: #146EAB; }
+
+  /* ===== Recent projects ===== */
+  .rr-projects { background: #ffffff; padding: clamp(2rem, 4vw, 3rem) 0 clamp(3rem, 6vw, 4.5rem); }
+  .rr-projects h2 {
+    font-family: 'Montserrat', Arial, sans-serif; font-weight: 900;
+    font-size: clamp(1.9rem, 3.8vw, 2.8rem); line-height: 1.08; letter-spacing: -0.025em;
+    color: #000000 !important; margin: 0 0 1.8rem; text-align: left;
+  }
+  .rr-projects h2::after { content: ""; display: block; width: 56px; height: 3px; background: #5CB8F0; margin-top: 1.1rem; }
+  .projects-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 4vw, 3rem); align-items: start; }
+  .pf-card .pf-photo { display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 6px; background: #e9eef3; }
+  .pf-card h3 { font-family: 'Montserrat', Arial, sans-serif; font-weight: 800; font-size: clamp(1.25rem, 2.3vw, 1.6rem); line-height: 1.2; letter-spacing: -0.02em; color: #000000 !important; margin: 1.1rem 0 .8rem; }
+  .pf-card .pf-specs { margin: 0; padding: 0; border-top: 1px solid rgba(0,0,0,.14); }
+  .pf-card .pf-row { display: flex; align-items: baseline; justify-content: space-between; gap: 1.5rem; padding: .75rem 0; border-bottom: 1px solid rgba(0,0,0,.14); }
+  .pf-card .pf-row dt { font-family: 'Inter', Arial, sans-serif; font-weight: 600; font-size: .82rem; letter-spacing: .06em; text-transform: uppercase; color: #146EAB; margin: 0; }
+  .pf-card .pf-row dd { font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; font-size: 1rem; color: #000000; margin: 0; text-align: right; }
+
+  /* ===== Closing call to action ===== */
+  .page-cta { background: #ffffff; border-top: 1px solid rgba(0,0,0,.14); padding: clamp(3rem, 6vw, 4.5rem) 0 clamp(3.5rem, 7vw, 5.5rem); }
+  .page-cta .cta-wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.75rem 3rem; }
+  .page-cta h2 { font-family: 'Montserrat', Arial, sans-serif; font-weight: 900; font-size: clamp(1.8rem, 3.6vw, 2.7rem); line-height: 1.1; letter-spacing: -0.025em; color: #000000 !important; margin: 0 0 .8rem; max-width: 34rem; text-align: left; }
+  .page-cta h2::after { content: ""; display: block; width: 56px; height: 3px; background: #5CB8F0; margin-top: 1.1rem; }
+  .page-cta p { font-family: 'Inter', Arial, sans-serif; font-size: 1.08rem; line-height: 1.75; color: #3d4852 !important; margin: 0; max-width: 34rem; }
+  .page-cta .btn-primary {
+    background: #5CB8F0 !important; color: #000 !important; border: 2px solid #5CB8F0 !important;
+    font-weight: 700 !important; box-shadow: 0 8px 24px rgba(92,184,240,.35) !important; animation: none !important;
+    transition: background .2s ease, color .2s ease, transform .2s ease;
+  }
+  .page-cta .btn-primary:hover { background: #000 !important; border-color: #000 !important; color: #fff !important; transform: translateY(-2px); }
+
+  @media (max-width: 760px) {
+    .page-hero { min-height: 360px; }
+    .rr-row { grid-template-columns: 1fr; gap: .8rem; }
+    .projects-grid { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) { .btn { transition: none !important; } }
+</style>
 </head>
 <body>
 
 {% include header.html %}
 
-<!-- ===== PAGE HERO ===== -->
+<!-- ===== HERO ===== -->
 <section class="page-hero">
+  <video class="hero-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+    <source src="/Website%20Home%20Page%20Background%201.mp4" type="video/mp4">
+  </video>
+  <div class="hero-shade"></div>
   <div class="container">
-    <span class="eyebrow-badge">Roof Replacement</span>
-    <h1>A New Roof, <span class="text-accent">Built To Last</span></h1>
-    <p>When repairs aren't enough, a full replacement is the only way to actually fix the problem. Here's exactly how we do it.</p>
-  </div>
-</section>
-
-<!-- ===== OVERVIEW ===== -->
-<section class="service-overview">
-  <div class="container">
-    <h2>When Repairs Aren't Enough</h2>
-    <p>Some roofs can be patched. Others are past the point where a repair actually solves anything — the decking is failing, the shingles are worn out across the whole surface, or storm damage is spread out instead of isolated to one spot. In those cases, a full replacement is the honest answer, not an upsell.</p>
-    <p>A full 4P Roofing replacement means stripping the old roof down to bare decking, replacing any boards that are soft or rotted, sealing the whole deck with synthetic underlayment, and installing new dimensional shingles to manufacturer spec — proper nailing pattern, ridge ventilation, and flashing done right. Nothing gets covered up or built over.</p>
-  </div>
-</section>
-
-<!-- ===== WHAT'S INCLUDED ===== -->
-<section class="features">
-  <div class="container">
-    <div class="features-heading">
-      <span class="eyebrow-badge">What's Included</span>
-      <h2 class="section-title">Every Replacement Includes</h2>
-      <div class="rule"></div>
-    </div>
-    <div class="features-grid cols-3">
-      <div class="feature">
-        <div class="feature-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 6v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6M3 6l4-4h10l4 4"/></svg></div>
-        <h4>Full Tear-Off & Deck Repair</h4>
-        <p>Every layer of the old roof removed down to bare decking, with any soft or rotted boards replaced before anything new goes down.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
-        <h4>Synthetic Underlayment</h4>
-        <p>A full sealed underlayment barrier across the entire deck before the shingles go on.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/></svg></div>
-        <h4>Insured Workmanship</h4>
-        <p>Every job fully insured from the first shingle pulled to the final nail driven.</p>
+    <div class="hero-copy">
+      <h1>Roof Replacement.<br><span class="text-accent">Done Right From the Start.</span></h1>
+      <p>When repairs aren't enough, we tear the old roof down to bare decking and build a brand new system from the ground up. Fully insured, start to finish.</p>
+      <div class="hero-btns">
+        <a href="index.html#inspection-form" class="btn btn-primary btn-glow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Schedule My Roof Inspection
+        </a>
+        <a href="tel:8177131407" class="btn btn-outline">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (817) 713-1407
+        </a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== SIGNS YOU NEED THIS ===== -->
-<section class="signs-section">
+<div class="rr-body">
+<div class="container">
+
+  <!-- WHAT A REPLACEMENT INCLUDES -->
+  <section class="rr-row">
+    <h2>What a Roof Replacement Includes</h2>
+    <div>
+      <p class="lead">A full replacement isn't a patch on top of an old roof. We build a brand new roofing system from the ground up: damaged decking replaced, full synthetic underlayment installed, and dimensional shingles laid to manufacturer spec.</p>
+      <ul>
+        <li>A full tear-off down to bare decking</li>
+        <li>Rotted or soft decking replaced before anything new goes down</li>
+        <li>Full synthetic underlayment across the roof</li>
+        <li>Dimensional shingles installed to manufacturer spec</li>
+        <li>Proper ridge ventilation and clean flashing</li>
+        <li>Clear expectations for workmanship, care of your property, and cleanup</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- HOW WE DO IT -->
+  <section class="rr-row">
+    <h3><span class="num">01</span>Everything Comes Off</h3>
+    <div>
+      <p>Old shingles, old felt, all of it — stripped down to bare decking. Any rotted or soft boards get replaced before anything new goes down. We don't build on top of a problem.</p>
+    </div>
+  </section>
+
+  <section class="rr-row">
+    <h3><span class="num">02</span>The Roof Gets Sealed</h3>
+    <div>
+      <p>A full synthetic underlayment goes down next — every seam, every fastener point sealed tight. This is the layer that keeps water out long before a single shingle is laid.</p>
+    </div>
+  </section>
+
+  <section class="rr-row">
+    <h3><span class="num">03</span>Then We Finish It Right</h3>
+    <div>
+      <p>Dimensional shingles installed to manufacturer spec — correct nailing pattern and clean flashing. Every roof we replace gets an upgrade to Class 3 impact-rated shingles. We also make sure the ventilation is the right amount for the size of your home, so your roof and attic can breathe the way they should.</p>
+      <p>This is the step most crews rush. We don't.</p>
+    </div>
+  </section>
+
+  <!-- PRICING, MATERIALS, WARRANTY -->
+  <section class="rr-row">
+    <h2>Clear Scope, Materials, and Warranty</h2>
+    <div>
+      <p>You deserve to know what you're paying for before work begins. We provide a written scope, explain material options and payment expectations, and keep you informed as your project moves forward.</p>
+      <p>If hidden damage is discovered during the removal, we document it and discuss the necessary work and costs with you.</p>
+      <p>Our roof replacements include a 5-year workmanship warranty under its written terms. We explain coverage alongside the applicable manufacturer warranty, so you understand how your investment is protected and who to contact if a concern comes up.</p>
+      <p>Recent projects have used Owens Corning TruDef Duration and Atlas ProLam shingles, each with a Class 3 impact rating.</p>
+    </div>
+  </section>
+
+  <!-- WHEN A REPLACEMENT MAKES SENSE -->
+  <section class="rr-row">
+    <h2>When a Roof Replacement Makes Sense</h2>
+    <div>
+      <p>A replacement makes sense when the problems are widespread, or when the roof has simply reached the end of its useful life. Common signs include:</p>
+      <ul>
+        <li>The roof is old. Many asphalt shingle roofs reach the end of their life somewhere around 20 to 30 years, depending on the shingle and conditions.</li>
+        <li>Storm damage covers large areas of the roof, such as hail or wind damage across several slopes.</li>
+        <li>Shingles are curling, cracking, or losing granules across much of the roof.</li>
+        <li>You're dealing with repeated leaks, or repairs keep adding up without solving the problem.</li>
+        <li>The decking underneath is soft, sagging, or damaged.</li>
+      </ul>
+      <p>Not sure whether you need a replacement? If a repair is appropriate, we recommend it. If replacement makes more sense, we explain why so you can decide with confidence. You can also read about <a class="inline" href="roof-repair.html">roof repair</a>.</p>
+    </div>
+  </section>
+
+</div>
+</div>
+
+<!-- ===== RECENT PROJECTS ===== -->
+<section class="rr-projects">
   <div class="container">
-    <div class="features-heading">
-      <span class="eyebrow-badge">Signs You Might Need One</span>
-      <h2 class="section-title">Is It Time For A New Roof?</h2>
-      <div class="rule"></div>
-    </div>
-    <ul class="signs-grid">
-      <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> Shingles curling, cracking, or missing across the roof</li>
-      <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> Daylight visible through the attic roof boards</li>
-      <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> Granules collecting in the gutters</li>
-      <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> Sagging spots anywhere on the roofline</li>
-      <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> Recurring leaks that keep coming back after repairs</li>
-      <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> A roof that's taken direct hail or storm damage</li>
-    </ul>
-  </div>
-</section>
+    <h2>Recent Roof Replacements</h2>
+    <div class="projects-grid">
 
-<!-- ===== TRUST STRIP ===== -->
-<section class="trust-strip">
-  <div class="container trust-strip-inner">
-    <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> Inspections Always Free</span>
-    <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> 5-Star Rated on Google</span>
-    <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> Family Owned &amp; Operated</span>
-    <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> Fully Insured</span>
-  </div>
-</section>
-
-<!-- ===== CTA BANNER ===== -->
-<section class="cta-banner">
-  <div class="container cta-inner">
-    <div class="cta-left">
-      <span class="icon-circle"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
-      <div>
-        <h3>Think You Need A Replacement?</h3>
-        <p>Let's find out for sure — your inspection is always free.</p>
+      <div class="pf-card">
+        <img class="pf-photo" style="object-position: center 20%;" src="/Brandon%20Rice%20Springtown.jpg" alt="Completed roof replacement in Springtown, TX with Onyx Black shingles">
+        <h3>Roof Replacement – Springtown, TX</h3>
+        <dl class="pf-specs">
+          <div class="pf-row"><dt>Manufacturer</dt><dd>Owens Corning</dd></div>
+          <div class="pf-row"><dt>Shingle</dt><dd>TruDef Duration</dd></div>
+          <div class="pf-row"><dt>Color</dt><dd>Onyx Black</dd></div>
+          <div class="pf-row"><dt>Impact Rating</dt><dd>Class 3</dd></div>
+          <div class="pf-row"><dt>Project Scope</dt><dd>Full Roof Replacement</dd></div>
+        </dl>
       </div>
+
+      <div class="pf-card">
+        <img class="pf-photo" style="object-position: center 50%;" src="/Roy%20Luna%20Cleburne.jpg" alt="Completed roof replacement in Cleburne, TX with Onyx Black shingles">
+        <h3>Roof Replacement – Cleburne, TX</h3>
+        <dl class="pf-specs">
+          <div class="pf-row"><dt>Manufacturer</dt><dd>Owens Corning</dd></div>
+          <div class="pf-row"><dt>Shingle</dt><dd>TruDef Duration</dd></div>
+          <div class="pf-row"><dt>Color</dt><dd>Onyx Black</dd></div>
+          <div class="pf-row"><dt>Impact Rating</dt><dd>Class 3</dd></div>
+          <div class="pf-row"><dt>Project Scope</dt><dd>Full Roof Replacement</dd></div>
+        </dl>
+      </div>
+
     </div>
-    <a href="index.html#inspection-form" class="btn btn-white">Schedule My Free Inspection →</a>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="page-cta">
+  <div class="container cta-wrap">
+    <div>
+      <h2>Ready to Schedule Your Roof Inspection?</h2>
+      <p>Start with a free roof inspection, photos of our findings, and a straightforward explanation of your options. No pressure, no obligation.</p>
+    </div>
+    <a href="index.html#inspection-form" class="btn btn-primary btn-glow">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Schedule My Free Inspection
+    </a>
   </div>
 </section>
 
 {% include footer.html %}
 
 {% include nav-script.html %}
+
+<script>
+(function(){
+  var v = document.querySelector('.page-hero .hero-video');
+  if (v && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { v.pause(); }
+})();
+</script>
+
 </body>
 </html>
