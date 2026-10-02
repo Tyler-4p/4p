@@ -23,7 +23,7 @@ nav_active: services
     position: absolute; inset: 0; z-index: 1;
     background: linear-gradient(90deg, rgba(0,0,0,.84) 0%, rgba(0,0,0,.62) 50%, rgba(0,0,0,.35) 100%), linear-gradient(0deg, rgba(0,0,0,.5), transparent 40%);
   }
-  .page-hero .container { position: relative; z-index: 2; width: 100%; text-align: left; }
+  .page-hero .container { position: relative; z-index: 3; width: 100%; text-align: left; }
   .page-hero .hero-copy { max-width: 40rem; margin: 0; }
   .page-hero h1 {
     font-family: 'Montserrat', Arial, sans-serif; font-weight: 900;
@@ -44,6 +44,17 @@ nav_active: services
     font-weight: 700 !important; transition: background .2s ease, color .2s ease, transform .2s ease;
   }
   .page-hero .btn-outline:hover { background: #fff !important; color: #000 !important; transform: translateY(-2px); }
+
+  /* Parker the Panther, right side of the hero */
+  .page-hero .hero-mascot {
+    position: absolute; z-index: 2;
+    right: clamp(1rem, 6vw, 7rem);
+    bottom: 0;
+    height: min(82%, 560px);
+    width: auto;
+    pointer-events: none;
+    filter: drop-shadow(0 0 22px rgba(92,184,240,.5)) drop-shadow(0 14px 22px rgba(0,0,0,.55));
+  }
 
   .rr-body { background: #ffffff; padding: clamp(.5rem, 2vw, 1.25rem) 0 0; }
   .rr-row {
@@ -79,6 +90,10 @@ nav_active: services
   }
   .page-cta .btn-primary:hover { background: #000 !important; border-color: #000 !important; color: #fff !important; transform: translateY(-2px); }
 
+  @media (max-width: 900px) {
+    .page-hero .hero-mascot { height: 190px; right: .75rem; }
+    .page-hero .hero-copy { padding-bottom: 190px; }
+  }
   @media (max-width: 760px) {
     .page-hero { min-height: 360px; }
     .rr-row { grid-template-columns: 1fr; gap: .8rem; }
@@ -111,6 +126,7 @@ nav_active: services
       </div>
     </div>
   </div>
+  <img class="hero-mascot" src="/parker-panther.png" alt="Parker the Panther, the 4P Roofing mascot, waving">
 </section>
 
 <div class="rr-body">
