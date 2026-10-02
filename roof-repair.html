@@ -12,7 +12,6 @@ nav_active: services
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <style>
-  /* ===== HERO: video background, wording on the left ===== */
   .page-hero {
     position: relative; overflow: hidden; isolation: isolate;
     background: #000000 !important; background-image: none !important;
@@ -46,7 +45,6 @@ nav_active: services
   }
   .page-hero .btn-outline:hover { background: #fff !important; color: #000 !important; transform: translateY(-2px); }
 
-  /* ===== Content rows: heading left, text right ===== */
   .rr-body { background: #ffffff; padding: clamp(.5rem, 2vw, 1.25rem) 0 0; }
   .rr-row {
     display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
@@ -69,7 +67,6 @@ nav_active: services
   .rr-row a.inline { color: #146EAB; font-weight: 600; text-decoration: none; border-bottom: 2px solid rgba(20,110,171,.3); }
   .rr-row a.inline:hover { border-bottom-color: #146EAB; }
 
-  /* ===== Closing call to action ===== */
   .page-cta { background: #ffffff; padding: clamp(3rem, 6vw, 4.5rem) 0 clamp(3.5rem, 7vw, 5.5rem); }
   .page-cta .cta-wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.75rem 3rem; }
   .page-cta h2 { font-family: 'Montserrat', Arial, sans-serif; font-weight: 900; font-size: clamp(1.8rem, 3.6vw, 2.7rem); line-height: 1.1; letter-spacing: -0.025em; color: #000000 !important; margin: 0 0 .8rem; max-width: 34rem; text-align: left; }
@@ -93,7 +90,6 @@ nav_active: services
 
 {% include header.html %}
 
-<!-- ===== HERO ===== -->
 <section class="page-hero">
   <video class="hero-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
     <source src="/Website%20Home%20Page%20Background%201.mp4" type="video/mp4">
@@ -120,7 +116,6 @@ nav_active: services
 <div class="rr-body">
 <div class="container">
 
-  <!-- OVERVIEW -->
   <section class="rr-row">
     <h2>Not Every Problem Needs a New Roof</h2>
     <div>
@@ -129,7 +124,6 @@ nav_active: services
     </div>
   </section>
 
-  <!-- EVERY REPAIR INCLUDES -->
   <section class="rr-row">
     <h3><span class="num">01</span>Full Roof Inspection</h3>
     <div>
@@ -151,7 +145,6 @@ nav_active: services
     </div>
   </section>
 
-  <!-- WHEN A REPAIR MAKES SENSE -->
   <section class="rr-row">
     <h2>When a Repair Makes Sense</h2>
     <div>
@@ -168,7 +161,6 @@ nav_active: services
     </div>
   </section>
 
-  <!-- REPAIR OR REPLACEMENT -->
   <section class="rr-row">
     <h2>Repair or Replacement? We'll Tell You Straight.</h2>
     <div>
@@ -180,7 +172,6 @@ nav_active: services
 </div>
 </div>
 
-<!-- ===== CTA ===== -->
 <section class="page-cta">
   <div class="container cta-wrap">
     <div>
@@ -199,7 +190,7 @@ nav_active: services
 {% include nav-script.html %}
 
 <script>
-(function(){
+(function () {
   var v = document.querySelector('.page-hero .hero-video');
   if (v && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { v.pause(); }
 })();
