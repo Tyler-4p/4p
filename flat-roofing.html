@@ -6,106 +6,238 @@ nav_active: services
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Flat Roofing | 4P Roofing LLC</title>
+<meta name="theme-color" content="#000000">
+<title>Flat Roofing | 4P Roofing LLC | Burleson, TX</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<style>
+  /* HERO: your Flat Roof photo, wording on the left, Parker on the right */
+  .page-hero {
+    position: relative; overflow: hidden; isolation: isolate;
+    background-color: #0b1b33 !important;
+    background-image:
+      linear-gradient(90deg, rgba(0,0,0,.84) 0%, rgba(0,0,0,.62) 50%, rgba(0,0,0,.35) 100%),
+      linear-gradient(0deg, rgba(0,0,0,.5), transparent 40%),
+      url("/Flat%20Roof.jpg") !important;
+    background-position: center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    min-height: clamp(420px, 44vw, 600px);
+    display: flex; align-items: center;
+  }
+  .page-hero .container { position: relative; z-index: 3; width: 100%; text-align: left; }
+  .page-hero .hero-copy { max-width: 40rem; margin: 0; }
+  .page-hero h1 {
+    font-family: 'Montserrat', Arial, sans-serif; font-weight: 900;
+    font-size: clamp(2.3rem, 5.2vw, 3.9rem); line-height: 1.05; letter-spacing: -0.02em;
+    color: #ffffff !important; margin: 0 0 1.2rem; text-align: left;
+  }
+  .page-hero h1 .text-accent { color: #5CB8F0 !important; }
+  .page-hero p { font-family: 'Inter', Arial, sans-serif; font-size: 1.05rem; line-height: 1.75; color: #e8eef3 !important; margin: 0; max-width: 38rem; text-align: left; }
+  .page-hero .hero-btns { display: flex; flex-wrap: wrap; gap: .9rem; margin-top: 1.9rem; justify-content: flex-start; }
+  .page-hero .btn-primary {
+    background: #5CB8F0 !important; color: #000 !important; border: 2px solid #5CB8F0 !important;
+    font-weight: 700 !important; box-shadow: 0 8px 24px rgba(92,184,240,.35) !important; animation: none !important;
+    transition: background .2s ease, color .2s ease, transform .2s ease;
+  }
+  .page-hero .btn-primary:hover { background: #fff !important; border-color: #fff !important; color: #000 !important; transform: translateY(-2px); }
+  .page-hero .btn-outline {
+    background: transparent !important; color: #fff !important; border: 2px solid #fff !important;
+    font-weight: 700 !important; transition: background .2s ease, color .2s ease, transform .2s ease;
+  }
+  .page-hero .btn-outline:hover { background: #fff !important; color: #000 !important; transform: translateY(-2px); }
+  .page-hero .hero-mascot {
+    position: absolute; z-index: 2;
+    right: clamp(1rem, 6vw, 7rem); bottom: 0;
+    height: min(82%, 560px); width: auto; pointer-events: none;
+    filter: drop-shadow(0 0 22px rgba(92,184,240,.5)) drop-shadow(0 14px 22px rgba(0,0,0,.55));
+  }
+
+  .rr-body { background: #ffffff; padding: clamp(.5rem, 2vw, 1.25rem) 0 0; }
+  .rr-row {
+    display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    gap: clamp(1rem, 4vw, 3.5rem); padding: clamp(1.9rem, 3.8vw, 2.8rem) 0;
+    border-bottom: 1px solid rgba(0,0,0,.14); align-items: start;
+  }
+  .rr-row h2, .rr-row h3 {
+    font-family: 'Montserrat', Arial, sans-serif; font-weight: 800;
+    font-size: clamp(1.3rem, 2.2vw, 1.6rem); line-height: 1.2; letter-spacing: -0.015em;
+    color: #000000 !important; margin: 0;
+  }
+  .rr-row h2::after, .rr-row h3::after { content: ""; display: block; width: 36px; height: 3px; background: #5CB8F0; margin-top: .7rem; }
+  .rr-row .num { display: block; font-family: 'Montserrat', Arial, sans-serif; font-weight: 900; font-size: .95rem; letter-spacing: .08em; color: #146EAB; margin-bottom: .45rem; }
+  .rr-row p { font-family: 'Inter', Arial, sans-serif; font-size: 1rem; line-height: 1.75; color: #3d4852 !important; margin: 0 0 .85rem; max-width: 44rem; }
+  .rr-row p:last-child { margin-bottom: 0; }
+  .rr-row p.lead { font-weight: 500; color: #1d252c !important; }
+  .rr-row ul { list-style: none; margin: .2rem 0 .9rem; padding: 0; max-width: 44rem; }
+  .rr-row li { position: relative; padding-left: 1.2rem; margin: 0 0 .55rem; font-family: 'Inter', Arial, sans-serif; font-size: 1rem; line-height: 1.65; color: #3d4852; }
+  .rr-row li::before { content: ""; position: absolute; left: 0; top: .62em; width: 6px; height: 6px; background: #5CB8F0; }
+  .rr-row li strong { font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; color: #000000; }
+
+  .cmp-wrap { overflow-x: auto; max-width: 52rem; }
+  .cmp { width: 100%; border-collapse: collapse; min-width: 36rem; }
+  .cmp th, .cmp td { text-align: left; vertical-align: top; padding: .85rem 1rem .85rem 0; border-bottom: 1px solid rgba(0,0,0,.14); font-family: 'Inter', Arial, sans-serif; font-size: .97rem; line-height: 1.55; color: #3d4852; }
+  .cmp thead th { border-top: 1px solid rgba(0,0,0,.14); font-family: 'Montserrat', Arial, sans-serif; font-weight: 800; font-size: .95rem; color: #000000; }
+  .cmp tbody th { font-family: 'Inter', Arial, sans-serif; font-weight: 600; font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; color: #146EAB; white-space: nowrap; }
+
+  .page-cta { background: #ffffff; padding: clamp(3rem, 6vw, 4.5rem) 0 clamp(3.5rem, 7vw, 5.5rem); }
+  .page-cta .cta-wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.75rem 3rem; }
+  .page-cta h2 { font-family: 'Montserrat', Arial, sans-serif; font-weight: 900; font-size: clamp(1.8rem, 3.6vw, 2.7rem); line-height: 1.1; letter-spacing: -0.025em; color: #000000 !important; margin: 0 0 .8rem; max-width: 34rem; text-align: left; }
+  .page-cta h2::after { content: ""; display: block; width: 56px; height: 3px; background: #5CB8F0; margin-top: 1.1rem; }
+  .page-cta p { font-family: 'Inter', Arial, sans-serif; font-size: 1.08rem; line-height: 1.75; color: #3d4852 !important; margin: 0; max-width: 34rem; }
+  .page-cta .btn-primary {
+    background: #5CB8F0 !important; color: #000 !important; border: 2px solid #5CB8F0 !important;
+    font-weight: 700 !important; box-shadow: 0 8px 24px rgba(92,184,240,.35) !important; animation: none !important;
+    transition: background .2s ease, color .2s ease, transform .2s ease;
+  }
+  .page-cta .btn-primary:hover { background: #000 !important; border-color: #000 !important; color: #fff !important; transform: translateY(-2px); }
+
+  @media (max-width: 900px) {
+    .page-hero .hero-mascot { height: 190px; right: .75rem; }
+    .page-hero .hero-copy { padding-bottom: 190px; }
+  }
+  @media (max-width: 760px) {
+    .page-hero { min-height: 360px; }
+    .rr-row { grid-template-columns: 1fr; gap: .8rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { .btn { transition: none !important; } }
+</style>
 </head>
 <body>
 
 {% include header.html %}
 
-<!-- ===== PAGE HERO ===== -->
 <section class="page-hero">
   <div class="container">
-    <span class="eyebrow-badge">Flat Roofing</span>
-    <h1>Where Water <span class="text-accent">Has Nowhere To Hide</span></h1>
-    <p>Low-slope and flat roof systems for additions, porches, and outbuildings — built so standing water never becomes a structural problem.</p>
+    <div class="hero-copy">
+      <h1>Flat Roofing.<br><span class="text-accent">Where Water Has Nowhere to Hide.</span></h1>
+      <p>Low-slope and flat roof systems for additions, porches, and outbuildings — built so standing water never becomes a structural problem.</p>
+      <div class="hero-btns">
+        <a href="index.html#inspection-form" class="btn btn-primary btn-glow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Schedule My Roof Inspection
+        </a>
+        <a href="tel:8177131407" class="btn btn-outline">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (817) 713-1407
+        </a>
+      </div>
+    </div>
   </div>
+  <img class="hero-mascot" src="/parker-panther.png" alt="Parker the Panther, the 4P Roofing mascot, waving">
 </section>
 
-<!-- ===== OVERVIEW ===== -->
-<section class="service-overview">
-  <div class="container">
+<div class="rr-body">
+<div class="container">
+
+  <section class="rr-row">
     <h2>Flat Roofs Fail Differently</h2>
-    <p>A flat or low-slope roof doesn't shed water the way a pitched roof does, so the margin for error is smaller. Poor drainage, bad seams, or the wrong material for the slope is how a flat roof ends up with standing water and, eventually, a leak that shows up somewhere completely different than where the water actually got in.</p>
-    <p>We install and repair low-slope systems for additions, porches, carports, and outbuildings with proper drainage planning and sealed seams from the start — not something that gets figured out after the first pooling water shows up.</p>
-  </div>
-</section>
-
-<!-- ===== WHAT'S INCLUDED ===== -->
-<section class="features">
-  <div class="container">
-    <div class="features-heading">
-      <span class="eyebrow-badge">What's Included</span>
-      <h2 class="section-title">Every Flat Roof Job Includes</h2>
-      <div class="rule"></div>
+    <div>
+      <p class="lead">A flat or low-slope roof doesn't shed water the way a pitched roof does, so the margin for error is smaller. Poor drainage, bad seams, or the wrong material for the slope is how a flat roof ends up with standing water and, eventually, a leak that shows up somewhere completely different than where the water actually got in.</p>
+      <p>We install and repair low-slope systems for additions, porches, carports, and outbuildings with proper drainage planning and sealed seams from the start — not something that gets figured out after the first pooling water shows up.</p>
     </div>
-    <div class="features-grid cols-3">
-      <div class="feature">
-        <div class="feature-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7"/><path d="M9 22V12h6v10"/></svg></div>
-        <h4>Drainage Planning</h4>
-        <p>Proper slope and drainage so water actually moves off the roof instead of pooling.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
-        <h4>Sealed Seams</h4>
-        <p>Every seam and edge properly sealed — the most common place a flat roof fails first.</p>
-      </div>
-      <div class="feature">
-        <div class="feature-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15.5 14"/></svg></div>
-        <h4>Right Material For The Slope</h4>
-        <p>The right low-slope system for your specific roof, not a one-size-fits-all approach.</p>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ===== SIGNS YOU NEED THIS ===== -->
-<section class="signs-section">
-  <div class="container">
-    <div class="features-heading">
-      <span class="eyebrow-badge">Signs You Might Need One</span>
-      <h2 class="section-title">Common Flat Roof Problems</h2>
-      <div class="rule"></div>
+  <section class="rr-row">
+    <h3><span class="num">01</span>Drainage Planning</h3>
+    <div>
+      <p>Proper slope and drainage so water actually moves off the roof instead of pooling.</p>
     </div>
-    <ul class="signs-grid">
-      <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> Standing water that doesn't drain within 48 hours</li>
-      <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> Bubbling or blistering in the roofing material</li>
-      <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> Cracked or separated seams</li>
-      <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> A leak on a porch, carport, or addition roof</li>
-      <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> Visible sagging in the roof deck</li>
-      <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> An outbuilding roof that's never been inspected</li>
-    </ul>
-  </div>
-</section>
+  </section>
 
-<!-- ===== TRUST STRIP ===== -->
-<section class="trust-strip">
-  <div class="container trust-strip-inner">
-    <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> Inspections Always Free</span>
-    <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> 5-Star Rated on Google</span>
-    <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> Family Owned &amp; Operated</span>
-    <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> Fully Insured</span>
-  </div>
-</section>
-
-<!-- ===== CTA BANNER ===== -->
-<section class="cta-banner">
-  <div class="container cta-inner">
-    <div class="cta-left">
-      <span class="icon-circle"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
-      <div>
-        <h3>Got A Flat Roof Problem?</h3>
-        <p>Let's take a look — your inspection is always free.</p>
-      </div>
+  <section class="rr-row">
+    <h3><span class="num">02</span>Sealed Seams</h3>
+    <div>
+      <p>Every seam and edge properly sealed — the most common place a flat roof fails first.</p>
     </div>
-    <a href="index.html#inspection-form" class="btn btn-white">Schedule My Free Inspection →</a>
+  </section>
+
+  <section class="rr-row">
+    <h3><span class="num">03</span>Right Material for the Slope</h3>
+    <div>
+      <p>The right low-slope system for your specific roof, not a one-size-fits-all approach.</p>
+    </div>
+  </section>
+
+  <section class="rr-row">
+    <h2>Flat Roof Materials We Use</h2>
+    <div>
+      <p class="lead">Flat roofs use different materials than shingle roofs. We work with three of the most proven low-slope systems and help you choose the one that fits your roof's size, slope, and budget.</p>
+      <ul>
+        <li><strong>Flintlastic peel-and-stick.</strong> A self-adhered, modified bitumen system. The layers stick down without an open flame, which makes it a good fit for porches, additions, and smaller roofs with a lot of detail work. A granulated top layer protects it from the sun, and the overlapping seams are sealed.</li>
+        <li><strong>TPO.</strong> A single-ply white membrane. TPO reflects heat instead of absorbing it, which can help with cooling costs, and its seams are heat-welded into one continuous waterproof surface.</li>
+        <li><strong>EPDM.</strong> A rubber membrane with a long track record. EPDM stays flexible through hot and cold swings and holds up well to weather. It's typically black, and its seams are taped or glued, so careful installation matters.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="rr-row">
+    <h3>At a Glance</h3>
+    <div class="cmp-wrap">
+      <table class="cmp">
+        <thead>
+          <tr><th></th><th>Flintlastic Peel-and-Stick</th><th>TPO</th><th>EPDM</th></tr>
+        </thead>
+        <tbody>
+          <tr><th>What it is</th><td>Self-adhered modified bitumen</td><td>Single-ply white membrane</td><td>Single-ply rubber membrane</td></tr>
+          <tr><th>Seams</th><td>Overlapped and sealed</td><td>Heat-welded</td><td>Taped or glued</td></tr>
+          <tr><th>Heat</th><td>Granulated surface</td><td>Reflects heat</td><td>Usually black</td></tr>
+          <tr><th>Often used for</th><td>Porches, additions, and detailed smaller roofs</td><td>Roofs where energy efficiency matters</td><td>Roofs that need a flexible, proven membrane</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="rr-row">
+    <h2>Proper Flashing for Flat Roofs</h2>
+    <div>
+      <p class="lead">On a flat roof, the flashing is where most leaks start. The flat surface itself is only part of the system, and every place the roof meets something else needs to be sealed correctly.</p>
+      <ul>
+        <li><strong>Walls and curbs,</strong> where the roof runs up against a vertical surface</li>
+        <li><strong>Pipes, vents, and other penetrations</strong> that come through the roof</li>
+        <li><strong>Edges and drip edge,</strong> so water runs off cleanly instead of getting underneath</li>
+        <li><strong>Drains, scuppers, and gutters,</strong> where water leaves the roof</li>
+        <li><strong>Transitions,</strong> where a flat roof ties into a shingle roof or another section</li>
+      </ul>
+      <p>We flash every one of these details for the material we're installing, and we don't rely on caulk alone to do a flashing's job.</p>
+    </div>
+  </section>
+
+  <section class="rr-row">
+    <h2>Common Flat Roof Problems</h2>
+    <div>
+      <p>Signs you might need a repair or a new flat roof:</p>
+      <ul>
+        <li>Standing water that doesn't drain within 48 hours</li>
+        <li>Bubbling or blistering in the roofing material</li>
+        <li>Cracked or separated seams</li>
+        <li>A leak on a porch, carport, or addition roof</li>
+        <li>Visible sagging in the roof deck</li>
+        <li>An outbuilding roof that's never been inspected</li>
+      </ul>
+    </div>
+  </section>
+
+</div>
+</div>
+
+<section class="page-cta">
+  <div class="container cta-wrap">
+    <div>
+      <h2>Got a Flat Roof Problem?</h2>
+      <p>Let's take a look — your inspection is always free. No pressure, no obligation.</p>
+    </div>
+    <a href="index.html#inspection-form" class="btn btn-primary btn-glow">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Schedule My Free Inspection
+    </a>
   </div>
 </section>
 
 {% include footer.html %}
 
 {% include nav-script.html %}
+
 </body>
 </html>
