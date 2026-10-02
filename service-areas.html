@@ -6,129 +6,339 @@ nav_active: service-areas
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Service Areas | 4P Roofing LLC</title>
+<meta name="theme-color" content="#000000">
+<title>Service Areas | 4P Roofing LLC | Burleson and DFW</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<style>
+  :root { --sky: #5CB8F0; --sky-deep: #146EAB; --line: rgba(0,0,0,.14); --black: #000000; --white: #ffffff; --body-text: #3d4852; }
+  html { scroll-behavior: smooth; }
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 3px solid var(--sky); outline-offset: 3px; }
+
+  /* ============ HERO (same as the home page) ============ */
+  .hero { position: relative; overflow: hidden; isolation: isolate; background: #000 !important; background-image: none !important; }
+  .hero .bg-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transform: translateX(100%); opacity: 0; z-index: 0; will-change: transform, opacity; backface-visibility: hidden; }
+  .hero .hero-shade { position: absolute; inset: 0; z-index: 10; background: linear-gradient(90deg, rgba(0,0,0,.80) 0%, rgba(0,0,0,.55) 48%, rgba(0,0,0,.25) 100%), linear-gradient(0deg, rgba(0,0,0,.55), transparent 35%); }
+  .hero .hero-inner { position: relative; z-index: 20; }
+  .hero .eyebrow { color: var(--sky) !important; }
+  .hero h1 { color: var(--white) !important; }
+  .hero h1 .accent { color: var(--sky) !important; }
+  .hero .hero-inner > p { color: #e8eef3 !important; }
+  .hero .hero-badges span { color: var(--white) !important; }
+  .hero .hero-badges svg { color: var(--sky) !important; }
+  .hero .hero-mascot { position: absolute; z-index: 15; right: clamp(1rem, 6vw, 7rem); bottom: 0; height: min(82%, 560px); width: auto; pointer-events: none; filter: drop-shadow(0 0 22px rgba(92,184,240,.5)) drop-shadow(0 14px 22px rgba(0,0,0,.55)); }
+  @media (max-width: 900px) {
+    .hero .hero-mascot { height: 190px; right: .75rem; }
+    .hero .hero-inner { padding-bottom: 210px; }
+  }
+
+  /* ============ BUTTONS ============ */
+  .hero .btn-primary, .features .btn-primary, .inspection .btn-primary, .cta-banner .btn-white { background: var(--sky) !important; color: var(--black) !important; border: 2px solid var(--sky) !important; font-weight: 700 !important; box-shadow: 0 8px 24px rgba(92,184,240,.35) !important; animation: none !important; transition: background .2s ease, color .2s ease, transform .2s ease; }
+  .hero .btn-primary:hover { background: var(--white) !important; border-color: var(--white) !important; color: var(--black) !important; transform: translateY(-2px); }
+  .features .btn-primary:hover, .inspection .btn-primary:hover, .cta-banner .btn-white:hover { background: var(--black) !important; border-color: var(--black) !important; color: var(--white) !important; transform: translateY(-2px); }
+  .hero .btn-outline { background: transparent !important; color: var(--white) !important; border: 2px solid var(--white) !important; font-weight: 700 !important; transition: background .2s ease, color .2s ease, transform .2s ease; }
+  .hero .btn-outline:hover { background: var(--white) !important; color: var(--black) !important; transform: translateY(-2px); }
+
+  /* ============ WHERE WE WORK: plain paragraphs ============ */
+  .features { background: var(--white) !important; background-image: none !important; padding: clamp(3rem, 6vw, 4.5rem) 0 !important; }
+  .features .features-heading { text-align: center; }
+  .features .features-heading .eyebrow { color: var(--sky-deep) !important; }
+  .features .features-heading .section-title { color: var(--black) !important; font-size: clamp(1.7rem, 3vw, 2.3rem) !important; line-height: 1.15 !important; max-width: 46rem; margin-left: auto; margin-right: auto; }
+  .features .features-heading .rule { background: var(--sky) !important; width: 48px; height: 3px; border-radius: 0; margin-left: auto; margin-right: auto; }
+  .features-heading .features-intro { max-width: 44rem; margin: 1.1rem auto 0; }
+  .features-heading .features-intro p { margin: 0; color: var(--body-text) !important; font-size: 1rem; line-height: 1.7; }
+  .features-heading .features-intro p + p { margin-top: .75rem; }
+
+  .features .trust-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: clamp(2rem, 5vw, 4rem); margin-top: 2.25rem; border-top: 1px solid var(--line); }
+  .features .trust-row { padding: 1.35rem 0 1.4rem; border-bottom: 1px solid var(--line); }
+  .features .trust-row h3 { font-family: 'Montserrat', Arial, sans-serif; font-weight: 800; font-size: 1.1rem; line-height: 1.3; letter-spacing: -0.01em; color: var(--black) !important; margin: 0 0 .45rem; }
+  .features .trust-row p { font-family: 'Inter', Arial, sans-serif; font-size: .97rem; line-height: 1.65; color: var(--body-text) !important; margin: 0; }
+  .features .trust-row.wide { grid-column: 1 / -1; }
+  .features .trust-row .btn { margin-top: 1rem; display: inline-block; }
+  @media (max-width: 820px) { .features .trust-list { grid-template-columns: 1fr; } }
+
+  /* city list: plain, with thin lines */
+  .features .city-block { margin-top: 2.5rem; }
+  .features .city-block h3 { font-family: 'Montserrat', Arial, sans-serif; font-weight: 800; font-size: clamp(1.3rem, 2.2vw, 1.6rem); letter-spacing: -0.015em; color: var(--black) !important; margin: 0 0 1rem; text-align: left; }
+  .features .city-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: clamp(1.5rem, 4vw, 3rem); border-top: 1px solid var(--line); }
+  .features .city-list li { position: relative; padding: .85rem 0 .85rem 1.2rem; border-bottom: 1px solid var(--line); font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; font-size: 1.05rem; color: var(--black); }
+  .features .city-list li::before { content: ""; position: absolute; left: 0; top: 50%; width: 7px; height: 7px; margin-top: -3px; background: var(--sky); }
+  .features .city-note { font-family: 'Inter', Arial, sans-serif; font-size: .97rem; line-height: 1.65; color: var(--body-text); margin: 1rem 0 0; max-width: 44rem; }
+  @media (max-width: 760px) { .features .city-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 460px) { .features .city-list { grid-template-columns: 1fr; } }
+
+  /* links to the service pages */
+  .features .link-list { margin-top: 1rem; border-top: 1px solid var(--line); }
+  .features .link-item { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.1rem 0; border-bottom: 1px solid var(--line); text-decoration: none; color: var(--black); transition: padding-left .2s ease, color .2s ease; }
+  .features .link-item span { font-family: 'Montserrat', Arial, sans-serif; font-weight: 800; font-size: clamp(1.1rem, 2vw, 1.4rem); letter-spacing: -0.015em; }
+  .features .link-item svg { flex-shrink: 0; color: var(--sky-deep); }
+  .features .link-item:hover { padding-left: .6rem; color: var(--sky-deep); }
+
+  /* ============ CALL ROW ============ */
+  .cta-banner { background: var(--white) !important; background-image: none !important; border-top: 1px solid var(--line); padding: clamp(1.75rem, 3.5vw, 2.5rem) 0 !important; }
+  .cta-banner .cta-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.25rem; }
+  .cta-banner .cta-left { display: block; }
+  .cta-banner h3 { font-family: 'Montserrat', Arial, sans-serif; font-weight: 800; font-size: clamp(1.25rem, 2.2vw, 1.6rem); line-height: 1.2; letter-spacing: -0.015em; color: var(--black) !important; margin: 0; }
+  .cta-banner p { font-family: 'Inter', Arial, sans-serif; font-size: .98rem; line-height: 1.6; color: var(--body-text) !important; margin: .4rem 0 0; }
+
+  /* ============ INSPECTION FORM: plain, no card ============ */
+  .inspection { background: var(--white) !important; background-image: none !important; border-top: 1px solid var(--line); padding: clamp(2.5rem, 5vw, 4rem) 0 !important; }
+  .inspection .eyebrow { color: var(--sky-deep) !important; }
+  .inspection h2 { font-family: 'Montserrat', Arial, sans-serif; font-weight: 800; font-size: clamp(1.6rem, 2.8vw, 2.2rem); line-height: 1.15; letter-spacing: -0.02em; color: var(--black) !important; }
+  .inspection .rule { background: var(--sky) !important; }
+  .inspection .inspection-copy p { color: var(--body-text) !important; font-size: 1rem; line-height: 1.7; }
+  .inspection .inspection-points li { color: var(--black) !important; font-weight: 600; }
+  .inspection .inspection-points svg { color: var(--sky-deep) !important; }
+  .inspection .inspection-form-card { background: transparent !important; border: 0 !important; border-radius: 0 !important; box-shadow: none !important; padding: 0 !important; }
+  .inspection .inspection-form-card label { color: var(--black) !important; font-weight: 600; }
+  .inspection .inspection-form-card input[type="text"], .inspection .inspection-form-card input[type="tel"], .inspection .inspection-form-card input[type="email"], .inspection .inspection-form-card textarea { background: var(--white) !important; color: var(--black) !important; border: 1.5px solid #C5DCEC !important; border-radius: 8px !important; }
+  .inspection .inspection-form-card input:focus, .inspection .inspection-form-card textarea:focus { border-color: var(--sky) !important; box-shadow: 0 0 0 4px rgba(92,184,240,.28) !important; outline: none; }
+  .inspection .consent span { color: #55606b !important; }
+
+  @media (prefers-reduced-motion: reduce) { .btn, .features .link-item { transition: none !important; } .features .link-item:hover { padding-left: 0; } }
+</style>
 </head>
 <body>
 
 {% include header.html %}
 
-<!-- ===== PAGE HERO ===== -->
-<section class="page-hero">
-  <div class="container">
-    <span class="eyebrow-badge">Service Areas</span>
-    <h1>Your Local <span class="text-accent">Roofing Contractor</span></h1>
-    <p>Based in Burleson, TX, 4P Roofing serves homeowners and businesses throughout Johnson County and the greater DFW area. Select your city below to learn more.</p>
+<!-- ===== HERO ===== -->
+<section class="hero" id="top">
+  <video class="bg-video" muted playsinline preload="auto" src="/Website%20Home%20Page%20Background%201.mp4" aria-hidden="true"></video>
+  <video class="bg-video" muted playsinline preload="auto" src="/Website%20Home%20Page%20Background%202.mp4" aria-hidden="true"></video>
+  <video class="bg-video" muted playsinline preload="auto" src="/Website%20Home%20Page%20Background%203.mp4" aria-hidden="true"></video>
+  <video class="bg-video" muted playsinline preload="auto" src="/Website%20Home%20Page%20Background%204.mp4" aria-hidden="true"></video>
+  <video class="bg-video" muted playsinline preload="auto" src="/Website%20Home%20Page%20Background%205.mp4" aria-hidden="true"></video>
+  <div class="hero-shade"></div>
+  <div class="container hero-inner">
+    <span class="eyebrow">Our Service Areas</span>
+    <h1>Proudly Serving<br><span class="accent">Burleson and DFW.</span></h1>
+    <p>Locally owned in Burleson, 4P Roofing serves homeowners across the DFW area with honest recommendations, precise workmanship, and clear communication from the first inspection to the final cleanup.</p>
+    <div class="hero-btns">
+      <a href="#inspection-form" class="btn btn-primary btn-glow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Schedule My Free Inspection
+      </a>
+      <a href="tel:8177131407" class="btn btn-outline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Call (817) 713-1407
+      </a>
+    </div>
+    <div class="hero-badges">
+      <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> Fully Insured</span>
+      <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> Free Storm Inspections</span>
+      <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> Local &amp; Family Owned</span>
+      <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> 5-Star Rated</span>
+    </div>
   </div>
+  <img class="hero-mascot" src="/parker-panther.png" alt="Parker the Panther, the 4P Roofing mascot, waving">
 </section>
 
-<!-- ===== SERVICE AREAS GRID ===== -->
-<section class="services-page">
+<!-- ===== WHERE WE WORK ===== -->
+<section class="features">
   <div class="container">
-    <div class="service-areas-grid">
+    <div class="features-heading">
+      <span class="eyebrow">Where We Work</span>
+      <h2 class="section-title">Local to Burleson. Ready to Serve DFW.</h2>
+      <div class="rule"></div>
+      <div class="features-intro">
+        <p>4P Roofing is based in Burleson and serves homeowners throughout the surrounding DFW communities. This is where we live, work, and build our reputation.</p>
+        <p>Wherever your home is, you get the same standard: a free inspection, honest recommendations, a clear written scope, and a crew that treats your property with care.</p>
+      </div>
+    </div>
 
-      <a href="burleson-roofing.html" class="service-card-detail">
-        <div class="service-icon-lg"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-        <h3>Burleson, TX</h3>
-        <p>Our home base — full roof replacement, repair, and inspection services for Burleson homeowners.</p>
-        <span class="service-card-link">View Area →</span>
-      </a>
+    <div class="city-block">
+      <h3>Cities We've Recently Served</h3>
+      <ul class="city-list">
+        <li>Burleson</li>
+        <li>Cleburne</li>
+        <li>Alvarado</li>
+        <li>Godley</li>
+        <li>Weatherford</li>
+        <li>Springtown</li>
+        <li>Granbury</li>
+      </ul>
+      <p class="city-note">Don't see your city? Call us or send a request below. We serve homeowners throughout the surrounding DFW area.</p>
+    </div>
 
-      <a href="joshua-roofing.html" class="service-card-detail">
-        <div class="service-icon-lg"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-        <h3>Joshua, TX</h3>
-        <p>Roof replacement, repair, and free inspections for homeowners throughout Joshua.</p>
-        <span class="service-card-link">View Area →</span>
-      </a>
+    <div class="trust-list">
+      <div class="trust-row">
+        <h3>Locally Owned. Personally Invested.</h3>
+        <p>We're a family-owned company based right here in Burleson. We treat every homeowner like a neighbor, because most of the time, that's exactly what they are.</p>
+      </div>
+      <div class="trust-row">
+        <h3>The Same Standard in Every Community</h3>
+        <p>Whether you're in Burleson or a neighboring town, you get a free roof inspection, photos of our findings, and a straightforward explanation of your options.</p>
+      </div>
+      <div class="trust-row">
+        <h3>Clear Communication From Start to Finish</h3>
+        <p>We provide a written scope, explain material options and payment expectations, and keep you informed as your project moves forward.</p>
+      </div>
+      <div class="trust-row">
+        <h3>Backed by a Written Warranty</h3>
+        <p>Our roof replacements include a 5-year workmanship warranty under its written terms, so you know who to contact if a concern comes up.</p>
+      </div>
+    </div>
 
-      <a href="crowley-roofing.html" class="service-card-detail">
-        <div class="service-icon-lg"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-        <h3>Crowley, TX</h3>
-        <p>Dependable roofing service for Crowley homeowners, from single repairs to full replacements.</p>
-        <span class="service-card-link">View Area →</span>
-      </a>
-
-      <a href="cleburne-roofing.html" class="service-card-detail">
-        <div class="service-icon-lg"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-        <h3>Cleburne, TX</h3>
-        <p>Roof replacement, repair, and free inspections serving Cleburne and the surrounding area.</p>
-        <span class="service-card-link">View Area →</span>
-      </a>
-
-      <a href="godley-roofing.html" class="service-card-detail">
-        <div class="service-icon-lg"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-        <h3>Godley, TX</h3>
-        <p>Local roofing service for Godley homeowners, backed by the same standard we hold ourselves to at home.</p>
-        <span class="service-card-link">View Area →</span>
-      </a>
-
-      <a href="alvarado-roofing.html" class="service-card-detail">
-        <div class="service-icon-lg"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-        <h3>Alvarado, TX</h3>
-        <p>Roof replacement, repair, and inspections for homeowners throughout Alvarado.</p>
-        <span class="service-card-link">View Area →</span>
-      </a>
-
-      <a href="mansfield-roofing.html" class="service-card-detail">
-        <div class="service-icon-lg"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-        <h3>Mansfield, TX</h3>
-        <p>Full roofing services for Mansfield homeowners — replacement, repair, and free inspections.</p>
-        <span class="service-card-link">View Area →</span>
-      </a>
-
-      <a href="arlington-roofing.html" class="service-card-detail">
-        <div class="service-icon-lg"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-        <h3>Arlington, TX</h3>
-        <p>Roof replacement, repair, and free inspections for homeowners across Arlington.</p>
-        <span class="service-card-link">View Area →</span>
-      </a>
-
-      <a href="granbury-roofing.html" class="service-card-detail">
-        <div class="service-icon-lg"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-        <h3>Granbury, TX</h3>
-        <p>Roofing service for Granbury homeowners, from storm damage repair to full replacement.</p>
-        <span class="service-card-link">View Area →</span>
-      </a>
-
-      <a href="fort-worth-roofing.html" class="service-card-detail">
-        <div class="service-icon-lg"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-        <h3>Fort Worth, TX</h3>
-        <p>Roof replacement, repair, and commercial roofing service throughout Fort Worth.</p>
-        <span class="service-card-link">View Area →</span>
-      </a>
-
+    <div class="city-block">
+      <h3>Services We Offer in Every Area</h3>
+      <div class="link-list">
+        <a class="link-item" href="roof-replacement.html"><span>Roof Replacement</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a>
+        <a class="link-item" href="roof-repair.html"><span>Roof Repair</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a>
+        <a class="link-item" href="metal-roofing.html"><span>Metal Roofing</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a>
+        <a class="link-item" href="flat-roofing.html"><span>Flat Roofing</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a>
+        <a class="link-item" href="commercial-roofing.html"><span>Commercial Roofing</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a>
+        <a class="link-item" href="#inspection-form"><span>Free Roof Inspection</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ===== TRUST STRIP ===== -->
-<section class="trust-strip">
-  <div class="container trust-strip-inner">
-    <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> Inspections Always Free</span>
-    <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> 5-Star Rated on Google</span>
-    <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> Family Owned &amp; Operated</span>
-    <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> Fully Insured</span>
-  </div>
-</section>
-
-<!-- ===== CTA BANNER ===== -->
+<!-- ===== CALL ROW ===== -->
 <section class="cta-banner">
   <div class="container cta-inner">
     <div class="cta-left">
-      <span class="icon-circle"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
-      <div>
-        <h3>Don't See Your City Listed?</h3>
-        <p>Give us a call — there's a good chance we still cover your area.</p>
-      </div>
+      <h3>Ready for a Stronger Roof?</h3>
+      <p>Get a free, no-obligation inspection today — storms don't wait, and neither should you.</p>
     </div>
-    <a href="index.html#inspection-form" class="btn btn-white">Schedule My Free Inspection →</a>
+    <a href="tel:8177131407" class="btn btn-white">Call (817) 713-1407 →</a>
+  </div>
+</section>
+
+<!-- ===== INSPECTION FORM ===== -->
+<section class="inspection" id="inspection-form">
+  <div class="container inspection-grid">
+    <div class="inspection-copy">
+      <span class="eyebrow">Free &amp; No-Obligation</span>
+      <h2>Schedule My Free Inspection</h2>
+      <div class="rule left"></div>
+      <p>Fill out the form and a member of the 4P Roofing team will reach out to lock in your inspection time — usually the same day. No pressure, no obligation, just an honest look at your roof.</p>
+      <ul class="inspection-points">
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> Fast response, usually same-day</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> Honest, straightforward pricing</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> Zero pressure, zero obligation</li>
+      </ul>
+    </div>
+
+    <form class="inspection-form-card" id="inspectionForm" action="https://formsubmit.co/tyler@4proofingllc.com" method="POST">
+      <input type="hidden" name="_subject" value="New inspection request from 4proofingllc.com">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://4proofingllc.com/thanks.html">
+
+      <div class="form-row">
+        <div class="form-field">
+          <label for="fullName">Full Name</label>
+          <input type="text" id="fullName" name="Full Name" required>
+        </div>
+      </div>
+      <div class="form-row two-col">
+        <div class="form-field">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="Phone Number" required>
+        </div>
+        <div class="form-field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="Email" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-field">
+          <label for="address">Property Address</label>
+          <input type="text" id="address" name="Property Address" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-field">
+          <label for="message">Tell us about your roof (optional)</label>
+          <textarea id="message" name="Message" rows="3"></textarea>
+        </div>
+      </div>
+      <label class="consent">
+        <input type="checkbox" id="smsConsent" name="SMS Consent" required>
+        <span>I agree to receive calls and text messages from 4P Roofing LLC about my inspection request. Message and data rates may apply. Message frequency varies. Reply STOP to opt out at any time.</span>
+      </label>
+      <button type="submit" class="btn btn-primary btn-glow btn-block" id="formSubmitBtn">Schedule My Free Inspection</button>
+    </form>
   </div>
 </section>
 
 {% include footer.html %}
 
 {% include nav-script.html %}
+
+<script>
+(function(){
+  var vids = Array.prototype.slice.call(document.querySelectorAll('.hero .bg-video'));
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var RATE = 0.6;      // video speed: 1 = normal, 0.6 = slowed down (0.5 slower, 0.8 a little slower)
+  var SLIDING = true, SLIDE = 1.4, OVERLAP = 1.4, EASE = 'cubic-bezier(.4,0,.2,1)';
+  var cur = -1, advancing = false;
+
+  vids.forEach(function(v){ v.defaultPlaybackRate = RATE; v.playbackRate = RATE; });
+
+  function whenReady(v, cb){
+    var done = false;
+    function go(){ if (!done){ done = true; cb(); } }
+    v.playbackRate = RATE;
+    var p = v.play();
+    function after(){
+      v.playbackRate = RATE;
+      if ('requestVideoFrameCallback' in v) v.requestVideoFrameCallback(function(){ go(); });
+      else setTimeout(go, 80);
+      setTimeout(go, 600);
+    }
+    if (p && p.then) p.then(after, go); else after();
+  }
+
+  function show(n, first){
+    var v = vids[n], old = cur >= 0 ? vids[cur] : null;
+    advancing = true;
+    vids.forEach(function(x){ x.style.zIndex = 0; });
+    if (old) old.style.zIndex = 1;
+    v.style.zIndex = 2;
+    v.pause();
+    v.currentTime = 0;
+    v.style.transition = 'none';
+    v.style.opacity = '0';
+    v.style.transform = (first || !SLIDING) ? 'translateX(0)' : 'translateX(100%)';
+    whenReady(v, function(){
+      void v.offsetWidth;
+      if (reduce){ v.style.transition = 'none'; }
+      else if (first){ v.style.transition = 'opacity .6s ease'; }
+      else { v.style.transition = (SLIDING ? 'transform ' + SLIDE + 's ' + EASE + ', ' : '') + 'opacity ' + SLIDE + 's ' + EASE; }
+      v.style.transform = 'translateX(0)';
+      v.style.opacity = '1';
+      cur = n;
+      advancing = false;
+      if (old) setTimeout(function(){ old.pause(); old.currentTime = 0; }, SLIDE * 1000 + 150);
+    });
+  }
+
+  function next(){ show((cur + 1) % vids.length, false); }
+
+  function watch(){
+    var v = vids[cur];
+    if (!advancing && v && v.duration && v.currentTime >= v.duration - OVERLAP * RATE) next();
+    requestAnimationFrame(watch);
+  }
+
+  vids.forEach(function(v, i){
+    v.addEventListener('ended', function(){ if (cur === i && !advancing) next(); });
+  });
+
+  document.addEventListener('visibilitychange', function(){
+    if (!document.hidden && cur >= 0){
+      var v = vids[cur];
+      if (v.paused && !v.ended){ v.playbackRate = RATE; var p = v.play(); if (p && p.catch) p.catch(function(){}); }
+    }
+  });
+
+  show(0, true);
+  requestAnimationFrame(watch);
+})();
+</script>
+
 </body>
 </html>
