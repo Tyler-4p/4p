@@ -94,6 +94,86 @@ nav_active: work
     color: #000000; margin: 0; text-align: right;
   }
 
+  /* ===== Links to the service pages ===== */
+  .svc-links { background: #ffffff; padding: 0 0 clamp(2.5rem, 5vw, 3.5rem); }
+  .svc-links h2 {
+    font-family: 'Montserrat', Arial, sans-serif; font-weight: 800;
+    font-size: clamp(1.5rem, 2.6vw, 2rem); line-height: 1.15; letter-spacing: -0.02em;
+    color: #000000 !important; margin: 0 0 1.2rem; text-align: left;
+  }
+  .svc-links h2::after { content: ""; display: block; width: 40px; height: 3px; background: #5CB8F0; margin-top: .75rem; }
+  .svc-links .link-list { border-top: 1px solid rgba(0,0,0,.14); }
+  .svc-links .link-item {
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    padding: 1.3rem 0; border-bottom: 1px solid rgba(0,0,0,.14);
+    text-decoration: none; color: #000000; transition: padding-left .2s ease, color .2s ease;
+  }
+  .svc-links .link-item span {
+    font-family: 'Montserrat', Arial, sans-serif; font-weight: 800;
+    font-size: clamp(1.25rem, 2.3vw, 1.7rem); letter-spacing: -0.02em; line-height: 1.2;
+  }
+  .svc-links .link-item svg { flex-shrink: 0; color: #146EAB; }
+  .svc-links .link-item:hover { padding-left: .6rem; color: #146EAB; }
+
+  /* ===== When to replace, repair, or inspect ===== */
+  .guide { background: #ffffff; padding: 0 0 clamp(3rem, 6vw, 4.5rem); }
+  .guide-head { border-top: 1px solid rgba(0,0,0,.14); padding-top: clamp(2.25rem, 5vw, 3.5rem); }
+  .guide-head h2 {
+    font-family: 'Montserrat', Arial, sans-serif; font-weight: 900;
+    font-size: clamp(1.9rem, 3.8vw, 2.9rem); line-height: 1.08; letter-spacing: -0.025em;
+    color: #000000 !important; margin: 0 0 1rem; max-width: 46rem; text-align: left;
+  }
+  .guide-head h2::after { content: ""; display: block; width: 56px; height: 3px; background: #5CB8F0; margin-top: 1.1rem; }
+  .guide-head p {
+    font-family: 'Inter', Arial, sans-serif; font-size: 1.08rem; line-height: 1.8;
+    color: #3d4852 !important; margin: 0; max-width: 44rem;
+  }
+  .guide-row {
+    display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    gap: clamp(1rem, 4vw, 3.5rem); padding: clamp(1.75rem, 3.5vw, 2.5rem) 0;
+    border-bottom: 1px solid rgba(0,0,0,.14);
+  }
+  .guide-row:first-of-type { margin-top: clamp(1.75rem, 3.5vw, 2.5rem); border-top: 1px solid rgba(0,0,0,.14); }
+  .guide-row h3 {
+    font-family: 'Montserrat', Arial, sans-serif; font-weight: 800;
+    font-size: clamp(1.3rem, 2.2vw, 1.6rem); line-height: 1.2; letter-spacing: -0.015em;
+    color: #000000 !important; margin: 0;
+  }
+  .guide-row h3::after { content: ""; display: block; width: 36px; height: 3px; background: #5CB8F0; margin-top: .7rem; }
+  .guide-row p {
+    font-family: 'Inter', Arial, sans-serif; font-size: 1rem; line-height: 1.75;
+    color: #3d4852 !important; margin: 0 0 .8rem; max-width: 44rem;
+  }
+  .guide-row ul { list-style: none; margin: 0; padding: 0; max-width: 44rem; }
+  .guide-row li {
+    position: relative; padding-left: 1.2rem; margin: 0 0 .55rem;
+    font-family: 'Inter', Arial, sans-serif; font-size: 1rem; line-height: 1.65; color: #3d4852;
+  }
+  .guide-row li::before { content: ""; position: absolute; left: 0; top: .62em; width: 6px; height: 6px; background: #5CB8F0; }
+  @media (max-width: 760px) { .guide-row { grid-template-columns: 1fr; gap: .8rem; } }
+  @media (prefers-reduced-motion: reduce) { .svc-links .link-item { transition: none !important; } .svc-links .link-item:hover { padding-left: 0; } }
+
+  /* ===== Closing call to action ===== */
+  .page-cta { background: #ffffff; border-top: 1px solid rgba(0,0,0,.14); padding: clamp(3rem, 6vw, 4.5rem) 0 clamp(3.5rem, 7vw, 5.5rem); }
+  .page-cta .cta-wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.75rem 3rem; }
+  .page-cta h2 {
+    font-family: 'Montserrat', Arial, sans-serif; font-weight: 900;
+    font-size: clamp(1.8rem, 3.6vw, 2.7rem); line-height: 1.1; letter-spacing: -0.025em;
+    color: #000000 !important; margin: 0 0 .8rem; max-width: 34rem; text-align: left;
+  }
+  .page-cta h2::after { content: ""; display: block; width: 56px; height: 3px; background: #5CB8F0; margin-top: 1.1rem; }
+  .page-cta p {
+    font-family: 'Inter', Arial, sans-serif; font-size: 1.08rem; line-height: 1.75;
+    color: #3d4852 !important; margin: 0; max-width: 34rem;
+  }
+  .page-cta .btn-primary {
+    background: #5CB8F0 !important; color: #000 !important; border: 2px solid #5CB8F0 !important;
+    font-weight: 700 !important; box-shadow: 0 8px 24px rgba(92,184,240,.35) !important; animation: none !important;
+    transition: background .2s ease, color .2s ease, transform .2s ease;
+  }
+  .page-cta .btn-primary:hover { background: #000 !important; border-color: #000 !important; color: #fff !important; transform: translateY(-2px); }
+  @media (prefers-reduced-motion: reduce) { .page-cta .btn { transition: none !important; } }
+
   @media (max-width: 760px) {
     .page-hero { min-height: 360px; }
     .projects-grid { grid-template-columns: 1fr; }
@@ -142,7 +222,7 @@ nav_active: work
   <div class="container">
     <div class="projects-grid">
 
-      <!-- 1. SPRINGTOWN -->
+      <!-- SPRINGTOWN -->
       <div class="pf-card">
         <img class="pf-photo" src="/roof-replacement-springtown.jpg" alt="Completed roof replacement in Springtown, TX with Onyx Black shingles" loading="lazy">
         <h3>Roof Replacement – Springtown, TX</h3>
@@ -155,7 +235,7 @@ nav_active: work
         </dl>
       </div>
 
-      <!-- 2. CLEBURNE -->
+      <!-- CLEBURNE -->
       <div class="pf-card">
         <img class="pf-photo" src="/roof-replacement-cleburne-1.jpg" alt="Completed roof replacement in Cleburne, TX with Onyx Black shingles" loading="lazy">
         <h3>Roof Replacement – Cleburne, TX</h3>
@@ -168,59 +248,85 @@ nav_active: work
         </dl>
       </div>
 
-      <!-- 3. ALVARADO -->
-      <div class="pf-card">
-        <img class="pf-photo" src="/roof-replacement-alvarado.jpg" alt="Completed roof replacement in Alvarado, TX with Estate Gray shingles" loading="lazy">
-        <h3>Roof Replacement – Alvarado, TX</h3>
-        <dl class="pf-specs">
-          <div class="pf-row"><dt>Manufacturer</dt><dd>Owens Corning</dd></div>
-          <div class="pf-row"><dt>Shingle</dt><dd>TruDef Duration</dd></div>
-          <div class="pf-row"><dt>Color</dt><dd>Estate Gray</dd></div>
-          <div class="pf-row"><dt>Impact Rating</dt><dd>Class 3</dd></div>
-          <div class="pf-row"><dt>Project Scope</dt><dd>Full Roof Replacement</dd></div>
-        </dl>
-      </div>
-
-      <!-- 4. WEATHERFORD -->
-      <div class="pf-card">
-        <img class="pf-photo" src="/roof-replacement-weatherford.jpg" alt="Completed roof replacement in Weatherford, TX with Pewter shingles" loading="lazy">
-        <h3>Roof Replacement – Weatherford, TX</h3>
-        <dl class="pf-specs">
-          <div class="pf-row"><dt>Manufacturer</dt><dd>Atlas Roofing</dd></div>
-          <div class="pf-row"><dt>Shingle</dt><dd>ProLam</dd></div>
-          <div class="pf-row"><dt>Color</dt><dd>Pewter</dd></div>
-          <div class="pf-row"><dt>Impact Rating</dt><dd>Class 3</dd></div>
-          <div class="pf-row"><dt>Project Scope</dt><dd>Full Roof Replacement</dd></div>
-        </dl>
-      </div>
-
-      <!-- 5. CLEBURNE (second project) -->
-      <div class="pf-card">
-        <img class="pf-photo" src="/roof-replacement-cleburne-2.jpg" alt="Completed roof replacement in Cleburne, TX with Onyx Black shingles" loading="lazy">
-        <h3>Roof Replacement – Cleburne, TX</h3>
-        <dl class="pf-specs">
-          <div class="pf-row"><dt>Manufacturer</dt><dd>Owens Corning</dd></div>
-          <div class="pf-row"><dt>Shingle</dt><dd>TruDef Duration</dd></div>
-          <div class="pf-row"><dt>Color</dt><dd>Onyx Black</dd></div>
-          <div class="pf-row"><dt>Impact Rating</dt><dd>Class 3</dd></div>
-          <div class="pf-row"><dt>Project Scope</dt><dd>Full Roof Replacement</dd></div>
-        </dl>
-      </div>
-
-      <!-- 6. GODLEY -->
-      <div class="pf-card">
-        <img class="pf-photo" src="/roof-replacement-godley.jpg" alt="Completed roof replacement in Godley, TX with Onyx Black shingles" loading="lazy">
-        <h3>Roof Replacement – Godley, TX</h3>
-        <dl class="pf-specs">
-          <div class="pf-row"><dt>Manufacturer</dt><dd>Owens Corning</dd></div>
-          <div class="pf-row"><dt>Shingle</dt><dd>TruDef Duration</dd></div>
-          <div class="pf-row"><dt>Color</dt><dd>Onyx Black</dd></div>
-          <div class="pf-row"><dt>Impact Rating</dt><dd>Class 3</dd></div>
-          <div class="pf-row"><dt>Project Scope</dt><dd>Full Roof Replacement</dd></div>
-        </dl>
-      </div>
-
     </div>
+  </div>
+</section>
+
+<!-- ===== LINKS TO SERVICE PAGES ===== -->
+<section class="svc-links">
+  <div class="container">
+    <h2>Learn More About Our Services</h2>
+    <div class="link-list">
+      <a class="link-item" href="roof-replacement.html"><span>Roof Replacement</span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a>
+      <a class="link-item" href="roof-repair.html"><span>Roof Repair</span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a>
+      <a class="link-item" href="index.html#inspection-form"><span>Roof Inspection</span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WHEN TO REPLACE, REPAIR, OR INSPECT ===== -->
+<section class="guide">
+  <div class="container">
+    <div class="guide-head">
+      <h2>Replacement, Repair, or Inspection? How to Decide.</h2>
+      <p>Not every roof problem calls for a new roof, and not every roof needs work right now. Here's a plain-language look at when each makes sense. If you're ever unsure, a free inspection will tell you where your roof stands.</p>
+    </div>
+
+    <div class="guide-row">
+      <h3>When to Get a Roof Replacement</h3>
+      <div>
+        <p>A replacement makes sense when the problems are widespread, or when the roof has simply reached the end of its useful life. Common signs include:</p>
+        <ul>
+          <li>The roof is old. Many asphalt shingle roofs reach the end of their life somewhere around 20 to 30 years, depending on the shingle and conditions.</li>
+          <li>Storm damage covers large areas of the roof, such as hail or wind damage across several slopes.</li>
+          <li>Shingles are curling, cracking, or losing granules across much of the roof.</li>
+          <li>You're dealing with repeated leaks, or repairs keep adding up without solving the problem.</li>
+          <li>The decking underneath is soft, sagging, or damaged.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="guide-row">
+      <h3>When a Roof Repair Is Enough</h3>
+      <div>
+        <p>A repair is the right call when the damage is limited and the rest of the roof is in good shape. Typical examples include:</p>
+        <ul>
+          <li>A few missing, lifted, or damaged shingles after a storm.</li>
+          <li>A leak that traces back to one spot, such as flashing, a vent, or a pipe boot.</li>
+          <li>Damage in one small area of an otherwise healthy, newer roof.</li>
+        </ul>
+        <p>Fixing small problems promptly usually costs far less than waiting, since water that gets in can damage the decking, insulation, and ceilings.</p>
+      </div>
+    </div>
+
+    <div class="guide-row">
+      <h3>When to Schedule a Roof Inspection</h3>
+      <div>
+        <p>You don't have to wait for a leak. An inspection is a good idea:</p>
+        <ul>
+          <li>After a hailstorm or high winds, even if you don't see obvious damage from the ground.</li>
+          <li>Once a year or so, especially as your roof gets older.</li>
+          <li>When you notice warning signs, such as ceiling stains, shingle pieces in the yard, granules in the gutters, or daylight in the attic.</li>
+          <li>Before you buy or sell a home.</li>
+          <li>Before you decide between a repair and a replacement, so you know what the roof actually needs.</li>
+        </ul>
+        <p>Our inspections are free, and we share photos and a straightforward explanation of what we find.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA: SCHEDULE A ROOF INSPECTION ===== -->
+<section class="page-cta">
+  <div class="container cta-wrap">
+    <div>
+      <h2>Ready to Schedule Your Roof Inspection?</h2>
+      <p>Start with a free roof inspection, photos of our findings, and a straightforward explanation of your options. No pressure, no obligation.</p>
+    </div>
+    <a href="index.html#inspection-form" class="btn btn-primary btn-glow">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Schedule My Free Inspection
+    </a>
   </div>
 </section>
 
