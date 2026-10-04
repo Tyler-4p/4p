@@ -191,12 +191,13 @@ nav_active: home
       </ul>
     </div>
 
-    <form class="inspection-form-card" id="inspectionForm" action="https://formsubmit.co/tyler@4proofingllc.com" method="POST">
-      <!-- FormSubmit configuration -->
-      <input type="hidden" name="_subject" value="New inspection request from 4proofingllc.com">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://4proofingllc.com/thanks.html">
+    <form class="inspection-form-card" id="inspectionForm" action="https://api.web3forms.com/submit" method="POST">
+      <!-- Web3Forms configuration -->
+      <input type="hidden" name="access_key" value="dc4df29b-092e-4825-a261-b187af783ed3">
+      <input type="hidden" name="subject" value="New inspection request from 4proofingllc.com">
+      <input type="hidden" name="from_name" value="4P Roofing Website">
+      <input type="hidden" name="redirect" value="https://4proofingllc.com/thanks.html">
+      <input type="checkbox" name="botcheck" class="hidden" style="display: none;" tabindex="-1" autocomplete="off">
 
       <div class="form-row">
         <div class="form-field">
@@ -211,7 +212,7 @@ nav_active: home
         </div>
         <div class="form-field">
           <label for="email">Email</label>
-          <input type="email" id="email" name="Email" required>
+          <input type="email" id="email" name="email" required>
         </div>
       </div>
       <div class="form-row">
