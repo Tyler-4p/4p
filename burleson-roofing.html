@@ -6,104 +6,149 @@ nav_active: service-areas
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Burleson Roofing Contractor | 4P Roofing LLC</title>
-<meta name="description" content="Family owned roofing contractor based in Burleson, TX. Roof replacement, storm damage repair, metal and flat roofing. Free, no-pressure roof inspections.">
+<meta name="theme-color" content="#000000">
+<title>Roofing in Burleson, TX | 4P Roofing LLC</title>
+<meta name="description" content="Family-owned roofing contractor based in Burleson, TX. Roof replacement, storm damage repair, metal and flat roofing. Free, no-pressure roof inspections.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-
-<!-- ===== BURLESON PAGE STYLES (only affect this page) ===== -->
 <style>
-  .bl-section { padding: 72px 0; }
-  .bl-section.bl-alt { background: #f5f8fb; }
-  .bl-head { max-width: 720px; margin: 0 auto 44px; text-align: center; }
-  .bl-head h2 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: clamp(1.6rem, 3vw, 2.2rem); margin: 10px 0 12px; color: #111; }
-  .bl-head p { font-family: 'Inter', sans-serif; color: #555; line-height: 1.7; margin: 0; }
+  .page-hero {
+    position: relative; overflow: hidden; isolation: isolate;
+    background: #000000 !important; background-image: none !important;
+    min-height: clamp(420px, 44vw, 600px);
+    display: flex; align-items: center;
+  }
+  .page-hero .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+  .page-hero .hero-shade {
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(90deg, rgba(0,0,0,.84) 0%, rgba(0,0,0,.62) 50%, rgba(0,0,0,.35) 100%), linear-gradient(0deg, rgba(0,0,0,.5), transparent 40%);
+  }
+  .page-hero .container { position: relative; z-index: 3; width: 100%; text-align: left; }
+  .page-hero .hero-copy { max-width: 40rem; margin: 0; }
+  .page-hero h1 {
+    font-family: 'Montserrat', Arial, sans-serif; font-weight: 900;
+    font-size: clamp(2.3rem, 5.2vw, 3.9rem); line-height: 1.05; letter-spacing: -0.02em;
+    color: #ffffff !important; margin: 0 0 1.2rem; text-align: left;
+  }
+  .page-hero h1 .text-accent { color: #5CB8F0 !important; }
+  .page-hero p { font-family: 'Inter', Arial, sans-serif; font-size: 1.05rem; line-height: 1.75; color: #e8eef3 !important; margin: 0; max-width: 38rem; text-align: left; }
+  .page-hero .hero-btns { display: flex; flex-wrap: wrap; gap: .9rem; margin-top: 1.9rem; justify-content: flex-start; }
+  .page-hero .btn-primary {
+    background: #5CB8F0 !important; color: #000 !important; border: 2px solid #5CB8F0 !important;
+    font-weight: 700 !important; box-shadow: 0 8px 24px rgba(92,184,240,.35) !important; animation: none !important;
+    transition: background .2s ease, color .2s ease, transform .2s ease;
+  }
+  .page-hero .btn-primary:hover { background: #fff !important; border-color: #fff !important; color: #000 !important; transform: translateY(-2px); }
+  .page-hero .btn-outline {
+    background: transparent !important; color: #fff !important; border: 2px solid #fff !important;
+    font-weight: 700 !important; transition: background .2s ease, color .2s ease, transform .2s ease;
+  }
+  .page-hero .btn-outline:hover { background: #fff !important; color: #000 !important; transform: translateY(-2px); }
+  .page-hero .hero-mascot {
+    position: absolute; z-index: 2;
+    right: clamp(1rem, 6vw, 7rem); bottom: 0;
+    height: min(82%, 560px); width: auto; pointer-events: none;
+    filter: drop-shadow(0 0 22px rgba(92,184,240,.5)) drop-shadow(0 14px 22px rgba(0,0,0,.55));
+  }
 
-  /* Why choose us */
-  .bl-why { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 36px 40px; }
-  .bl-why-item h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.1rem; margin: 14px 0 8px; color: #111; }
-  .bl-why-item p { font-family: 'Inter', sans-serif; color: #555; line-height: 1.65; margin: 0; }
-  .bl-num { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 2rem; color: #6ec1e4; line-height: 1; }
+  .rr-body { background: #ffffff; padding: clamp(.5rem, 2vw, 1.25rem) 0 0; }
+  .rr-row {
+    display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    gap: clamp(1rem, 4vw, 3.5rem); padding: clamp(1.9rem, 3.8vw, 2.8rem) 0;
+    border-bottom: 1px solid rgba(0,0,0,.14); align-items: start;
+  }
+  .rr-row h2 {
+    font-family: 'Montserrat', Arial, sans-serif; font-weight: 800;
+    font-size: clamp(1.3rem, 2.2vw, 1.6rem); line-height: 1.2; letter-spacing: -0.015em;
+    color: #000000 !important; margin: 0;
+  }
+  .rr-row h2::after { content: ""; display: block; width: 36px; height: 3px; background: #5CB8F0; margin-top: .7rem; }
+  .rr-row h3 { font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; font-size: 1.05rem; color: #000; margin: 0 0 .35rem; }
+  .rr-row p { font-family: 'Inter', Arial, sans-serif; font-size: 1rem; line-height: 1.75; color: #3d4852 !important; margin: 0 0 .85rem; max-width: 44rem; }
+  .rr-row p:last-child { margin-bottom: 0; }
+  .rr-row p.lead { font-weight: 500; color: #1d252c !important; }
+  .rr-row ul { list-style: none; margin: .2rem 0 .9rem; padding: 0; max-width: 44rem; }
+  .rr-row li { position: relative; padding-left: 1.2rem; margin: 0 0 .7rem; font-family: 'Inter', Arial, sans-serif; font-size: 1rem; line-height: 1.65; color: #3d4852; }
+  .rr-row li::before { content: ""; position: absolute; left: 0; top: .62em; width: 6px; height: 6px; background: #5CB8F0; }
+  .rr-row li strong { font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; color: #000000; }
+
+  /* Two-column info blocks */
+  .cond-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.6rem 2.2rem; max-width: 44rem; }
 
   /* Projects */
-  .bl-projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 32px; }
-  .bl-project { background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 6px 24px rgba(0,0,0,.07); display: flex; flex-direction: column; }
-  .bl-project-img { aspect-ratio: 4 / 3; background: #dfe9f0; overflow: hidden; }
-  .bl-project-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .bl-project-body { padding: 22px 24px 26px; }
-  .bl-tag { display: inline-block; font-family: 'Montserrat', sans-serif; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #2a8bb8; margin-bottom: 8px; }
-  .bl-project h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.15rem; margin: 0 0 12px; color: #111; }
-  .bl-project dl { margin: 0; font-family: 'Inter', sans-serif; font-size: .93rem; }
-  .bl-project dt { font-weight: 600; color: #111; margin-top: 10px; }
-  .bl-project dd { margin: 2px 0 0; color: #555; line-height: 1.6; }
+  .projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem 2.2rem; max-width: 44rem; }
+  .project img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; border-radius: 4px; margin-bottom: 1rem; background: #eef2f5; }
+  .project .tag { display: block; font-family: 'Montserrat', Arial, sans-serif; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #146EAB; margin-bottom: .35rem; }
+  .project dl { margin: .6rem 0 0; font-family: 'Inter', Arial, sans-serif; font-size: .95rem; }
+  .project dt { font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; color: #000; margin-top: .6rem; }
+  .project dd { margin: .1rem 0 0; color: #3d4852; line-height: 1.6; }
 
-  /* Local conditions */
-  .bl-two { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px 56px; }
-  .bl-two h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.15rem; margin: 0 0 8px; color: #111; }
-  .bl-two p { font-family: 'Inter', sans-serif; color: #555; line-height: 1.7; margin: 0; }
+  /* Numbered steps */
+  .steps { list-style: none; margin: 0; padding: 0; max-width: 44rem; counter-reset: step; }
+  .steps li { position: relative; padding: 0 0 1.4rem 3.2rem !important; counter-increment: step; }
+  .steps li::before { content: counter(step) !important; position: absolute; left: 0 !important; top: 0 !important; width: 2.1rem !important; height: 2.1rem !important; border-radius: 50%; background: #000 !important; color: #fff; font-family: 'Montserrat', Arial, sans-serif; font-weight: 800; font-size: .95rem; display: flex; align-items: center; justify-content: center; }
+  .steps li:last-child { padding-bottom: 0 !important; }
 
-  /* Process */
-  .bl-steps { list-style: none; padding: 0; margin: 0 auto; max-width: 820px; counter-reset: step; }
-  .bl-steps li { position: relative; padding: 0 0 30px 64px; counter-increment: step; }
-  .bl-steps li::before { content: counter(step); position: absolute; left: 0; top: 0; width: 42px; height: 42px; border-radius: 50%; background: #111; color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 800; display: flex; align-items: center; justify-content: center; }
-  .bl-steps h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.1rem; margin: 8px 0 6px; color: #111; }
-  .bl-steps p { font-family: 'Inter', sans-serif; color: #555; line-height: 1.65; margin: 0; }
-
-  /* Hiring checklist */
-  .bl-check { list-style: none; padding: 0; margin: 0 auto; max-width: 820px; display: grid; gap: 18px; }
-  .bl-check li { font-family: 'Inter', sans-serif; color: #444; line-height: 1.65; padding-left: 34px; position: relative; }
-  .bl-check li::before { content: "✓"; position: absolute; left: 0; top: 0; color: #6ec1e4; font-weight: 800; font-size: 1.15rem; }
-  .bl-check strong { color: #111; }
+  .link-list { border-top: 1px solid rgba(0,0,0,.14); max-width: 44rem; }
+  .link-item { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid rgba(0,0,0,.14); text-decoration: none; color: #000000; transition: padding-left .2s ease, color .2s ease; }
+  .link-item span { font-family: 'Montserrat', Arial, sans-serif; font-weight: 800; font-size: clamp(1.05rem, 1.9vw, 1.3rem); letter-spacing: -0.015em; }
+  .link-item svg { flex-shrink: 0; color: #146EAB; }
+  .link-item:hover { padding-left: .6rem; color: #146EAB; }
 
   /* FAQ */
-  .bl-faq { max-width: 820px; margin: 0 auto; }
-  .bl-faq details { border-bottom: 1px solid #e3e8ec; padding: 20px 0; }
-  .bl-faq summary { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.05rem; color: #111; cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
-  .bl-faq summary::-webkit-details-marker { display: none; }
-  .bl-faq summary::after { content: "+"; color: #6ec1e4; font-size: 1.4rem; line-height: 1; }
-  .bl-faq details[open] summary::after { content: "–"; }
-  .bl-faq details p { font-family: 'Inter', sans-serif; color: #555; line-height: 1.7; margin: 12px 0 0; }
+  .faq { border-top: 1px solid rgba(0,0,0,.14); max-width: 44rem; }
+  .faq details { border-bottom: 1px solid rgba(0,0,0,.14); padding: 1rem 0; }
+  .faq summary { font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; font-size: 1.02rem; color: #000; cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 1rem; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; color: #146EAB; font-size: 1.35rem; line-height: 1; }
+  .faq details[open] summary::after { content: "–"; }
+  .faq details p { margin: .75rem 0 0 !important; }
 
-  .bl-hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 26px; }
+  .area-links { display: flex; flex-wrap: wrap; gap: .5rem 1.4rem; max-width: 44rem; }
+  .area-links a { font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; font-size: 1rem; color: #146EAB; text-decoration: none; border-bottom: 2px solid rgba(20,110,171,.3); }
+  .area-links a:hover { border-bottom-color: #146EAB; }
 
-  @media (max-width: 600px) {
-    .bl-section { padding: 52px 0; }
-    .bl-steps li { padding-left: 56px; }
+  .page-cta { background: #ffffff; padding: clamp(3rem, 6vw, 4.5rem) 0 clamp(3.5rem, 7vw, 5.5rem); }
+  .page-cta .cta-wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.75rem 3rem; }
+  .page-cta h2 { font-family: 'Montserrat', Arial, sans-serif; font-weight: 900; font-size: clamp(1.8rem, 3.6vw, 2.7rem); line-height: 1.1; letter-spacing: -0.025em; color: #000000 !important; margin: 0 0 .8rem; max-width: 34rem; text-align: left; }
+  .page-cta h2::after { content: ""; display: block; width: 56px; height: 3px; background: #5CB8F0; margin-top: 1.1rem; }
+  .page-cta p { font-family: 'Inter', Arial, sans-serif; font-size: 1.08rem; line-height: 1.75; color: #3d4852 !important; margin: 0; max-width: 34rem; }
+  .page-cta .btn-primary {
+    background: #5CB8F0 !important; color: #000 !important; border: 2px solid #5CB8F0 !important;
+    font-weight: 700 !important; box-shadow: 0 8px 24px rgba(92,184,240,.35) !important; animation: none !important;
+    transition: background .2s ease, color .2s ease, transform .2s ease;
   }
+  .page-cta .btn-primary:hover { background: #000 !important; border-color: #000 !important; color: #fff !important; transform: translateY(-2px); }
+
+  @media (max-width: 900px) {
+    .page-hero .hero-mascot { height: 190px; right: .75rem; }
+    .page-hero .hero-copy { padding-bottom: 190px; }
+  }
+  @media (max-width: 760px) {
+    .page-hero { min-height: 360px; }
+    .rr-row { grid-template-columns: 1fr; gap: .8rem; }
+    .cond-grid, .projects { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) { .btn, .link-item { transition: none !important; } .link-item:hover { padding-left: 0; } }
 </style>
 
-<!-- FAQ structured data (helps Google show your FAQs in search). Keep in sync with the FAQ section below. -->
+<!-- FAQ info for Google search results. If you change an FAQ answer on the page, change it here too. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How long does a roof replacement take in Burleson?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Most residential roof replacements take one to two days, depending on the size of the roof, the material, and the weather. We give you a timeline before work starts." }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I know if my roof has hail damage?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Hail damage is often hard to see from the ground. Common signs include dented gutters, vents, or downspouts, granules collecting at downspouts, and dark spots on shingles. A free inspection with photos is the easiest way to know for sure." }
-    },
-    {
-      "@type": "Question",
-      "name": "Do I need to be home during the inspection or the install?",
-      "acceptedAnswer": { "@type": "Answer", "text": "For the inspection, we prefer to walk through the findings with you, but we can send photos if you can't be there. For the install, you don't need to be home, though we'll do a final walkthrough with you when it's done." }
-    },
-    {
-      "@type": "Question",
-      "name": "Can a roofer pay or waive my insurance deductible?",
-      "acceptedAnswer": { "@type": "Answer", "text": "No. In Texas it is illegal for a roofing contractor to pay, waive, or rebate a homeowner's insurance deductible. Any contractor offering to do that is a red flag." }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you serve areas near Burleson?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Along with Burleson we serve Alvarado, Arlington, Cleburne, Crowley, Fort Worth, Godley, Granbury, Joshua, and Mansfield." }
-    }
+    { "@type": "Question", "name": "How long does a roof replacement take in Burleson?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Most residential roof replacements take one to two days, depending on the size of the roof, the material, and the weather. We give you a timeline before work starts." } },
+    { "@type": "Question", "name": "How do I know if my roof has hail damage?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Hail damage is often hard to see from the ground. Common signs include dented gutters, vents, or downspouts, granules collecting at downspouts, and dark spots on shingles. A free inspection with photos is the easiest way to know for sure." } },
+    { "@type": "Question", "name": "Do I need to be home during the inspection or the install?",
+      "acceptedAnswer": { "@type": "Answer", "text": "For the inspection, we prefer to walk through the findings with you, but we can send photos if you can't be there. For the install, you don't need to be home, though we'll do a final walkthrough with you when it's done." } },
+    { "@type": "Question", "name": "Can a roofer pay or waive my insurance deductible?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. In Texas it is illegal for a roofing contractor to pay, waive, or rebate a homeowner's insurance deductible. Any contractor offering to do that is a red flag." } },
+    { "@type": "Question", "name": "Do you serve areas near Burleson?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Along with Burleson we serve Alvarado, Arlington, Cleburne, Crowley, Fort Worth, Godley, Granbury, Joshua, and Mansfield." } }
   ]
 }
 </script>
@@ -112,194 +157,181 @@ nav_active: service-areas
 
 {% include header.html %}
 
-<!-- ===== PAGE HERO ===== -->
 <section class="page-hero">
+  <video class="hero-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+    <source src="/Website%20Home%20Page%20Background%201.mp4" type="video/mp4">
+  </video>
+  <div class="hero-shade"></div>
   <div class="container">
-    <span class="eyebrow-badge">Burleson, TX</span>
-    <h1>Roofing Contractor Serving <span class="text-accent">Burleson, TX</span></h1>
-    <p>4P Roofing is a family owned roofing contractor based right here in Burleson. We're not a storm crew passing through. We live here, work here, and we'll still be here long after your roof is finished.</p>
-    <div class="bl-hero-ctas">
-      <a href="index.html#inspection-form" class="btn btn-white">Schedule My Free Inspection →</a>
-    </div>
-  </div>
-</section>
-
-<!-- ===== WHY BURLESON HOMEOWNERS CHOOSE US ===== -->
-<section class="bl-section">
-  <div class="container">
-    <div class="bl-head">
-      <span class="eyebrow-badge">Why 4P Roofing</span>
-      <h2>Why Burleson Homeowners Choose Us</h2>
-      <p>Plenty of roofers show up in Burleson after a hailstorm. Here's what makes hiring a local, family owned company different.</p>
-    </div>
-    <div class="bl-why">
-      <div class="bl-why-item">
-        <div class="bl-num">01</div>
-        <h3>We're Based in Burleson</h3>
-        <p>Our home base is here, so we can get to you quickly for inspections, follow-up questions, or anything that comes up after the job. You won't be calling an out-of-state number.</p>
-      </div>
-      <div class="bl-why-item">
-        <div class="bl-num">02</div>
-        <h3>The Same People, Start to Finish</h3>
-        <p>We're a small team. The person who inspects your roof and answers your calls is part of the same crew that builds it. No hand-offs, no getting lost between departments.</p>
-      </div>
-      <div class="bl-why-item">
-        <div class="bl-num">03</div>
-        <h3>Full Tear-Off, Done Right</h3>
-        <p>Every replacement goes down to bare decking so we can see and fix what's underneath. Then sealed underlayment and a roof system installed to spec — including the parts you can't see from the ground.</p>
-      </div>
-      <div class="bl-why-item">
-        <div class="bl-num">04</div>
-        <h3>Honest, Free Inspections</h3>
-        <p>We show you photos of what we find and tell you straight. If your roof just needs a repair — or nothing at all — that's what we'll tell you.</p>
+    <div class="hero-copy">
+      <h1>Roofing in<br><span class="text-accent">Burleson, TX.</span></h1>
+      <p>4P Roofing is a family-owned roofing contractor based right here in Burleson. We're not a storm crew passing through — we live here, work here, and we'll still be here long after your roof is finished.</p>
+      <div class="hero-btns">
+        <a href="index.html#inspection-form" class="btn btn-primary btn-glow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Schedule My Roof Inspection
+        </a>
+        <a href="tel:8177131407" class="btn btn-outline">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (817) 713-1407
+        </a>
       </div>
     </div>
   </div>
+  <img class="hero-mascot" src="/parker-panther.png" alt="Parker the Panther, the 4P Roofing mascot, waving">
 </section>
 
-<!-- ===== RECENT BURLESON PROJECTS ===== -->
-<!--
-  Photos are in the repo root. Spaces in file names are written as %20 so they load correctly online.
-  To add another project, copy one whole <article class="bl-project"> ... </article> block and paste it below the last one.
--->
-<section class="bl-section bl-alt">
-  <div class="container">
-    <div class="bl-head">
-      <span class="eyebrow-badge">Local Work</span>
-      <h2>Recent Projects in Burleson</h2>
-      <p>Two recent roofs we built for our neighbors here in Burleson.</p>
-    </div>
-    <div class="bl-projects" style="max-width: 900px; margin: 0 auto;">
+<div class="rr-body">
+<div class="container">
 
-      <article class="bl-project">
-        <div class="bl-project-img"><img src="Aubrey%20Hess%20Pic.jpeg" alt="Completed Owens Corning TruDefinition Duration roof replacement on a Burleson, TX home" loading="lazy"></div>
-        <div class="bl-project-body">
-          <span class="bl-tag">Roof Replacement</span>
-          <h3>Leaking Roof Replacement, Burleson</h3>
-          <dl>
-            <dt>The problem</dt>
-            <dd>The homeowner had an active roof leak.</dd>
-            <dt>What we found</dt>
-            <dd>Wind and hail damage across the roof.</dd>
-            <dt>What we did</dt>
-            <dd>Removed the old roof and installed Owens Corning TruDefinition Duration Class 3 shingles, plus upgraded attic ventilation.</dd>
-            <dt>Timeline</dt>
-            <dd>Completed in 1 day.</dd>
-          </dl>
+  <!-- ===== WHY CHOOSE US ===== -->
+  <section class="rr-row">
+    <h2>Why Burleson Homeowners Choose Us</h2>
+    <div>
+      <p class="lead">Plenty of roofers show up in Burleson after a hailstorm. Here's what makes hiring a local, family-owned company different.</p>
+      <div class="cond-grid">
+        <div>
+          <h3>We're Based in Burleson</h3>
+          <p>Our home base is here, so we can get to you quickly for inspections, follow-up questions, or anything that comes up after the job.</p>
         </div>
-      </article>
-
-      <article class="bl-project">
-        <div class="bl-project-img"><img src="Justin%20Turner%20Poc.jpeg" alt="New Owens Corning TruDefinition Duration roof installed on a Burleson, TX home after wind and hail damage" loading="lazy"></div>
-        <div class="bl-project-body">
-          <span class="bl-tag">Storm Damage Replacement</span>
-          <h3>Wind &amp; Hail Damaged Roof, Burleson</h3>
-          <dl>
-            <dt>The problem</dt>
-            <dd>The homeowner's roof was leaking.</dd>
-            <dt>What we found</dt>
-            <dd>Wind and hail damage that had compromised the roof.</dd>
-            <dt>What we did</dt>
-            <dd>Full roof removal and replacement with Owens Corning TruDefinition Duration Class 3 shingles, along with a ventilation upgrade.</dd>
-            <dt>Timeline</dt>
-            <dd>Completed in 1 day.</dd>
-          </dl>
+        <div>
+          <h3>The Same People, Start to Finish</h3>
+          <p>We're a small team. The people who inspect your roof and answer your calls are part of the same crew that builds it.</p>
         </div>
-      </article>
-
+        <div>
+          <h3>Full Tear-Off, Done Right</h3>
+          <p>Every replacement goes down to bare decking so we can see and fix what's underneath — including the parts you can't see from the ground.</p>
+        </div>
+        <div>
+          <h3>Honest, Free Inspections</h3>
+          <p>We show you photos of what we find and tell you straight. If your roof just needs a repair — or nothing at all — that's what we'll tell you.</p>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ===== WHAT BURLESON ROOFS DEAL WITH ===== -->
-<section class="bl-section">
-  <div class="container">
-    <div class="bl-head">
-      <span class="eyebrow-badge">Local Know-How</span>
-      <h2>What Burleson Roofs Are Up Against</h2>
+  <!-- ===== RECENT PROJECTS ===== -->
+  <!-- To add another project, copy one whole <div class="project"> ... </div> block and paste it below the last one. -->
+  <section class="rr-row">
+    <h2>Recent Projects in Burleson</h2>
+    <div class="projects">
+      <div class="project">
+        <img src="/Aubrey%20Hess%20Pic.jpeg" alt="Completed Owens Corning TruDefinition Duration roof replacement on a Burleson, TX home" loading="lazy">
+        <span class="tag">Roof Replacement</span>
+        <h3>Leaking Roof Replacement</h3>
+        <dl>
+          <dt>The problem</dt>
+          <dd>The homeowner had an active roof leak.</dd>
+          <dt>What we found</dt>
+          <dd>Wind and hail damage across the roof.</dd>
+          <dt>What we did</dt>
+          <dd>Removed the old roof and installed Owens Corning TruDefinition Duration Class 3 shingles, plus upgraded attic ventilation.</dd>
+          <dt>Timeline</dt>
+          <dd>Completed in 1 day.</dd>
+        </dl>
+      </div>
+      <div class="project">
+        <img src="/Justin%20Turner%20Poc.jpeg" alt="New Owens Corning TruDefinition Duration roof installed on a Burleson, TX home after wind and hail damage" loading="lazy">
+        <span class="tag">Storm Damage Replacement</span>
+        <h3>Wind &amp; Hail Damaged Roof</h3>
+        <dl>
+          <dt>The problem</dt>
+          <dd>The homeowner's roof was leaking.</dd>
+          <dt>What we found</dt>
+          <dd>Wind and hail damage that had compromised the roof.</dd>
+          <dt>What we did</dt>
+          <dd>Full roof removal and replacement with Owens Corning TruDefinition Duration Class 3 shingles, along with a ventilation upgrade.</dd>
+          <dt>Timeline</dt>
+          <dd>Completed in 1 day.</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES ===== -->
+  <section class="rr-row">
+    <h2>Roofing Services in Burleson</h2>
+    <div>
+      <div class="link-list">
+        <a class="link-item" href="roof-replacement.html"><span>Roof Replacement</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a>
+        <a class="link-item" href="roof-repair.html"><span>Roof Repair</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a>
+        <a class="link-item" href="metal-roofing.html"><span>Metal Roofing</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a>
+        <a class="link-item" href="flat-roofing.html"><span>Flat Roofing</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a>
+        <a class="link-item" href="commercial-roofing.html"><span>Commercial Roofing</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a>
+        <a class="link-item" href="index.html#inspection-form"><span>Free Roof Inspection</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHAT BURLESON ROOFS ARE UP AGAINST ===== -->
+  <section class="rr-row">
+    <h2>What Burleson Roofs Are Up Against</h2>
+    <div>
       <p>North Texas is tough on roofs. Knowing what to watch for helps you catch small problems before they turn into big ones.</p>
+      <div class="cond-grid">
+        <div>
+          <h3>Hail and Spring Storms</h3>
+          <p>Hail bruises shingles and knocks off the granules that protect them — often without damage you can see from the ground. After a storm, it's worth having your roof checked.</p>
+        </div>
+        <div>
+          <h3>Summer Heat and Sun</h3>
+          <p>Long, hot summers bake shingles and dry out sealants around vents and flashing. Good attic ventilation makes a big difference in how long a roof lasts.</p>
+        </div>
+        <div>
+          <h3>Builder-Grade Roofs on Newer Homes</h3>
+          <p>Many newer homes were built with entry-level materials and minimal ventilation. Replacement is a chance to upgrade shingles and fix ventilation the right way.</p>
+        </div>
+        <div>
+          <h3>Hidden Decking Damage</h3>
+          <p>Slow leaks can rot the decking long before you see a ceiling stain. That's why we tear off to bare wood and replace bad decking instead of covering it up.</p>
+        </div>
+      </div>
     </div>
-    <div class="bl-two">
-      <div>
-        <h3>Hail and Spring Storms</h3>
-        <p>Storm season in North Texas can bring hail and high winds. Hail damage often isn't visible from the ground — it bruises shingles and knocks off the granules that protect them, which shortens a roof's life even if it isn't leaking yet. If a storm comes through, it's worth having your roof checked.</p>
-      </div>
-      <div>
-        <h3>Summer Heat and Sun</h3>
-        <p>Long, hot Texas summers bake shingles and dry out sealants around vents and flashing. Over time that leads to curling, cracking, and small gaps where water gets in. Good attic ventilation makes a big difference in how long a roof lasts.</p>
-      </div>
-      <div>
-        <h3>Builder-Grade Roofs on Newer Homes</h3>
-        <p>Many newer homes were built with entry-level materials and minimal ventilation. When it's time to replace, it's a chance to upgrade to impact-resistant shingles or metal and fix ventilation the right way.</p>
-      </div>
-      <div>
-        <h3>Older Roofs and Hidden Decking Damage</h3>
-        <p>On older homes, slow leaks can rot the decking underneath long before you see a stain on the ceiling. That's why we tear off to bare wood on every replacement and replace bad decking instead of covering it up.</p>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ===== OUR PROCESS ===== -->
-<section class="bl-section bl-alt">
-  <div class="container">
-    <div class="bl-head">
-      <span class="eyebrow-badge">What to Expect</span>
-      <h2>How a Project Works With 4P Roofing</h2>
+  <!-- ===== HOW A PROJECT WORKS ===== -->
+  <section class="rr-row">
+    <h2>How a Project Works With 4P Roofing</h2>
+    <div>
+      <ul class="steps">
+        <li><strong>Free roof inspection.</strong> We inspect your roof, check the attic when needed, take photos of what we find, and walk you through your options in plain English.</li>
+        <li><strong>Clear written scope.</strong> You'll know exactly what you're paying for before work begins, including material options and payment expectations.</li>
+        <li><strong>Storm damage documentation.</strong> If there's storm damage, our photos and inspection report give you clear documentation to share with your insurance company.</li>
+        <li><strong>Install day.</strong> Our crew protects your property, tears off down to the decking, fixes what's underneath, and installs your new roof to manufacturer specifications.</li>
+        <li><strong>Cleanup and final walkthrough.</strong> We clean up the job site and walk through the finished roof with you so you know exactly what you're getting.</li>
+      </ul>
     </div>
-    <ol class="bl-steps">
-      <li>
-        <h3>Free Inspection</h3>
-        <p>We get on the roof, check the attic when needed, and take photos of everything we find. Then we walk you through it in plain English.</p>
-      </li>
-      <li>
-        <h3>Clear Written Estimate</h3>
-        <p>You get a detailed estimate showing exactly what's included — materials, decking, underlayment, flashing, and cleanup. No surprises.</p>
-      </li>
-      <li>
-        <h3>Storm Damage Documentation</h3>
-        <p>If there's storm damage, our photos and findings give you clear documentation to share with your insurance company.</p>
-      </li>
-      <li>
-        <h3>Install Day</h3>
-        <p>We protect your landscaping, tear off down to the decking, fix what's underneath, and install your new roof system to manufacturer spec.</p>
-      </li>
-      <li>
-        <h3>Cleanup and Final Walkthrough</h3>
-        <p>We clean up the job site, sweep for nails, and walk the finished roof with you so you know exactly what you're getting.</p>
-      </li>
-    </ol>
-  </div>
-</section>
+  </section>
 
-<!-- ===== HOW TO HIRE A ROOFER ===== -->
-<section class="bl-section">
-  <div class="container">
-    <div class="bl-head">
-      <span class="eyebrow-badge">Homeowner Tips</span>
-      <h2>How to Hire a Roofer in Burleson (Even If It's Not Us)</h2>
+  <!-- ===== HOW TO PICK A ROOFER ===== -->
+  <section class="rr-row">
+    <h2>How to Pick a Roofer in Burleson (Even If It's Not Us)</h2>
+    <div>
       <p>After a big storm, out-of-town crews often knock on doors across Burleson. Here's how to protect yourself.</p>
+      <ul>
+        <li><strong>Look for a local address.</strong> A company based nearby will still be around if something comes up later.</li>
+        <li><strong>Ask for proof of insurance.</strong> Any reputable roofer will gladly show you their insurance certificate.</li>
+        <li><strong>Get everything in writing.</strong> The estimate should spell out materials, scope of work, and whether decking replacement is included.</li>
+        <li><strong>Never let anyone "cover" your deductible.</strong> In Texas it's illegal for a roofing contractor to pay, waive, or rebate your insurance deductible.</li>
+        <li><strong>Don't sign on the spot.</strong> A good roofer will give you time to read the contract and compare. High-pressure "today only" deals are a red flag.</li>
+        <li><strong>Check real reviews.</strong> Look at Google reviews from homeowners in your area, not just testimonials on a website.</li>
+      </ul>
     </div>
-    <ul class="bl-check">
-      <li><strong>Look for a local address.</strong> A company based nearby will be around if something goes wrong later. A truck with out-of-state plates and a phone number may not be.</li>
-      <li><strong>Ask for proof of insurance.</strong> Any reputable roofer will gladly show you their insurance certificate.</li>
-      <li><strong>Get everything in writing.</strong> The estimate should spell out materials, scope of work, and whether decking replacement is included.</li>
-      <li><strong>Never let anyone "cover" your deductible.</strong> In Texas it's illegal for a roofing contractor to pay, waive, or rebate your insurance deductible. If someone offers, walk away.</li>
-      <li><strong>Don't sign on the spot.</strong> A good roofer will give you time to read the contract and compare. High-pressure "today only" deals are a red flag.</li>
-      <li><strong>Check real reviews.</strong> Look at Google reviews from people in your area, not just testimonials on a website.</li>
-    </ul>
-  </div>
-</section>
+  </section>
 
-<!-- ===== FAQ ===== -->
-<!-- If you change an answer here, change it in the FAQ code near the top of the page too. -->
-<section class="bl-section bl-alt">
-  <div class="container">
-    <div class="bl-head">
-      <span class="eyebrow-badge">FAQ</span>
-      <h2>Burleson Roofing Questions</h2>
+  <!-- ===== WARRANTY ===== -->
+  <section class="rr-row">
+    <h2>Backed by a Written Warranty</h2>
+    <div>
+      <p>Our roof replacements include a 5-year workmanship warranty under its written terms. We explain coverage alongside the applicable manufacturer warranty, so you understand how your investment is protected and who to contact if a concern comes up.</p>
     </div>
-    <div class="bl-faq">
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <!-- If you change an answer here, change it in the FAQ code near the top of the page too. -->
+  <section class="rr-row">
+    <h2>Burleson Roofing Questions</h2>
+    <div class="faq">
       <details>
         <summary>How long does a roof replacement take in Burleson?</summary>
         <p>Most residential roof replacements take one to two days, depending on the size of the roof, the material, and the weather. We give you a timeline before work starts.</p>
@@ -321,84 +353,53 @@ nav_active: service-areas
         <p>Yes. Along with Burleson we serve Alvarado, Arlington, Cleburne, Crowley, Fort Worth, Godley, Granbury, Joshua, and Mansfield.</p>
       </details>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ===== SERVICES ===== -->
-<section class="services-page">
-  <div class="container">
-    <div class="features-heading">
-      <span class="eyebrow-badge">What We Offer</span>
-      <h2 class="section-title">Our Services in Burleson</h2>
-      <div class="rule"></div>
-    </div>
-    <div class="services-page-grid">
-
-      <a href="roof-replacement.html" class="service-card-detail">
-        <div class="service-icon-lg"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7"/><path d="M9 22V12h6v10"/></svg></div>
-        <h3>Roof Replacement</h3>
-        <p>Full tear-off to bare decking, sealed underlayment, and a brand new roof system built to spec.</p>
-        <span class="service-card-link">Learn More →</span>
-      </a>
-
-      <a href="roof-repair.html" class="service-card-detail">
-        <div class="service-icon-lg"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
-        <h3>Roof Repair</h3>
-        <p>We find the actual source of a leak or storm damage instead of just patching what's visible.</p>
-        <span class="service-card-link">Learn More →</span>
-      </a>
-
-      <a href="metal-roofing.html" class="service-card-detail">
-        <div class="service-icon-lg"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="1"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="9" y1="4" x2="9" y2="20"/></svg></div>
-        <h3>Metal Roofing</h3>
-        <p>Standing-seam and metal panel systems built for maximum durability and efficiency.</p>
-        <span class="service-card-link">Learn More →</span>
-      </a>
-
-      <a href="flat-roofing.html" class="service-card-detail">
-        <div class="service-icon-lg"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="12" rx="1"/><line x1="3" y1="7" x2="12" y2="3"/><line x1="21" y1="7" x2="12" y2="3"/></svg></div>
-        <h3>Flat Roofing</h3>
-        <p>Low-slope systems for additions, porches, and outbuildings with proper drainage.</p>
-        <span class="service-card-link">Learn More →</span>
-      </a>
-
-      <a href="commercial-roofing.html" class="service-card-detail">
-        <div class="service-icon-lg"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="1"/><line x1="9" y1="8" x2="9" y2="8"/><line x1="15" y1="8" x2="15" y2="8"/><line x1="9" y1="13" x2="9" y2="13"/><line x1="15" y1="13" x2="15" y2="13"/><line x1="9" y1="21" x2="15" y2="21"/></svg></div>
-        <h3>Commercial Roofing</h3>
-        <p>Retail and commercial properties handled with the same tear-off-to-turnkey standard.</p>
-        <span class="service-card-link">Learn More →</span>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-<!-- ===== TRUST STRIP ===== -->
-<section class="trust-strip">
-  <div class="container trust-strip-inner">
-    <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> Inspections Always Free</span>
-    <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> 5-Star Rated on Google</span>
-    <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> Family Owned &amp; Operated</span>
-    <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> Fully Insured</span>
-  </div>
-</section>
-
-<!-- ===== CTA BANNER ===== -->
-<section class="cta-banner">
-  <div class="container cta-inner">
-    <div class="cta-left">
-      <span class="icon-circle"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
-      <div>
-        <h3>Get Your Free Burleson Roof Inspection</h3>
-        <p>No pressure, no obligation — just an honest look at your roof from a local crew.</p>
+  <!-- ===== OTHER AREAS ===== -->
+  <section class="rr-row">
+    <h2>Other Areas We Serve</h2>
+    <div>
+      <div class="area-links">
+        <a href="alvarado-roofing.html">Alvarado</a>
+        <a href="arlington-roofing.html">Arlington</a>
+        <a href="cleburne-roofing.html">Cleburne</a>
+        <a href="crowley-roofing.html">Crowley</a>
+        <a href="fort-worth-roofing.html">Fort Worth</a>
+        <a href="godley-roofing.html">Godley</a>
+        <a href="granbury-roofing.html">Granbury</a>
+        <a href="joshua-roofing.html">Joshua</a>
+        <a href="mansfield-roofing.html">Mansfield</a>
       </div>
+      <p style="margin-top:1rem;">You can also see all of our <a href="service-areas.html" style="color:#146EAB;font-weight:600;">service areas</a>.</p>
     </div>
-    <a href="index.html#inspection-form" class="btn btn-white">Schedule My Free Inspection →</a>
+  </section>
+
+</div>
+</div>
+
+<section class="page-cta">
+  <div class="container cta-wrap">
+    <div>
+      <h2>Need a Roofer in Burleson?</h2>
+      <p>Let's take a look — your inspection is always free. No pressure, no obligation.</p>
+    </div>
+    <a href="index.html#inspection-form" class="btn btn-primary btn-glow">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Schedule My Free Inspection
+    </a>
   </div>
 </section>
 
 {% include footer.html %}
 
 {% include nav-script.html %}
+
+<script>
+(function () {
+  var v = document.querySelector('.page-hero .hero-video');
+  if (v && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { v.pause(); }
+})();
+</script>
+
 </body>
 </html>
