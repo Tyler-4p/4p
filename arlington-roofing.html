@@ -6,108 +6,382 @@ nav_active: service-areas
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Arlington Roofing Contractor | 4P Roofing LLC</title>
+<meta name="theme-color" content="#000000">
+<title>Arlington Roofing Contractor | Roof Replacement &amp; Free Inspections | 4P Roofing</title>
+<meta name="description" content="Need a roofer in Arlington, TX? 4P Roofing is a family-owned roofing contractor offering roof replacement, hail and storm damage repair, and commercial roofing across Arlington. Call (817) 713-1407 for a free inspection.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<style>
+  .page-hero {
+    position: relative; overflow: hidden; isolation: isolate;
+    background: #000000 !important; background-image: none !important;
+    min-height: clamp(420px, 44vw, 600px);
+    display: flex; align-items: center;
+  }
+  .page-hero .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+  .page-hero .hero-shade {
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(90deg, rgba(0,0,0,.84) 0%, rgba(0,0,0,.62) 50%, rgba(0,0,0,.35) 100%), linear-gradient(0deg, rgba(0,0,0,.5), transparent 40%);
+  }
+  .page-hero .container { position: relative; z-index: 3; width: 100%; text-align: left; }
+  .page-hero .hero-copy { max-width: 40rem; margin: 0; }
+  .page-hero h1 {
+    font-family: 'Montserrat', Arial, sans-serif; font-weight: 900;
+    font-size: clamp(2.3rem, 5.2vw, 3.9rem); line-height: 1.05; letter-spacing: -0.02em;
+    color: #ffffff !important; margin: 0 0 1.2rem; text-align: left;
+  }
+  .page-hero h1 .text-accent { color: #5CB8F0 !important; }
+  .page-hero p { font-family: 'Inter', Arial, sans-serif; font-size: 1.05rem; line-height: 1.75; color: #e8eef3 !important; margin: 0; max-width: 38rem; text-align: left; }
+  .page-hero .hero-btns { display: flex; flex-wrap: wrap; gap: .9rem; margin-top: 1.9rem; justify-content: flex-start; }
+  .page-hero .btn-primary {
+    background: #5CB8F0 !important; color: #000 !important; border: 2px solid #5CB8F0 !important;
+    font-weight: 700 !important; box-shadow: 0 8px 24px rgba(92,184,240,.35) !important; animation: none !important;
+    transition: background .2s ease, color .2s ease, transform .2s ease;
+  }
+  .page-hero .btn-primary:hover { background: #fff !important; border-color: #fff !important; color: #000 !important; transform: translateY(-2px); }
+  .page-hero .btn-outline {
+    background: transparent !important; color: #fff !important; border: 2px solid #fff !important;
+    font-weight: 700 !important; transition: background .2s ease, color .2s ease, transform .2s ease;
+  }
+  .page-hero .btn-outline:hover { background: #fff !important; color: #000 !important; transform: translateY(-2px); }
+  .page-hero .hero-mascot {
+    position: absolute; z-index: 2;
+    right: clamp(1rem, 6vw, 7rem); bottom: 0;
+    height: min(82%, 560px); width: auto; pointer-events: none;
+    filter: drop-shadow(0 0 22px rgba(92,184,240,.5)) drop-shadow(0 14px 22px rgba(0,0,0,.55));
+  }
+
+  .rr-body { background: #ffffff; padding: clamp(.5rem, 2vw, 1.25rem) 0 0; }
+  .rr-row {
+    display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    gap: clamp(1rem, 4vw, 3.5rem); padding: clamp(1.9rem, 3.8vw, 2.8rem) 0;
+    border-bottom: 1px solid rgba(0,0,0,.14); align-items: start;
+  }
+  .rr-row h2 {
+    font-family: 'Montserrat', Arial, sans-serif; font-weight: 800;
+    font-size: clamp(1.3rem, 2.2vw, 1.6rem); line-height: 1.2; letter-spacing: -0.015em;
+    color: #000000 !important; margin: 0;
+  }
+  .rr-row h2::after { content: ""; display: block; width: 36px; height: 3px; background: #5CB8F0; margin-top: .7rem; }
+  .rr-row h3 { font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; font-size: 1.05rem; color: #000; margin: 0 0 .35rem; }
+  .rr-row p { font-family: 'Inter', Arial, sans-serif; font-size: 1rem; line-height: 1.75; color: #3d4852 !important; margin: 0 0 .85rem; max-width: 44rem; }
+  .rr-row p:last-child { margin-bottom: 0; }
+  .rr-row p.lead { font-weight: 500; color: #1d252c !important; }
+  .rr-row ul { list-style: none; margin: .2rem 0 .9rem; padding: 0; max-width: 44rem; }
+  .rr-row li { position: relative; padding-left: 1.2rem; margin: 0 0 .7rem; font-family: 'Inter', Arial, sans-serif; font-size: 1rem; line-height: 1.65; color: #3d4852; }
+  .rr-row li::before { content: ""; position: absolute; left: 0; top: .62em; width: 6px; height: 6px; background: #5CB8F0; }
+  .rr-row li strong { font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; color: #000000; }
+
+  .cond-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.6rem 2.2rem; max-width: 44rem; }
+
+  .projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem 2.2rem; max-width: 44rem; }
+  .project img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; border-radius: 4px; margin-bottom: 1rem; background: #eef2f5; }
+  .project .tag { display: block; font-family: 'Montserrat', Arial, sans-serif; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #146EAB; margin-bottom: .35rem; }
+  .project dl { margin: .6rem 0 0; font-family: 'Inter', Arial, sans-serif; font-size: .95rem; }
+  .project dt { font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; color: #000; margin-top: .6rem; }
+  .project dd { margin: .1rem 0 0; color: #3d4852; line-height: 1.6; }
+
+  .steps { list-style: none; margin: 0; padding: 0; max-width: 44rem; counter-reset: step; }
+  .steps li { position: relative; padding: 0 0 1.4rem 3.2rem !important; counter-increment: step; }
+  .steps li::before { content: counter(step) !important; position: absolute; left: 0 !important; top: 0 !important; width: 2.1rem !important; height: 2.1rem !important; border-radius: 50%; background: #000 !important; color: #fff; font-family: 'Montserrat', Arial, sans-serif; font-weight: 800; font-size: .95rem; display: flex; align-items: center; justify-content: center; }
+  .steps li:last-child { padding-bottom: 0 !important; }
+
+  .link-list { border-top: 1px solid rgba(0,0,0,.14); max-width: 44rem; }
+  .link-item { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid rgba(0,0,0,.14); text-decoration: none; color: #000000; transition: padding-left .2s ease, color .2s ease; }
+  .link-item span { font-family: 'Montserrat', Arial, sans-serif; font-weight: 800; font-size: clamp(1.05rem, 1.9vw, 1.3rem); letter-spacing: -0.015em; }
+  .link-item svg { flex-shrink: 0; color: #146EAB; }
+  .link-item:hover { padding-left: .6rem; color: #146EAB; }
+
+  .faq { border-top: 1px solid rgba(0,0,0,.14); max-width: 44rem; }
+  .faq details { border-bottom: 1px solid rgba(0,0,0,.14); padding: 1rem 0; }
+  .faq summary { font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; font-size: 1.02rem; color: #000; cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 1rem; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; color: #146EAB; font-size: 1.35rem; line-height: 1; }
+  .faq details[open] summary::after { content: "–"; }
+  .faq details p { margin: .75rem 0 0 !important; }
+
+  .area-links { display: flex; flex-wrap: wrap; gap: .5rem 1.4rem; max-width: 44rem; }
+  .area-links a { font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; font-size: 1rem; color: #146EAB; text-decoration: none; border-bottom: 2px solid rgba(20,110,171,.3); }
+  .area-links a:hover { border-bottom-color: #146EAB; }
+
+  .page-cta { background: #ffffff; padding: clamp(3rem, 6vw, 4.5rem) 0 clamp(3.5rem, 7vw, 5.5rem); }
+  .page-cta .cta-wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.75rem 3rem; }
+  .page-cta h2 { font-family: 'Montserrat', Arial, sans-serif; font-weight: 900; font-size: clamp(1.8rem, 3.6vw, 2.7rem); line-height: 1.1; letter-spacing: -0.025em; color: #000000 !important; margin: 0 0 .8rem; max-width: 34rem; text-align: left; }
+  .page-cta h2::after { content: ""; display: block; width: 56px; height: 3px; background: #5CB8F0; margin-top: 1.1rem; }
+  .page-cta p { font-family: 'Inter', Arial, sans-serif; font-size: 1.08rem; line-height: 1.75; color: #3d4852 !important; margin: 0; max-width: 34rem; }
+  .page-cta .btn-primary {
+    background: #5CB8F0 !important; color: #000 !important; border: 2px solid #5CB8F0 !important;
+    font-weight: 700 !important; box-shadow: 0 8px 24px rgba(92,184,240,.35) !important; animation: none !important;
+    transition: background .2s ease, color .2s ease, transform .2s ease;
+  }
+  .page-cta .btn-primary:hover { background: #000 !important; border-color: #000 !important; color: #fff !important; transform: translateY(-2px); }
+
+  @media (max-width: 900px) {
+    .page-hero .hero-mascot { height: 190px; right: .75rem; }
+    .page-hero .hero-copy { padding-bottom: 190px; }
+  }
+  @media (max-width: 760px) {
+    .page-hero { min-height: 360px; }
+    .rr-row { grid-template-columns: 1fr; gap: .8rem; }
+    .cond-grid, .projects { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) { .btn, .link-item { transition: none !important; } .link-item:hover { padding-left: 0; } }
+</style>
+
+<!-- FAQ info for Google search results. If you change an FAQ answer on the page, change it here too. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Do you serve all of Arlington?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. We serve homeowners and businesses across Arlington, from north Arlington to the newer neighborhoods in south Arlington. Inspections are always free." } },
+    { "@type": "Question", "name": "My neighborhood has an HOA. Can you help with approval?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Many Arlington HOAs require approval of shingle style and color before a roof replacement. We can provide the product details and color information your HOA asks for so you can submit your request." } },
+    { "@type": "Question", "name": "Do you handle commercial roofing in Arlington?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Along with homes, we work on retail and commercial properties in Arlington with the same tear-off-to-finish standard." } },
+    { "@type": "Question", "name": "How long does a roof replacement take?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Most residential roof replacements take one to two days, depending on the size of the roof, the material, and the weather. We give you a timeline before work starts." } },
+    { "@type": "Question", "name": "Can a roofer pay my insurance deductible?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. In Texas it is illegal for a roofing contractor to pay, waive, or rebate a homeowner's insurance deductible. Any contractor who offers is a red flag." } }
+  ]
+}
+</script>
 </head>
 <body>
 
 {% include header.html %}
 
-<!-- ===== PAGE HERO ===== -->
 <section class="page-hero">
+  <video class="hero-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+    <source src="/Website%20Home%20Page%20Background%201.mp4" type="video/mp4">
+  </video>
+  <div class="hero-shade"></div>
   <div class="container">
-    <span class="eyebrow-badge">Arlington, TX</span>
-    <h1>Roofing Contractor Serving <span class="text-accent">Arlington, TX</span></h1>
-    <p>4P Roofing is a family owned roofing contractor based in Burleson, TX, proudly serving homeowners and businesses in Arlington with roof replacement, repair, and free inspections.</p>
-  </div>
-</section>
-
-<!-- ===== OVERVIEW ===== -->
-<section class="service-overview">
-  <div class="container">
-    <h2>Roofing Done Right In Arlington</h2>
-    <p>Whether it's a full roof replacement, a repair after a storm, or a specialty roofing system, we bring the same standard to every job in Arlington: proper tear-off, sealed underlayment, and craftsmanship done right the first time — not just the parts a homeowner can see from the ground.</p>
-    <p>We're a small, family owned operation, which means the people showing up on your roof are the same people who answer the phone. Every inspection is free, with no pressure and no obligation.</p>
-  </div>
-</section>
-
-<!-- ===== SERVICES ===== -->
-<section class="services-page">
-  <div class="container">
-    <div class="features-heading">
-      <span class="eyebrow-badge">What We Offer</span>
-      <h2 class="section-title">Our Services in Arlington</h2>
-      <div class="rule"></div>
-    </div>
-    <div class="services-page-grid">
-
-      <a href="roof-replacement.html" class="service-card-detail">
-        <div class="service-icon-lg"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7"/><path d="M9 22V12h6v10"/></svg></div>
-        <h3>Roof Replacement</h3>
-        <p>Full tear-off to bare decking, sealed underlayment, and a brand new roof system built to spec.</p>
-        <span class="service-card-link">Learn More →</span>
-      </a>
-
-      <a href="roof-repair.html" class="service-card-detail">
-        <div class="service-icon-lg"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
-        <h3>Roof Repair</h3>
-        <p>We find the actual source of a leak or storm damage instead of just patching what's visible.</p>
-        <span class="service-card-link">Learn More →</span>
-      </a>
-
-      <a href="metal-roofing.html" class="service-card-detail">
-        <div class="service-icon-lg"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="1"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="9" y1="4" x2="9" y2="20"/></svg></div>
-        <h3>Metal Roofing</h3>
-        <p>Standing-seam and metal panel systems built for maximum durability and efficiency.</p>
-        <span class="service-card-link">Learn More →</span>
-      </a>
-
-      <a href="flat-roofing.html" class="service-card-detail">
-        <div class="service-icon-lg"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="12" rx="1"/><line x1="3" y1="7" x2="12" y2="3"/><line x1="21" y1="7" x2="12" y2="3"/></svg></div>
-        <h3>Flat Roofing</h3>
-        <p>Low-slope systems for additions, porches, and outbuildings with proper drainage.</p>
-        <span class="service-card-link">Learn More →</span>
-      </a>
-
-      <a href="commercial-roofing.html" class="service-card-detail">
-        <div class="service-icon-lg"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="1"/><line x1="9" y1="8" x2="9" y2="8"/><line x1="15" y1="8" x2="15" y2="8"/><line x1="9" y1="13" x2="9" y2="13"/><line x1="15" y1="13" x2="15" y2="13"/><line x1="9" y1="21" x2="15" y2="21"/></svg></div>
-        <h3>Commercial Roofing</h3>
-        <p>Retail and commercial properties handled with the same tear-off-to-turnkey standard.</p>
-        <span class="service-card-link">Learn More →</span>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-<!-- ===== TRUST STRIP ===== -->
-<section class="trust-strip">
-  <div class="container trust-strip-inner">
-    <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> Inspections Always Free</span>
-    <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> 5-Star Rated on Google</span>
-    <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> Family Owned &amp; Operated</span>
-    <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> Fully Insured</span>
-  </div>
-</section>
-
-<!-- ===== CTA BANNER ===== -->
-<section class="cta-banner">
-  <div class="container cta-inner">
-    <div class="cta-left">
-      <span class="icon-circle"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
-      <div>
-        <h3>Get Your Free Arlington Roof Inspection</h3>
-        <p>No pressure, no obligation — just an honest look at your roof.</p>
+    <div class="hero-copy">
+      <h1>Arlington's Trusted<br><span class="text-accent">Family Roofer.</span></h1>
+      <p>From established neighborhoods in north Arlington to newer homes on the south side, 4P Roofing gives Arlington homeowners and businesses honest inspections and roofs built the right way.</p>
+      <div class="hero-btns">
+        <a href="index.html#inspection-form" class="btn btn-primary btn-glow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Schedule My Roof Inspection
+        </a>
+        <a href="tel:8177131407" class="btn btn-outline">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (817) 713-1407
+        </a>
       </div>
     </div>
-    <a href="index.html#inspection-form" class="btn btn-white">Schedule My Free Inspection →</a>
+  </div>
+  <img class="hero-mascot" src="/parker-panther.png" alt="Parker the Panther, the 4P Roofing mascot, waving">
+</section>
+
+<div class="rr-body">
+<div class="container">
+
+  <!-- ===== INTRO / WHY CHOOSE US ===== -->
+  <section class="rr-row">
+    <h2>A Roofer Arlington Can Count On</h2>
+    <div>
+      <p class="lead">Arlington is one of the biggest cities in Tarrant County, sitting right between Fort Worth and Dallas. With so many roofing companies competing for your attention, we keep it simple: a family-owned team, honest answers, and work we're proud to put our name on.</p>
+      <div class="cond-grid">
+        <div>
+          <h3>Small Company, Personal Service</h3>
+          <p>In a city this size, it's easy to feel like a number. With us, the people who inspect your roof are the same ones who answer your calls and see the job through.</p>
+        </div>
+        <div>
+          <h3>Homes and Businesses</h3>
+          <p>We roof single-family homes across Arlington and handle retail and commercial properties with the same attention to detail.</p>
+        </div>
+        <div>
+          <h3>HOA-Friendly Process</h3>
+          <p>Many Arlington neighborhoods have HOA rules on shingle style and color. We'll give you the product details you need to get approval before work starts.</p>
+        </div>
+        <div>
+          <h3>Honest From the First Visit</h3>
+          <p>We show you photos of what's on your roof. If it doesn't need replacing, we won't try to sell you one.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--
+  ===== RECENT ARLINGTON PROJECTS =====
+  When you have Arlington jobs to show, delete the line that says START HIDE and the line that says END HIDE,
+  then fill in the details and photo names (same as the Burleson page).
+  START HIDE
+  <section class="rr-row">
+    <h2>Recent Projects in Arlington</h2>
+    <div class="projects">
+      <div class="project">
+        <img src="/PHOTO%20NAME%20HERE.jpeg" alt="Completed roof replacement on an Arlington, TX home" loading="lazy">
+        <span class="tag">Roof Replacement</span>
+        <h3>PROJECT TITLE</h3>
+        <dl>
+          <dt>The problem</dt><dd>WHAT THE HOMEOWNER WAS DEALING WITH</dd>
+          <dt>What we found</dt><dd>WHAT THE INSPECTION SHOWED</dd>
+          <dt>What we did</dt><dd>SCOPE AND MATERIALS</dd>
+          <dt>Timeline</dt><dd>HOW LONG IT TOOK</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+  END HIDE
+  -->
+
+  <!-- ===== SERVICES ===== -->
+  <section class="rr-row">
+    <h2>Roofing Services in Arlington</h2>
+    <div>
+      <div class="link-list">
+        <a class="link-item" href="roof-replacement.html"><span>Roof Replacement</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a>
+        <a class="link-item" href="roof-repair.html"><span>Roof Repair</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a>
+        <a class="link-item" href="metal-roofing.html"><span>Metal Roofing</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a>
+        <a class="link-item" href="flat-roofing.html"><span>Flat Roofing</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a>
+        <a class="link-item" href="commercial-roofing.html"><span>Commercial Roofing</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a>
+        <a class="link-item" href="index.html#inspection-form"><span>Free Roof Inspection</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHAT ARLINGTON ROOFS ARE UP AGAINST ===== -->
+  <section class="rr-row">
+    <h2>What Arlington Roofs Are Up Against</h2>
+    <div>
+      <p>Arlington sits in the middle of the Metroplex, and storms that sweep across DFW often pass right over it. Here's what we see most on Arlington roofs.</p>
+      <div class="cond-grid">
+        <div>
+          <h3>Hailstorms Across the Metroplex</h3>
+          <p>A single DFW hailstorm can hit thousands of Arlington homes in one afternoon. The damage is easy to miss from the ground but shortens the life of your shingles.</p>
+        </div>
+        <div>
+          <h3>Aging Roofs in Established Neighborhoods</h3>
+          <p>Many Arlington homes have been standing for decades. Older roofs can hide worn flashing, layered repairs, and soft decking that only shows at tear-off.</p>
+        </div>
+        <div>
+          <h3>Wind-Driven Rain</h3>
+          <p>Strong spring storms can push rain sideways under lifted shingles and around flashing, causing leaks that show up long after the storm passes.</p>
+        </div>
+        <div>
+          <h3>Summer Heat Buildup</h3>
+          <p>Arlington's hot summers can bake an attic. Without proper ventilation, shingles age faster and your AC works harder. We check ventilation on every replacement.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW A PROJECT WORKS ===== -->
+  <section class="rr-row">
+    <h2>How a Project Works With 4P Roofing</h2>
+    <div>
+      <ul class="steps">
+        <li><strong>Free inspection at your Arlington home or business.</strong> We get on the roof, check the attic when needed, and photograph everything we find.</li>
+        <li><strong>A clear written scope.</strong> Materials, decking, ventilation, and cleanup are spelled out, plus product details for your HOA if you need them.</li>
+        <li><strong>Storm damage records.</strong> If hail or wind caused the damage, our photos and report give you documentation to share with your insurance company.</li>
+        <li><strong>Install day.</strong> We protect your property, tear off down to the decking, fix what's underneath, and install your new roof to manufacturer specifications.</li>
+        <li><strong>Cleanup and final walkthrough.</strong> We leave your yard clean and walk the finished roof with you before we call it done.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== HOW TO PICK A ROOFER ===== -->
+  <section class="rr-row">
+    <h2>How to Pick a Roofer in Arlington (Even If It's Not Us)</h2>
+    <div>
+      <p>After a big hailstorm, Arlington can see dozens of roofing companies show up overnight. Before you sign with anyone, run through this list.</p>
+      <ul>
+        <li><strong>Check that they're based in the area.</strong> A local roofer is easy to reach for warranty questions. A storm crew that leaves town is not.</li>
+        <li><strong>Request proof of insurance.</strong> Reputable contractors share their certificate without any pushback.</li>
+        <li><strong>Get a detailed written scope.</strong> It should list materials, labor, decking, and cleanup — not just a single price.</li>
+        <li><strong>Know the warranty terms.</strong> Ask what workmanship warranty is included and who handles it.</li>
+        <li><strong>Say no to deductible deals.</strong> Texas law prohibits roofers from paying, waiving, or rebating your insurance deductible.</li>
+        <li><strong>Read local reviews.</strong> Look for Google reviews from Arlington homeowners, not just ratings on the company's own website.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== WARRANTY ===== -->
+  <section class="rr-row">
+    <h2>Backed by a Written Warranty</h2>
+    <div>
+      <p>Every Arlington roof replacement we complete includes a 5-year workmanship warranty under its written terms. We explain how it works together with your manufacturer warranty, so you know exactly who to call if a concern ever comes up.</p>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <!-- If you change an answer here, change it in the FAQ code near the top of the page too. -->
+  <section class="rr-row">
+    <h2>Arlington Roofing Questions</h2>
+    <div class="faq">
+      <details>
+        <summary>Do you serve all of Arlington?</summary>
+        <p>Yes. We serve homeowners and businesses across Arlington, from north Arlington to the newer neighborhoods in south Arlington. Inspections are always free.</p>
+      </details>
+      <details>
+        <summary>My neighborhood has an HOA. Can you help with approval?</summary>
+        <p>Yes. Many Arlington HOAs require approval of shingle style and color before a roof replacement. We can provide the product details and color information your HOA asks for so you can submit your request.</p>
+      </details>
+      <details>
+        <summary>Do you handle commercial roofing in Arlington?</summary>
+        <p>Yes. Along with homes, we work on retail and commercial properties in Arlington with the same tear-off-to-finish standard.</p>
+      </details>
+      <details>
+        <summary>How long does a roof replacement take?</summary>
+        <p>Most residential roof replacements take one to two days, depending on the size of the roof, the material, and the weather. We give you a timeline before work starts.</p>
+      </details>
+      <details>
+        <summary>Can a roofer pay my insurance deductible?</summary>
+        <p>No. In Texas it is illegal for a roofing contractor to pay, waive, or rebate a homeowner's insurance deductible. Any contractor who offers is a red flag.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ===== OTHER AREAS ===== -->
+  <section class="rr-row">
+    <h2>Other Areas We Serve</h2>
+    <div>
+      <div class="area-links">
+        <a href="burleson-roofing.html">Burleson</a>
+        <a href="alvarado-roofing.html">Alvarado</a>
+        <a href="cleburne-roofing.html">Cleburne</a>
+        <a href="crowley-roofing.html">Crowley</a>
+        <a href="fort-worth-roofing.html">Fort Worth</a>
+        <a href="godley-roofing.html">Godley</a>
+        <a href="granbury-roofing.html">Granbury</a>
+        <a href="joshua-roofing.html">Joshua</a>
+        <a href="mansfield-roofing.html">Mansfield</a>
+      </div>
+      <p style="margin-top:1rem;">You can also see all of our <a href="service-areas.html" style="color:#146EAB;font-weight:600;">service areas</a>.</p>
+    </div>
+  </section>
+
+</div>
+</div>
+
+<section class="page-cta">
+  <div class="container cta-wrap">
+    <div>
+      <h2>Need a Roofer in Arlington?</h2>
+      <p>Get an honest look at your roof — the inspection is always free. No pressure, no obligation.</p>
+    </div>
+    <a href="index.html#inspection-form" class="btn btn-primary btn-glow">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Schedule My Free Inspection
+    </a>
   </div>
 </section>
 
 {% include footer.html %}
 
 {% include nav-script.html %}
+
+<script>
+(function () {
+  var v = document.querySelector('.page-hero .hero-video');
+  if (v && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { v.pause(); }
+})();
+</script>
+
 </body>
 </html>
