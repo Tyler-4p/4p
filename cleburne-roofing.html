@@ -1,1 +1,387 @@
+---
+nav_active: service-areas
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#000000">
+<title>Roofing in Cleburne, TX | Roof Replacement &amp; Repair | 4P Roofing LLC</title>
+<meta name="description" content="Roofing contractor serving Cleburne and Johnson County, TX. Roof replacement, hail and wind damage repair, metal roofing for homes, shops, and barns. Free roof inspections.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .page-hero {
+    position: relative; overflow: hidden; isolation: isolate;
+    background: #000000 !important; background-image: none !important;
+    min-height: clamp(420px, 44vw, 600px);
+    display: flex; align-items: center;
+  }
+  .page-hero .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+  .page-hero .hero-shade {
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(90deg, rgba(0,0,0,.84) 0%, rgba(0,0,0,.62) 50%, rgba(0,0,0,.35) 100%), linear-gradient(0deg, rgba(0,0,0,.5), transparent 40%);
+  }
+  .page-hero .container { position: relative; z-index: 3; width: 100%; text-align: left; }
+  .page-hero .hero-copy { max-width: 40rem; margin: 0; }
+  .page-hero h1 {
+    font-family: 'Montserrat', Arial, sans-serif; font-weight: 900;
+    font-size: clamp(2.3rem, 5.2vw, 3.9rem); line-height: 1.05; letter-spacing: -0.02em;
+    color: #ffffff !important; margin: 0 0 1.2rem; text-align: left;
+  }
+  .page-hero h1 .text-accent { color: #5CB8F0 !important; }
+  .page-hero p { font-family: 'Inter', Arial, sans-serif; font-size: 1.05rem; line-height: 1.75; color: #e8eef3 !important; margin: 0; max-width: 38rem; text-align: left; }
+  .page-hero .hero-btns { display: flex; flex-wrap: wrap; gap: .9rem; margin-top: 1.9rem; justify-content: flex-start; }
+  .page-hero .btn-primary {
+    background: #5CB8F0 !important; color: #000 !important; border: 2px solid #5CB8F0 !important;
+    font-weight: 700 !important; box-shadow: 0 8px 24px rgba(92,184,240,.35) !important; animation: none !important;
+    transition: background .2s ease, color .2s ease, transform .2s ease;
+  }
+  .page-hero .btn-primary:hover { background: #fff !important; border-color: #fff !important; color: #000 !important; transform: translateY(-2px); }
+  .page-hero .btn-outline {
+    background: transparent !important; color: #fff !important; border: 2px solid #fff !important;
+    font-weight: 700 !important; transition: background .2s ease, color .2s ease, transform .2s ease;
+  }
+  .page-hero .btn-outline:hover { background: #fff !important; color: #000 !important; transform: translateY(-2px); }
+  .page-hero .hero-mascot {
+    position: absolute; z-index: 2;
+    right: clamp(1rem, 6vw, 7rem); bottom: 0;
+    height: min(82%, 560px); width: auto; pointer-events: none;
+    filter: drop-shadow(0 0 22px rgba(92,184,240,.5)) drop-shadow(0 14px 22px rgba(0,0,0,.55));
+  }
 
+  .rr-body { background: #ffffff; padding: clamp(.5rem, 2vw, 1.25rem) 0 0; }
+  .rr-row {
+    display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    gap: clamp(1rem, 4vw, 3.5rem); padding: clamp(1.9rem, 3.8vw, 2.8rem) 0;
+    border-bottom: 1px solid rgba(0,0,0,.14); align-items: start;
+  }
+  .rr-row h2 {
+    font-family: 'Montserrat', Arial, sans-serif; font-weight: 800;
+    font-size: clamp(1.3rem, 2.2vw, 1.6rem); line-height: 1.2; letter-spacing: -0.015em;
+    color: #000000 !important; margin: 0;
+  }
+  .rr-row h2::after { content: ""; display: block; width: 36px; height: 3px; background: #5CB8F0; margin-top: .7rem; }
+  .rr-row h3 { font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; font-size: 1.05rem; color: #000; margin: 0 0 .35rem; }
+  .rr-row p { font-family: 'Inter', Arial, sans-serif; font-size: 1rem; line-height: 1.75; color: #3d4852 !important; margin: 0 0 .85rem; max-width: 44rem; }
+  .rr-row p:last-child { margin-bottom: 0; }
+  .rr-row p.lead { font-weight: 500; color: #1d252c !important; }
+  .rr-row ul { list-style: none; margin: .2rem 0 .9rem; padding: 0; max-width: 44rem; }
+  .rr-row li { position: relative; padding-left: 1.2rem; margin: 0 0 .7rem; font-family: 'Inter', Arial, sans-serif; font-size: 1rem; line-height: 1.65; color: #3d4852; }
+  .rr-row li::before { content: ""; position: absolute; left: 0; top: .62em; width: 6px; height: 6px; background: #5CB8F0; }
+  .rr-row li strong { font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; color: #000000; }
+
+  .cond-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.6rem 2.2rem; max-width: 44rem; }
+
+  .projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem 2.2rem; max-width: 44rem; }
+  .project img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; border-radius: 4px; margin-bottom: 1rem; background: #eef2f5; }
+  .project .tag { display: block; font-family: 'Montserrat', Arial, sans-serif; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #146EAB; margin-bottom: .35rem; }
+  .project dl { margin: .6rem 0 0; font-family: 'Inter', Arial, sans-serif; font-size: .95rem; }
+  .project dt { font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; color: #000; margin-top: .6rem; }
+  .project dd { margin: .1rem 0 0; color: #3d4852; line-height: 1.6; }
+
+  .steps { list-style: none; margin: 0; padding: 0; max-width: 44rem; counter-reset: step; }
+  .steps li { position: relative; padding: 0 0 1.4rem 3.2rem !important; counter-increment: step; }
+  .steps li::before { content: counter(step) !important; position: absolute; left: 0 !important; top: 0 !important; width: 2.1rem !important; height: 2.1rem !important; border-radius: 50%; background: #000 !important; color: #fff; font-family: 'Montserrat', Arial, sans-serif; font-weight: 800; font-size: .95rem; display: flex; align-items: center; justify-content: center; }
+  .steps li:last-child { padding-bottom: 0 !important; }
+
+  .link-list { border-top: 1px solid rgba(0,0,0,.14); max-width: 44rem; }
+  .link-item { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid rgba(0,0,0,.14); text-decoration: none; color: #000000; transition: padding-left .2s ease, color .2s ease; }
+  .link-item span { font-family: 'Montserrat', Arial, sans-serif; font-weight: 800; font-size: clamp(1.05rem, 1.9vw, 1.3rem); letter-spacing: -0.015em; }
+  .link-item svg { flex-shrink: 0; color: #146EAB; }
+  .link-item:hover { padding-left: .6rem; color: #146EAB; }
+
+  .faq { border-top: 1px solid rgba(0,0,0,.14); max-width: 44rem; }
+  .faq details { border-bottom: 1px solid rgba(0,0,0,.14); padding: 1rem 0; }
+  .faq summary { font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; font-size: 1.02rem; color: #000; cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 1rem; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; color: #146EAB; font-size: 1.35rem; line-height: 1; }
+  .faq details[open] summary::after { content: "–"; }
+  .faq details p { margin: .75rem 0 0 !important; }
+
+  .area-links { display: flex; flex-wrap: wrap; gap: .5rem 1.4rem; max-width: 44rem; }
+  .area-links a { font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; font-size: 1rem; color: #146EAB; text-decoration: none; border-bottom: 2px solid rgba(20,110,171,.3); }
+  .area-links a:hover { border-bottom-color: #146EAB; }
+
+  .page-cta { background: #ffffff; padding: clamp(3rem, 6vw, 4.5rem) 0 clamp(3.5rem, 7vw, 5.5rem); }
+  .page-cta .cta-wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.75rem 3rem; }
+  .page-cta h2 { font-family: 'Montserrat', Arial, sans-serif; font-weight: 900; font-size: clamp(1.8rem, 3.6vw, 2.7rem); line-height: 1.1; letter-spacing: -0.025em; color: #000000 !important; margin: 0 0 .8rem; max-width: 34rem; text-align: left; }
+  .page-cta h2::after { content: ""; display: block; width: 56px; height: 3px; background: #5CB8F0; margin-top: 1.1rem; }
+  .page-cta p { font-family: 'Inter', Arial, sans-serif; font-size: 1.08rem; line-height: 1.75; color: #3d4852 !important; margin: 0; max-width: 34rem; }
+  .page-cta .btn-primary {
+    background: #5CB8F0 !important; color: #000 !important; border: 2px solid #5CB8F0 !important;
+    font-weight: 700 !important; box-shadow: 0 8px 24px rgba(92,184,240,.35) !important; animation: none !important;
+    transition: background .2s ease, color .2s ease, transform .2s ease;
+  }
+  .page-cta .btn-primary:hover { background: #000 !important; border-color: #000 !important; color: #fff !important; transform: translateY(-2px); }
+
+  @media (max-width: 900px) {
+    .page-hero .hero-mascot { height: 190px; right: .75rem; }
+    .page-hero .hero-copy { padding-bottom: 190px; }
+  }
+  @media (max-width: 760px) {
+    .page-hero { min-height: 360px; }
+    .rr-row { grid-template-columns: 1fr; gap: .8rem; }
+    .cond-grid, .projects { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) { .btn, .link-item { transition: none !important; } .link-item:hover { padding-left: 0; } }
+</style>
+
+<!-- FAQ info for Google search results. If you change an FAQ answer on the page, change it here too. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Do you come out to Cleburne for roof inspections?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Cleburne is a short drive down US-67 from our Burleson home base, and inspections are always free. We cover Cleburne and the surrounding areas of Johnson County." } },
+    { "@type": "Question", "name": "My Cleburne home is older. Will you replace damaged decking?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every replacement is torn off to bare decking so we can find rotted or damaged boards. Any decking that needs replacing is called out in your written scope before work starts." } },
+    { "@type": "Question", "name": "Do you install metal roofs on shops and barns around Cleburne?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Along with homes, we install metal roofing on shops, barns, and other outbuildings. We'll walk you through panel options during your free inspection." } },
+    { "@type": "Question", "name": "How long does a roof replacement take?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Most residential roof replacements take one to two days, depending on the size of the roof, the material, and the weather. We give you a timeline before work starts." } },
+    { "@type": "Question", "name": "Can a roofer pay or waive my insurance deductible?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. In Texas it is illegal for a roofing contractor to pay, waive, or rebate a homeowner's insurance deductible. Any contractor offering to do that is a red flag." } }
+  ]
+}
+</script>
+</head>
+<body>
+
+{% include header.html %}
+
+<section class="page-hero">
+  <video class="hero-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+    <source src="/Website%20Home%20Page%20Background%201.mp4" type="video/mp4">
+  </video>
+  <div class="hero-shade"></div>
+  <div class="container">
+    <div class="hero-copy">
+      <h1>Roofing in<br><span class="text-accent">Cleburne, TX.</span></h1>
+      <p>From historic homes near downtown to newer neighborhoods, shops, and barns out in the county, 4P Roofing helps Cleburne property owners protect what they've built — with free inspections and roofs done right the first time.</p>
+      <div class="hero-btns">
+        <a href="index.html#inspection-form" class="btn btn-primary btn-glow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Schedule My Roof Inspection
+        </a>
+        <a href="tel:8177131407" class="btn btn-outline">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (817) 713-1407
+        </a>
+      </div>
+    </div>
+  </div>
+  <img class="hero-mascot" src="/parker-panther.png" alt="Parker the Panther, the 4P Roofing mascot, waving">
+</section>
+
+<div class="rr-body">
+<div class="container">
+
+  <!-- ===== INTRO / WHY CHOOSE US ===== -->
+  <section class="rr-row">
+    <h2>Your Cleburne Roofing Contractor</h2>
+    <div>
+      <p class="lead">Cleburne is the county seat of Johnson County, and it's a big part of the community we call home. We're a family-owned roofing company based just up US-67 in Burleson, so we're close enough to treat Cleburne like our own backyard.</p>
+      <div class="cond-grid">
+        <div>
+          <h3>Close By, Not Passing Through</h3>
+          <p>We're a Johnson County company, not an out-of-state storm crew. When you have a question after the job, you're calling a local number and people who know the area.</p>
+        </div>
+        <div>
+          <h3>Homes, Shops, and Barns</h3>
+          <p>Cleburne properties come in every shape. We handle residential roofs in town and metal roofs on shops, barns, and outbuildings on acreage.</p>
+        </div>
+        <div>
+          <h3>Built to Last on Older Homes</h3>
+          <p>Many Cleburne homes have decades-old decking. We tear off to bare wood, replace what's damaged, and build the new roof on a solid base.</p>
+        </div>
+        <div>
+          <h3>Straight Answers, Free Inspections</h3>
+          <p>We share photos of exactly what we find. If a repair will do the job, we'll tell you — no pressure to replace a roof that doesn't need it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--
+  ===== RECENT CLEBURNE PROJECTS =====
+  When you have Cleburne jobs to show, delete the line that says START HIDE and the line that says END HIDE,
+  then fill in the details and photo names (same as the Burleson page).
+  START HIDE
+  <section class="rr-row">
+    <h2>Recent Projects in Cleburne</h2>
+    <div class="projects">
+      <div class="project">
+        <img src="/PHOTO%20NAME%20HERE.jpeg" alt="Completed roof replacement on a Cleburne, TX home" loading="lazy">
+        <span class="tag">Roof Replacement</span>
+        <h3>PROJECT TITLE</h3>
+        <dl>
+          <dt>The problem</dt><dd>WHAT THE HOMEOWNER WAS DEALING WITH</dd>
+          <dt>What we found</dt><dd>WHAT THE INSPECTION SHOWED</dd>
+          <dt>What we did</dt><dd>SCOPE AND MATERIALS</dd>
+          <dt>Timeline</dt><dd>HOW LONG IT TOOK</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+  END HIDE
+  -->
+
+  <!-- ===== SERVICES ===== -->
+  <section class="rr-row">
+    <h2>Roofing Services in Cleburne</h2>
+    <div>
+      <div class="link-list">
+        <a class="link-item" href="roof-replacement.html"><span>Roof Replacement</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a>
+        <a class="link-item" href="roof-repair.html"><span>Roof Repair</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a>
+        <a class="link-item" href="metal-roofing.html"><span>Metal Roofing</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a>
+        <a class="link-item" href="flat-roofing.html"><span>Flat Roofing</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a>
+        <a class="link-item" href="commercial-roofing.html"><span>Commercial Roofing</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a>
+        <a class="link-item" href="index.html#inspection-form"><span>Free Roof Inspection</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHAT CLEBURNE ROOFS ARE UP AGAINST ===== -->
+  <section class="rr-row">
+    <h2>What Cleburne Roofs Are Up Against</h2>
+    <div>
+      <p>Weather in Johnson County doesn't go easy on a roof. Here's what we see most often around Cleburne.</p>
+      <div class="cond-grid">
+        <div>
+          <h3>Hail Across Open Country</h3>
+          <p>Storms that roll across open land around Cleburne can bring hail and strong straight-line winds. Damage often can't be seen from the yard, so a check after a big storm is smart.</p>
+        </div>
+        <div>
+          <h3>Wind on Exposed Properties</h3>
+          <p>Homes and buildings on acreage don't have much to block the wind. Gusts can lift shingles, loosen metal panel fasteners, and open the door for leaks.</p>
+        </div>
+        <div>
+          <h3>Aging Roofs on Older Homes</h3>
+          <p>Cleburne has plenty of homes with years of history behind them. Older roofs often hide worn flashing, past patch jobs, and soft decking that only shows up at tear-off.</p>
+        </div>
+        <div>
+          <h3>Heat and Poor Ventilation</h3>
+          <p>Texas summers push attic temperatures way up. Without good ventilation, shingles wear out faster and cooling bills climb. We check ventilation on every job.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW A PROJECT WORKS ===== -->
+  <section class="rr-row">
+    <h2>How a Project Works With 4P Roofing</h2>
+    <div>
+      <ul class="steps">
+        <li><strong>Free inspection at your Cleburne property.</strong> We get on the roof, check the attic when needed, and photograph everything so you can see what we see.</li>
+        <li><strong>A written scope you can understand.</strong> Materials, decking, ventilation, and cleanup are all spelled out before you commit to anything.</li>
+        <li><strong>Documentation for storm claims.</strong> If there's hail or wind damage, our photos and report give you clear records to share with your insurance company.</li>
+        <li><strong>Install day.</strong> We protect your yard and landscaping, tear off to the decking, fix what's underneath, and install your new roof to manufacturer specifications.</li>
+        <li><strong>Cleanup and walkthrough.</strong> We leave the property clean and walk the finished roof with you before we call the job done.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== HOW TO PICK A ROOFER ===== -->
+  <section class="rr-row">
+    <h2>How to Pick a Roofer in Cleburne (Even If It's Not Us)</h2>
+    <div>
+      <p>When a storm hits Johnson County, it's common to see unfamiliar trucks going door to door within days. A few simple checks can save you a lot of trouble.</p>
+      <ul>
+        <li><strong>Make sure they're local to the area.</strong> Ask where the company is based. A nearby roofer can come back if something needs attention later.</li>
+        <li><strong>See their insurance certificate.</strong> A legitimate roofer won't hesitate to show it.</li>
+        <li><strong>Read the scope before you sign.</strong> It should list materials, labor, decking replacement, and cleanup in writing.</li>
+        <li><strong>Ask how the warranty works.</strong> Find out what workmanship warranty they offer and who you call if a problem comes up.</li>
+        <li><strong>Watch for deductible offers.</strong> Texas law makes it illegal for a roofer to pay, waive, or rebate your insurance deductible.</li>
+        <li><strong>Look for reviews from your neighbors.</strong> Google reviews from Cleburne and Johnson County homeowners tell you more than any sales pitch.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== WARRANTY ===== -->
+  <section class="rr-row">
+    <h2>Backed by a Written Warranty</h2>
+    <div>
+      <p>Every roof replacement we complete in Cleburne includes a 5-year workmanship warranty under its written terms. We go over that coverage alongside the manufacturer warranty, so you know exactly how your roof is protected and who to call.</p>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <!-- If you change an answer here, change it in the FAQ code near the top of the page too. -->
+  <section class="rr-row">
+    <h2>Cleburne Roofing Questions</h2>
+    <div class="faq">
+      <details>
+        <summary>Do you come out to Cleburne for roof inspections?</summary>
+        <p>Yes. Cleburne is a short drive down US-67 from our Burleson home base, and inspections are always free. We cover Cleburne and the surrounding areas of Johnson County.</p>
+      </details>
+      <details>
+        <summary>My Cleburne home is older. Will you replace damaged decking?</summary>
+        <p>Yes. Every replacement is torn off to bare decking so we can find rotted or damaged boards. Any decking that needs replacing is called out in your written scope before work starts.</p>
+      </details>
+      <details>
+        <summary>Do you install metal roofs on shops and barns around Cleburne?</summary>
+        <p>Yes. Along with homes, we install metal roofing on shops, barns, and other outbuildings. We'll walk you through panel options during your free inspection.</p>
+      </details>
+      <details>
+        <summary>How long does a roof replacement take?</summary>
+        <p>Most residential roof replacements take one to two days, depending on the size of the roof, the material, and the weather. We give you a timeline before work starts.</p>
+      </details>
+      <details>
+        <summary>Can a roofer pay or waive my insurance deductible?</summary>
+        <p>No. In Texas it is illegal for a roofing contractor to pay, waive, or rebate a homeowner's insurance deductible. Any contractor offering to do that is a red flag.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ===== OTHER AREAS ===== -->
+  <section class="rr-row">
+    <h2>Other Areas We Serve</h2>
+    <div>
+      <div class="area-links">
+        <a href="burleson-roofing.html">Burleson</a>
+        <a href="alvarado-roofing.html">Alvarado</a>
+        <a href="arlington-roofing.html">Arlington</a>
+        <a href="crowley-roofing.html">Crowley</a>
+        <a href="fort-worth-roofing.html">Fort Worth</a>
+        <a href="godley-roofing.html">Godley</a>
+        <a href="granbury-roofing.html">Granbury</a>
+        <a href="joshua-roofing.html">Joshua</a>
+        <a href="mansfield-roofing.html">Mansfield</a>
+      </div>
+      <p style="margin-top:1rem;">You can also see all of our <a href="service-areas.html" style="color:#146EAB;font-weight:600;">service areas</a>.</p>
+    </div>
+  </section>
+
+</div>
+</div>
+
+<section class="page-cta">
+  <div class="container cta-wrap">
+    <div>
+      <h2>Need a Roofer in Cleburne?</h2>
+      <p>We'll come take a look — your inspection is always free. No pressure, no obligation.</p>
+    </div>
+    <a href="index.html#inspection-form" class="btn btn-primary btn-glow">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Schedule My Free Inspection
+    </a>
+  </div>
+</section>
+
+{% include footer.html %}
+
+{% include nav-script.html %}
+
+<script>
+(function () {
+  var v = document.querySelector('.page-hero .hero-video');
+  if (v && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { v.pause(); }
+})();
+</script>
+
+</body>
+</html>
