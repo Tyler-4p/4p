@@ -7,7 +7,8 @@ nav_active: service-areas
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#000000">
-<title>Roofing in Burleson, TX | 4P Roofing LLC</title>
+<title>Service Areas | Roofing in Burleson &amp; DFW | 4P Roofing LLC</title>
+<meta name="description" content="4P Roofing serves Burleson, Fort Worth, Arlington, Mansfield, Cleburne, Crowley, Joshua, Alvarado, Godley, and Granbury with roof replacement, repair, and free inspections.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
@@ -63,13 +64,22 @@ nav_active: service-areas
     color: #000000 !important; margin: 0;
   }
   .rr-row h2::after { content: ""; display: block; width: 36px; height: 3px; background: #5CB8F0; margin-top: .7rem; }
+  .rr-row h3 { font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; font-size: 1.05rem; color: #000; margin: 0 0 .35rem; }
   .rr-row p { font-family: 'Inter', Arial, sans-serif; font-size: 1rem; line-height: 1.75; color: #3d4852 !important; margin: 0 0 .85rem; max-width: 44rem; }
   .rr-row p:last-child { margin-bottom: 0; }
   .rr-row p.lead { font-weight: 500; color: #1d252c !important; }
   .rr-row ul { list-style: none; margin: .2rem 0 .9rem; padding: 0; max-width: 44rem; }
-  .rr-row li { position: relative; padding-left: 1.2rem; margin: 0 0 .55rem; font-family: 'Inter', Arial, sans-serif; font-size: 1rem; line-height: 1.65; color: #3d4852; }
+  .rr-row li { position: relative; padding-left: 1.2rem; margin: 0 0 .7rem; font-family: 'Inter', Arial, sans-serif; font-size: 1rem; line-height: 1.65; color: #3d4852; }
   .rr-row li::before { content: ""; position: absolute; left: 0; top: .62em; width: 6px; height: 6px; background: #5CB8F0; }
   .rr-row li strong { font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; color: #000000; }
+
+  /* City tabs */
+  .city-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 2rem; border-top: 1px solid rgba(0,0,0,.14); max-width: 44rem; }
+  .city-link { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid rgba(0,0,0,.14); text-decoration: none; color: #000; transition: padding-left .2s ease, color .2s ease; }
+  .city-link span { font-family: 'Montserrat', Arial, sans-serif; font-weight: 800; font-size: clamp(1.05rem, 1.9vw, 1.25rem); letter-spacing: -0.015em; }
+  .city-link small { display: block; font-family: 'Inter', Arial, sans-serif; font-weight: 600; font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; color: #146EAB; margin-top: .15rem; }
+  .city-link svg { flex-shrink: 0; color: #146EAB; }
+  .city-link:hover { padding-left: .6rem; color: #146EAB; }
 
   .link-list { border-top: 1px solid rgba(0,0,0,.14); max-width: 44rem; }
   .link-item { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid rgba(0,0,0,.14); text-decoration: none; color: #000000; transition: padding-left .2s ease, color .2s ease; }
@@ -77,9 +87,23 @@ nav_active: service-areas
   .link-item svg { flex-shrink: 0; color: #146EAB; }
   .link-item:hover { padding-left: .6rem; color: #146EAB; }
 
-  .area-links { display: flex; flex-wrap: wrap; gap: .5rem 1.4rem; max-width: 44rem; }
-  .area-links a { font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; font-size: 1rem; color: #146EAB; text-decoration: none; border-bottom: 2px solid rgba(20,110,171,.3); }
-  .area-links a:hover { border-bottom-color: #146EAB; }
+  /* Roof conditions */
+  .cond-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.6rem 2.2rem; max-width: 44rem; }
+
+  /* Numbered steps */
+  .steps { list-style: none; margin: 0; padding: 0; max-width: 44rem; counter-reset: step; }
+  .steps li { position: relative; padding: 0 0 1.4rem 3.2rem !important; counter-increment: step; }
+  .steps li::before { content: counter(step) !important; position: absolute; left: 0 !important; top: 0 !important; width: 2.1rem !important; height: 2.1rem !important; border-radius: 50%; background: #000 !important; color: #fff; font-family: 'Montserrat', Arial, sans-serif; font-weight: 800; font-size: .95rem; display: flex; align-items: center; justify-content: center; }
+  .steps li:last-child { padding-bottom: 0 !important; }
+
+  /* FAQ */
+  .faq { border-top: 1px solid rgba(0,0,0,.14); max-width: 44rem; }
+  .faq details { border-bottom: 1px solid rgba(0,0,0,.14); padding: 1rem 0; }
+  .faq summary { font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; font-size: 1.02rem; color: #000; cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 1rem; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; color: #146EAB; font-size: 1.35rem; line-height: 1; }
+  .faq details[open] summary::after { content: "–"; }
+  .faq details p { margin: .75rem 0 0 !important; }
 
   .page-cta { background: #ffffff; padding: clamp(3rem, 6vw, 4.5rem) 0 clamp(3.5rem, 7vw, 5.5rem); }
   .page-cta .cta-wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.75rem 3rem; }
@@ -100,9 +124,35 @@ nav_active: service-areas
   @media (max-width: 760px) {
     .page-hero { min-height: 360px; }
     .rr-row { grid-template-columns: 1fr; gap: .8rem; }
+    .cond-grid { grid-template-columns: 1fr; }
   }
-  @media (prefers-reduced-motion: reduce) { .btn, .link-item { transition: none !important; } .link-item:hover { padding-left: 0; } }
+  @media (max-width: 480px) {
+    .city-grid { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) { .btn, .link-item, .city-link { transition: none !important; } .link-item:hover, .city-link:hover { padding-left: 0; } }
 </style>
+
+<!-- FAQ info for Google search results. If you change an FAQ answer on the page, change it here too. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "What areas does 4P Roofing serve?",
+      "acceptedAnswer": { "@type": "Answer", "text": "We're based in Burleson and serve Alvarado, Arlington, Burleson, Cleburne, Crowley, Fort Worth, Godley, Granbury, Joshua, and Mansfield. If you're nearby and don't see your city, give us a call." } },
+    { "@type": "Question", "name": "Is the roof inspection really free?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Inspections are always free with no pressure and no obligation. We share photos and our findings so you can decide what to do." } },
+    { "@type": "Question", "name": "How long does a roof replacement take?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Most residential roof replacements take one to two days, depending on the size of the roof, the material, and the weather. We give you a timeline before work starts." } },
+    { "@type": "Question", "name": "How do I know if my roof has hail damage?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Hail damage is often hard to see from the ground. Common signs include dented gutters, vents, or downspouts, granules collecting at downspouts, and dark spots on shingles. A free inspection with photos is the easiest way to know for sure." } },
+    { "@type": "Question", "name": "Can a roofer pay or waive my insurance deductible?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. In Texas it is illegal for a roofing contractor to pay, waive, or rebate a homeowner's insurance deductible. Any contractor offering to do that is a red flag." } },
+    { "@type": "Question", "name": "Do you offer a warranty?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our roof replacements include a 5-year workmanship warranty under its written terms, alongside the applicable manufacturer warranty." } }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -115,8 +165,8 @@ nav_active: service-areas
   <div class="hero-shade"></div>
   <div class="container">
     <div class="hero-copy">
-      <h1>Roofing in<br><span class="text-accent">Burleson, TX.</span></h1>
-      <p>4P Roofing serves Burleson homeowners with thorough inspections, honest recommendations, and quality repairs and replacements.</p>
+      <h1>Roofing Across<br><span class="text-accent">Burleson &amp; DFW.</span></h1>
+      <p>Based in Burleson and serving homeowners and businesses across the southern DFW area with thorough inspections, honest recommendations, and quality repairs and replacements.</p>
       <div class="hero-btns">
         <a href="index.html#inspection-form" class="btn btn-primary btn-glow">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
@@ -135,16 +185,30 @@ nav_active: service-areas
 <div class="rr-body">
 <div class="container">
 
+  <!-- ===== AREAS WE SERVE ===== -->
   <section class="rr-row">
-    <h2>Your Burleson Roofing Contractor</h2>
+    <h2>Areas We Serve</h2>
     <div>
-      <p class="lead">4P Roofing is a locally owned, family-owned roofing company right here in Burleson, TX. We serve homeowners with honest recommendations, precise workmanship, and clear communication from the first inspection to the final cleanup.</p>
-      <p>Your home deserves a roof built right, and a contractor who stands behind it.</p>
+      <p class="lead">4P Roofing is a family-owned roofing company based in Burleson, TX. We serve the cities below — pick yours to see roofing services in your area.</p>
+      <div class="city-grid">
+        <a class="city-link" href="burleson-roofing.html"><span>Burleson<small>Home Base</small></span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a>
+        <a class="city-link" href="alvarado-roofing.html"><span>Alvarado</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a>
+        <a class="city-link" href="arlington-roofing.html"><span>Arlington</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a>
+        <a class="city-link" href="cleburne-roofing.html"><span>Cleburne</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a>
+        <a class="city-link" href="crowley-roofing.html"><span>Crowley</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a>
+        <a class="city-link" href="fort-worth-roofing.html"><span>Fort Worth</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a>
+        <a class="city-link" href="godley-roofing.html"><span>Godley</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a>
+        <a class="city-link" href="granbury-roofing.html"><span>Granbury</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a>
+        <a class="city-link" href="joshua-roofing.html"><span>Joshua</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a>
+        <a class="city-link" href="mansfield-roofing.html"><span>Mansfield</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a>
+      </div>
+      <p style="margin-top:1rem;">Don't see your city? If you're nearby, give us a call at <a href="tel:8177131407" style="color:#146EAB;font-weight:600;">(817) 713-1407</a> — we may still be able to help.</p>
     </div>
   </section>
 
+  <!-- ===== SERVICES ===== -->
   <section class="rr-row">
-    <h2>Roofing Services in Burleson</h2>
+    <h2>Roofing Services in Every Area</h2>
     <div>
       <div class="link-list">
         <a class="link-item" href="roof-replacement.html"><span>Roof Replacement</span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg></a>
@@ -157,19 +221,64 @@ nav_active: service-areas
     </div>
   </section>
 
+  <!-- ===== WHAT DFW ROOFS ARE UP AGAINST ===== -->
   <section class="rr-row">
-    <h2>What to Expect</h2>
+    <h2>What DFW Roofs Are Up Against</h2>
     <div>
-      <p>From your first inspection to the completed project, we take the time to explain the process and make sure you know what to expect every step of the way.</p>
-      <ul>
-        <li><strong>A free roof inspection.</strong> We explain what we find, share photos and our inspection report, and walk you through your options.</li>
-        <li><strong>A clear written scope.</strong> You'll know what you're paying for before work begins, including material options and payment expectations.</li>
-        <li><strong>Experienced crews.</strong> We set clear expectations for workmanship, care of your property, and cleanup.</li>
-        <li><strong>Honest recommendations.</strong> If a repair is appropriate, we recommend it. If replacement makes more sense, we explain why so you can decide with confidence.</li>
+      <p>North Texas weather is hard on roofs. Knowing what to watch for helps you catch small problems before they turn into expensive ones.</p>
+      <div class="cond-grid">
+        <div>
+          <h3>Hail and Spring Storms</h3>
+          <p>Storm season can bring hail and high winds. Hail bruises shingles and knocks off the granules that protect them — often without any damage you can see from the ground.</p>
+        </div>
+        <div>
+          <h3>High Winds</h3>
+          <p>Strong gusts can lift and crease shingles, breaking their seal. Once that happens, wind-driven rain can get underneath and cause leaks.</p>
+        </div>
+        <div>
+          <h3>Summer Heat and Sun</h3>
+          <p>Long, hot summers bake shingles and dry out sealants around vents and flashing. Good attic ventilation makes a big difference in how long a roof lasts.</p>
+        </div>
+        <div>
+          <h3>Hidden Decking Damage</h3>
+          <p>Slow leaks can rot the decking underneath long before you see a ceiling stain. That's why we tear off to bare decking on every replacement.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW A PROJECT WORKS ===== -->
+  <section class="rr-row">
+    <h2>How a Project Works With 4P Roofing</h2>
+    <div>
+      <ul class="steps">
+        <li><strong>Free roof inspection.</strong> We inspect your roof, take photos of what we find, and walk you through your options in plain English.</li>
+        <li><strong>Clear written scope.</strong> You'll know exactly what you're paying for before work begins, including material options and payment expectations.</li>
+        <li><strong>Storm damage documentation.</strong> If there's storm damage, our photos and inspection report give you clear documentation to share with your insurance company.</li>
+        <li><strong>Install day.</strong> Our crew protects your property, tears off down to the decking, fixes what's underneath, and installs your new roof to manufacturer specifications.</li>
+        <li><strong>Cleanup and final walkthrough.</strong> We clean up the job site and walk through the finished roof with you so you know exactly what you're getting.</li>
       </ul>
     </div>
   </section>
 
+  <!-- ===== HOW TO PICK A ROOFER ===== -->
+  <section class="rr-row">
+    <h2>How to Pick a Roofer (Even If It's Not Us)</h2>
+    <div>
+      <p>After a big storm, out-of-town crews often knock on doors across DFW. Here's how to protect yourself.</p>
+      <ul>
+        <li><strong>Look for a local address.</strong> A company based nearby will still be around if something comes up later.</li>
+        <li><strong>Ask for proof of insurance.</strong> Any reputable roofer will gladly show you their insurance certificate.</li>
+        <li><strong>Get everything in writing.</strong> The estimate should spell out materials, scope of work, and whether decking replacement is included.</li>
+        <li><strong>Ask about the warranty.</strong> Know what workmanship warranty the roofer offers and how it works alongside the manufacturer warranty.</li>
+        <li><strong>Never let anyone "cover" your deductible.</strong> In Texas it's illegal for a roofing contractor to pay, waive, or rebate your insurance deductible.</li>
+        <li><strong>Don't sign on the spot.</strong> A good roofer will give you time to read the contract and compare. High-pressure "today only" deals are a red flag.</li>
+        <li><strong>Check real reviews.</strong> Look at Google reviews from homeowners in your area, not just testimonials on a website.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== WARRANTY ===== -->
   <section class="rr-row">
     <h2>Backed by a Written Warranty</h2>
     <div>
@@ -177,21 +286,35 @@ nav_active: service-areas
     </div>
   </section>
 
+  <!-- ===== FAQ ===== -->
+  <!-- If you change an answer here, change it in the FAQ code near the top of the page too. -->
   <section class="rr-row">
-    <h2>Other Areas We Serve</h2>
-    <div>
-      <div class="area-links">
-        <a href="alvarado-roofing.html">Alvarado</a>
-        <a href="arlington-roofing.html">Arlington</a>
-        <a href="cleburne-roofing.html">Cleburne</a>
-        <a href="crowley-roofing.html">Crowley</a>
-        <a href="fort-worth-roofing.html">Fort Worth</a>
-        <a href="godley-roofing.html">Godley</a>
-        <a href="granbury-roofing.html">Granbury</a>
-        <a href="joshua-roofing.html">Joshua</a>
-        <a href="mansfield-roofing.html">Mansfield</a>
-      </div>
-      <p style="margin-top:1rem;">You can also see all of our <a href="service-areas.html" style="color:#146EAB;font-weight:600;">service areas</a>.</p>
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq">
+      <details>
+        <summary>What areas does 4P Roofing serve?</summary>
+        <p>We're based in Burleson and serve Alvarado, Arlington, Burleson, Cleburne, Crowley, Fort Worth, Godley, Granbury, Joshua, and Mansfield. If you're nearby and don't see your city, give us a call.</p>
+      </details>
+      <details>
+        <summary>Is the roof inspection really free?</summary>
+        <p>Yes. Inspections are always free with no pressure and no obligation. We share photos and our findings so you can decide what to do.</p>
+      </details>
+      <details>
+        <summary>How long does a roof replacement take?</summary>
+        <p>Most residential roof replacements take one to two days, depending on the size of the roof, the material, and the weather. We give you a timeline before work starts.</p>
+      </details>
+      <details>
+        <summary>How do I know if my roof has hail damage?</summary>
+        <p>Hail damage is often hard to see from the ground. Common signs include dented gutters, vents, or downspouts, granules collecting at downspouts, and dark spots on shingles. A free inspection with photos is the easiest way to know for sure.</p>
+      </details>
+      <details>
+        <summary>Can a roofer pay or waive my insurance deductible?</summary>
+        <p>No. In Texas it is illegal for a roofing contractor to pay, waive, or rebate a homeowner's insurance deductible. Any contractor offering to do that is a red flag.</p>
+      </details>
+      <details>
+        <summary>Do you offer a warranty?</summary>
+        <p>Yes. Our roof replacements include a 5-year workmanship warranty under its written terms, alongside the applicable manufacturer warranty.</p>
+      </details>
     </div>
   </section>
 
@@ -201,7 +324,7 @@ nav_active: service-areas
 <section class="page-cta">
   <div class="container cta-wrap">
     <div>
-      <h2>Need a Roofer in Burleson?</h2>
+      <h2>Need a Roofer in DFW?</h2>
       <p>Let's take a look — your inspection is always free. No pressure, no obligation.</p>
     </div>
     <a href="index.html#inspection-form" class="btn btn-primary btn-glow">
