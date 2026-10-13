@@ -6,108 +6,431 @@ nav_active: service-areas
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Godley Roofing Contractor | 4P Roofing LLC</title>
+<meta name="theme-color" content="#000000">
+<title>Godley TX Roofing Contractor | Roof Replacement, Repair &amp; Metal Roofs | 4P Roofing</title>
+<meta name="description" content="Roofing contractor in Godley, TX for roof replacement, roof repair, hail and wind damage, and metal roofing for homes, shops, and barns. Family-owned Johnson County roofer. Call (817) 713-1407 for a free roof inspection.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<style>
+  .page-hero {
+    position: relative; overflow: hidden; isolation: isolate;
+    background-color: #05080b !important;
+    background-image:
+      radial-gradient(ellipse 55% 75% at 82% 70%, rgba(92,184,240,.32) 0%, rgba(92,184,240,.08) 45%, transparent 70%),
+      radial-gradient(ellipse 40% 50% at 10% 0%, rgba(92,184,240,.10) 0%, transparent 70%),
+      linear-gradient(160deg, #0b1218 0%, #05080b 55%, #000000 100%) !important;
+    min-height: clamp(420px, 44vw, 600px);
+    display: flex; align-items: center;
+  }
+  .page-hero::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 4px; z-index: 4;
+    background: linear-gradient(90deg, transparent 0%, #5CB8F0 25%, #5CB8F0 75%, transparent 100%);
+  }
+  .page-hero .hero-pattern {
+    position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: .07;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='60' viewBox='0 0 120 60'%3E%3Cpath d='M0 60 L60 10 L120 60' fill='none' stroke='%23ffffff' stroke-width='2'/%3E%3Cpath d='M0 30 L60 -20 L120 30' fill='none' stroke='%23ffffff' stroke-width='1'/%3E%3C/svg%3E");
+    background-size: 120px 60px;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 35%, #000 100%);
+            mask-image: linear-gradient(90deg, transparent 0%, #000 35%, #000 100%);
+  }
+  .page-hero .hero-shade {
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(0deg, rgba(0,0,0,.45), transparent 35%);
+  }
+  .page-hero .container { position: relative; z-index: 3; width: 100%; text-align: left; }
+  .page-hero .hero-copy { max-width: 40rem; margin: 0; }
+  .page-hero h1 {
+    font-family: 'Montserrat', Arial, sans-serif; font-weight: 900;
+    font-size: clamp(2.3rem, 5.2vw, 3.9rem); line-height: 1.05; letter-spacing: -0.02em;
+    color: #ffffff !important; margin: 0 0 1.2rem; text-align: left;
+  }
+  .page-hero h1 .text-accent { color: #5CB8F0 !important; }
+  .page-hero p { font-family: 'Inter', Arial, sans-serif; font-size: 1.05rem; line-height: 1.75; color: #e8eef3 !important; margin: 0; max-width: 38rem; text-align: left; }
+  .page-hero .hero-btns { display: flex; flex-wrap: wrap; gap: .9rem; margin-top: 1.9rem; justify-content: flex-start; }
+  .page-hero .btn-primary {
+    background: #5CB8F0 !important; color: #000 !important; border: 2px solid #5CB8F0 !important;
+    font-weight: 700 !important; box-shadow: 0 8px 24px rgba(92,184,240,.35) !important; animation: none !important;
+    transition: background .2s ease, color .2s ease, transform .2s ease;
+  }
+  .page-hero .btn-primary:hover { background: #fff !important; border-color: #fff !important; color: #000 !important; transform: translateY(-2px); }
+  .page-hero .btn-outline {
+    background: transparent !important; color: #fff !important; border: 2px solid #fff !important;
+    font-weight: 700 !important; transition: background .2s ease, color .2s ease, transform .2s ease;
+  }
+  .page-hero .btn-outline:hover { background: #fff !important; color: #000 !important; transform: translateY(-2px); }
+  .page-hero .hero-mascot {
+    position: absolute; z-index: 2;
+    right: clamp(1rem, 6vw, 7rem); bottom: 0;
+    height: min(82%, 560px); width: auto; pointer-events: none;
+    filter: drop-shadow(0 0 22px rgba(92,184,240,.5)) drop-shadow(0 14px 22px rgba(0,0,0,.55));
+  }
+
+  .rr-body { background: #ffffff; padding: clamp(.5rem, 2vw, 1.25rem) 0 0; }
+  .rr-row {
+    display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+    gap: clamp(1rem, 4vw, 3.5rem); padding: clamp(1.9rem, 3.8vw, 2.8rem) 0;
+    border-bottom: 1px solid rgba(0,0,0,.14); align-items: start;
+  }
+  .rr-row h2 {
+    font-family: 'Montserrat', Arial, sans-serif; font-weight: 800;
+    font-size: clamp(1.3rem, 2.2vw, 1.6rem); line-height: 1.2; letter-spacing: -0.015em;
+    color: #000000 !important; margin: 0;
+  }
+  .rr-row h2::after { content: ""; display: block; width: 36px; height: 3px; background: #5CB8F0; margin-top: .7rem; }
+  .rr-row h3 { font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; font-size: 1.05rem; color: #000; margin: 0 0 .35rem; }
+  .rr-row p { font-family: 'Inter', Arial, sans-serif; font-size: 1rem; line-height: 1.75; color: #3d4852 !important; margin: 0 0 .85rem; max-width: 44rem; }
+  .rr-row p:last-child { margin-bottom: 0; }
+  .rr-row p.lead { font-weight: 500; color: #1d252c !important; }
+  .rr-row ul { list-style: none; margin: .2rem 0 .9rem; padding: 0; max-width: 44rem; }
+  .rr-row li { position: relative; padding-left: 1.2rem; margin: 0 0 .7rem; font-family: 'Inter', Arial, sans-serif; font-size: 1rem; line-height: 1.65; color: #3d4852; }
+  .rr-row li::before { content: ""; position: absolute; left: 0; top: .62em; width: 6px; height: 6px; background: #5CB8F0; }
+  .rr-row li strong { font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; color: #000000; }
+
+  .cond-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.6rem 2.2rem; max-width: 44rem; }
+
+  .svc-list { border-top: 1px solid rgba(0,0,0,.14); max-width: 44rem; }
+  .svc { padding: 1.2rem 0; border-bottom: 1px solid rgba(0,0,0,.14); }
+  .svc h3 { margin-bottom: .3rem; }
+  .svc p { margin: 0 0 .45rem !important; }
+  .svc a { font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; font-size: .92rem; color: #146EAB; text-decoration: none; border-bottom: 2px solid rgba(20,110,171,.3); }
+  .svc a:hover { border-bottom-color: #146EAB; }
+
+  .projects { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem 2.2rem; max-width: 44rem; }
+  .project img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; border-radius: 4px; margin-bottom: 1rem; background: #eef2f5; }
+  .project .tag { display: block; font-family: 'Montserrat', Arial, sans-serif; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #146EAB; margin-bottom: .35rem; }
+  .project dl { margin: .6rem 0 0; font-family: 'Inter', Arial, sans-serif; font-size: .95rem; }
+  .project dt { font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; color: #000; margin-top: .6rem; }
+  .project dd { margin: .1rem 0 0; color: #3d4852; line-height: 1.6; }
+
+  .steps { list-style: none; margin: 0; padding: 0; max-width: 44rem; counter-reset: step; }
+  .steps li { position: relative; padding: 0 0 1.4rem 3.2rem !important; counter-increment: step; }
+  .steps li::before { content: counter(step) !important; position: absolute; left: 0 !important; top: 0 !important; width: 2.1rem !important; height: 2.1rem !important; border-radius: 50%; background: #000 !important; color: #fff; font-family: 'Montserrat', Arial, sans-serif; font-weight: 800; font-size: .95rem; display: flex; align-items: center; justify-content: center; }
+  .steps li:last-child { padding-bottom: 0 !important; }
+
+  .faq { border-top: 1px solid rgba(0,0,0,.14); max-width: 44rem; }
+  .faq details { border-bottom: 1px solid rgba(0,0,0,.14); padding: 1rem 0; }
+  .faq summary { font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; font-size: 1.02rem; color: #000; cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 1rem; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; color: #146EAB; font-size: 1.35rem; line-height: 1; }
+  .faq details[open] summary::after { content: "–"; }
+  .faq details p { margin: .75rem 0 0 !important; }
+
+  .area-links { display: flex; flex-wrap: wrap; gap: .5rem 1.4rem; max-width: 44rem; }
+  .area-links a { font-family: 'Montserrat', Arial, sans-serif; font-weight: 700; font-size: 1rem; color: #146EAB; text-decoration: none; border-bottom: 2px solid rgba(20,110,171,.3); }
+  .area-links a:hover { border-bottom-color: #146EAB; }
+
+  .page-cta { background: #ffffff; padding: clamp(3rem, 6vw, 4.5rem) 0 clamp(3.5rem, 7vw, 5.5rem); }
+  .page-cta .cta-wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.75rem 3rem; }
+  .page-cta h2 { font-family: 'Montserrat', Arial, sans-serif; font-weight: 900; font-size: clamp(1.8rem, 3.6vw, 2.7rem); line-height: 1.1; letter-spacing: -0.025em; color: #000000 !important; margin: 0 0 .8rem; max-width: 34rem; text-align: left; }
+  .page-cta h2::after { content: ""; display: block; width: 56px; height: 3px; background: #5CB8F0; margin-top: 1.1rem; }
+  .page-cta p { font-family: 'Inter', Arial, sans-serif; font-size: 1.08rem; line-height: 1.75; color: #3d4852 !important; margin: 0; max-width: 34rem; }
+  .page-cta .btn-primary {
+    background: #5CB8F0 !important; color: #000 !important; border: 2px solid #5CB8F0 !important;
+    font-weight: 700 !important; box-shadow: 0 8px 24px rgba(92,184,240,.35) !important; animation: none !important;
+    transition: background .2s ease, color .2s ease, transform .2s ease;
+  }
+  .page-cta .btn-primary:hover { background: #000 !important; border-color: #000 !important; color: #fff !important; transform: translateY(-2px); }
+
+  @media (max-width: 900px) {
+    .page-hero .hero-mascot { height: 190px; right: .75rem; }
+    .page-hero .hero-copy { padding-bottom: 190px; }
+  }
+  @media (max-width: 760px) {
+    .page-hero { min-height: 360px; }
+    .rr-row { grid-template-columns: 1fr; gap: .8rem; }
+    .cond-grid, .projects { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) { .btn { transition: none !important; } }
+</style>
+
+<!-- Tells Google you're a roofing contractor serving Godley -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "RoofingContractor",
+  "name": "4P Roofing LLC",
+  "url": "https://4proofingllc.com/godley-roofing.html",
+  "telephone": "+1-817-713-1407",
+  "image": "https://4proofingllc.com/parker-panther.png",
+  "areaServed": [
+    { "@type": "City", "name": "Godley", "containedInPlace": { "@type": "State", "name": "Texas" } }
+  ],
+  "description": "Family-owned roofing contractor serving Godley, TX and surrounding Johnson County with roof replacement, roof repair, hail and wind damage repair, metal roofing for homes, shops, and barns, and free roof inspections."
+}
+</script>
+
+<!-- FAQ info for Google search results. If you change an FAQ answer on the page, change it here too. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Do you serve rural properties outside Godley city limits?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. We serve homes in town and rural properties on acreage throughout the Godley area. Roof inspections are always free." } },
+    { "@type": "Question", "name": "Do you install metal roofs on barns and shops in Godley?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. We install metal roofing on homes, shops, barns, and outbuildings around Godley. Metal is a durable, long-lasting option for rural properties exposed to wind and hail." } },
+    { "@type": "Question", "name": "How much does a roof replacement cost in Godley, TX?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Roof replacement cost depends on the size and pitch of the roof, the shingles or metal you choose, and how much decking needs replacing. After a free roof inspection, we give you a written, itemized estimate so you know the full cost up front." } },
+    { "@type": "Question", "name": "How do I know if hail damaged my roof?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Look for dents in gutters, vents, or metal panels, and shingle granules collecting at downspouts. Most hail damage to shingles can't be seen from the ground, so a free roof inspection is the best way to know." } },
+    { "@type": "Question", "name": "Can a roofer pay my insurance deductible?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. In Texas it is illegal for a roofing contractor to pay, waive, or rebate a homeowner's insurance deductible. Any roofer who offers is a red flag." } }
+  ]
+}
+</script>
 </head>
 <body>
 
 {% include header.html %}
 
-<!-- ===== PAGE HERO ===== -->
 <section class="page-hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-shade"></div>
   <div class="container">
-    <span class="eyebrow-badge">Godley, TX</span>
-    <h1>Roofing Contractor Serving <span class="text-accent">Godley, TX</span></h1>
-    <p>4P Roofing is a family owned roofing contractor based in Burleson, TX, proudly serving homeowners and businesses in Godley with roof replacement, repair, and free inspections.</p>
-  </div>
-</section>
-
-<!-- ===== OVERVIEW ===== -->
-<section class="service-overview">
-  <div class="container">
-    <h2>Roofing Done Right In Godley</h2>
-    <p>Whether it's a full roof replacement, a repair after a storm, or a specialty roofing system, we bring the same standard to every job in Godley: proper tear-off, sealed underlayment, and craftsmanship done right the first time — not just the parts a homeowner can see from the ground.</p>
-    <p>We're a small, family owned operation, which means the people showing up on your roof are the same people who answer the phone. Every inspection is free, with no pressure and no obligation.</p>
-  </div>
-</section>
-
-<!-- ===== SERVICES ===== -->
-<section class="services-page">
-  <div class="container">
-    <div class="features-heading">
-      <span class="eyebrow-badge">What We Offer</span>
-      <h2 class="section-title">Our Services in Godley</h2>
-      <div class="rule"></div>
-    </div>
-    <div class="services-page-grid">
-
-      <a href="roof-replacement.html" class="service-card-detail">
-        <div class="service-icon-lg"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7"/><path d="M9 22V12h6v10"/></svg></div>
-        <h3>Roof Replacement</h3>
-        <p>Full tear-off to bare decking, sealed underlayment, and a brand new roof system built to spec.</p>
-        <span class="service-card-link">Learn More →</span>
-      </a>
-
-      <a href="roof-repair.html" class="service-card-detail">
-        <div class="service-icon-lg"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
-        <h3>Roof Repair</h3>
-        <p>We find the actual source of a leak or storm damage instead of just patching what's visible.</p>
-        <span class="service-card-link">Learn More →</span>
-      </a>
-
-      <a href="metal-roofing.html" class="service-card-detail">
-        <div class="service-icon-lg"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="1"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="9" y1="4" x2="9" y2="20"/></svg></div>
-        <h3>Metal Roofing</h3>
-        <p>Standing-seam and metal panel systems built for maximum durability and efficiency.</p>
-        <span class="service-card-link">Learn More →</span>
-      </a>
-
-      <a href="flat-roofing.html" class="service-card-detail">
-        <div class="service-icon-lg"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="12" rx="1"/><line x1="3" y1="7" x2="12" y2="3"/><line x1="21" y1="7" x2="12" y2="3"/></svg></div>
-        <h3>Flat Roofing</h3>
-        <p>Low-slope systems for additions, porches, and outbuildings with proper drainage.</p>
-        <span class="service-card-link">Learn More →</span>
-      </a>
-
-      <a href="commercial-roofing.html" class="service-card-detail">
-        <div class="service-icon-lg"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="1"/><line x1="9" y1="8" x2="9" y2="8"/><line x1="15" y1="8" x2="15" y2="8"/><line x1="9" y1="13" x2="9" y2="13"/><line x1="15" y1="13" x2="15" y2="13"/><line x1="9" y1="21" x2="15" y2="21"/></svg></div>
-        <h3>Commercial Roofing</h3>
-        <p>Retail and commercial properties handled with the same tear-off-to-turnkey standard.</p>
-        <span class="service-card-link">Learn More →</span>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-<!-- ===== TRUST STRIP ===== -->
-<section class="trust-strip">
-  <div class="container trust-strip-inner">
-    <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> Inspections Always Free</span>
-    <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> 5-Star Rated on Google</span>
-    <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> Family Owned &amp; Operated</span>
-    <span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg> Fully Insured</span>
-  </div>
-</section>
-
-<!-- ===== CTA BANNER ===== -->
-<section class="cta-banner">
-  <div class="container cta-inner">
-    <div class="cta-left">
-      <span class="icon-circle"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
-      <div>
-        <h3>Get Your Free Godley Roof Inspection</h3>
-        <p>No pressure, no obligation — just an honest look at your roof.</p>
+    <div class="hero-copy">
+      <h1>Roofing Contractor in<br><span class="text-accent">Godley, TX.</span></h1>
+      <p>Roof replacement, roof repair, and metal roofing for Godley homes, shops, and barns — from a family-owned Johnson County roofing company. Every roof inspection is free.</p>
+      <div class="hero-btns">
+        <a href="index.html#inspection-form" class="btn btn-primary btn-glow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Get My Free Roof Inspection
+        </a>
+        <a href="tel:8177131407" class="btn btn-outline">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (817) 713-1407
+        </a>
       </div>
     </div>
-    <a href="index.html#inspection-form" class="btn btn-white">Schedule My Free Inspection →</a>
+  </div>
+  <img class="hero-mascot" src="/parker-panther.png" alt="Parker the Panther, the 4P Roofing mascot, waving">
+</section>
+
+<div class="rr-body">
+<div class="container">
+
+  <!-- ===== INTRO ===== -->
+  <section class="rr-row">
+    <h2>Godley's Hometown Roofing Contractor</h2>
+    <div>
+      <p class="lead">Godley is a small, close-knit town in western Johnson County, surrounded by open land, ranches, and a growing number of new homes. As a family-owned roofing company based in Burleson, we understand country properties and treat every Godley customer like a neighbor.</p>
+      <div class="cond-grid">
+        <div>
+          <h3>Small-Town Service</h3>
+          <p>You won't get passed around a call center. The same small team handles your roof inspection, your estimate, and your installation.</p>
+        </div>
+        <div>
+          <h3>Homes, Shops, and Barns</h3>
+          <p>From houses in town to barns, shops, and outbuildings on acreage, we roof every kind of building on your property.</p>
+        </div>
+        <div>
+          <h3>Built for Open-Country Weather</h3>
+          <p>Godley properties take the full force of wind and hail. We install roofs to manufacturer specifications so they're ready for it.</p>
+        </div>
+        <div>
+          <h3>Straight Talk, Free Inspections</h3>
+          <p>We show you photos of what's really on your roof and tell you honestly whether you need a roof repair, a roof replacement, or nothing at all.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--
+  ===== RECENT GODLEY PROJECTS =====
+  When you have Godley jobs to show, delete the line that says START HIDE and the line that says END HIDE,
+  then fill in the details and photo names (same as the Burleson page).
+  START HIDE
+  <section class="rr-row">
+    <h2>Recent Roofing Projects in Godley</h2>
+    <div class="projects">
+      <div class="project">
+        <img src="/PHOTO%20NAME%20HERE.jpeg" alt="Completed roof replacement in Godley, TX" loading="lazy">
+        <span class="tag">Roof Replacement</span>
+        <h3>PROJECT TITLE</h3>
+        <dl>
+          <dt>The problem</dt><dd>WHAT THE HOMEOWNER WAS DEALING WITH</dd>
+          <dt>What we found</dt><dd>WHAT THE INSPECTION SHOWED</dd>
+          <dt>What we did</dt><dd>SCOPE AND MATERIALS</dd>
+          <dt>Timeline</dt><dd>HOW LONG IT TOOK</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+  END HIDE
+  -->
+
+  <!-- ===== SERVICES WITH DESCRIPTIONS ===== -->
+  <section class="rr-row">
+    <h2>Roofing Services in Godley, TX</h2>
+    <div class="svc-list">
+      <div class="svc">
+        <h3>Roof Replacement in Godley</h3>
+        <p>Complete tear-off to bare decking, replacement of damaged wood, new underlayment, flashing, and ventilation — finished with architectural shingles, impact-resistant shingles, or metal.</p>
+        <a href="roof-replacement.html">Roof replacement details →</a>
+      </div>
+      <div class="svc">
+        <h3>Metal Roofing for Homes, Shops &amp; Barns</h3>
+        <p>Standing-seam and metal panel roofing built for rural Godley properties. Metal holds up to wind and hail and lasts for decades with little maintenance.</p>
+        <a href="metal-roofing.html">Metal roofing details →</a>
+      </div>
+      <div class="svc">
+        <h3>Roof Repair &amp; Leak Repair</h3>
+        <p>We track down the real cause of roof leaks — flashing, vent boots, loose metal fasteners, or storm damage — and repair it the right way.</p>
+        <a href="roof-repair.html">Roof repair details →</a>
+      </div>
+      <div class="svc">
+        <h3>Hail &amp; Wind Damage Roof Repair</h3>
+        <p>After a storm, we inspect your home and outbuildings, photograph the damage, and give you clear documentation to share with your insurance company.</p>
+        <a href="index.html#inspection-form">Schedule a storm damage inspection →</a>
+      </div>
+      <div class="svc">
+        <h3>Flat &amp; Low-Slope Roofing</h3>
+        <p>Low-slope roofing for porches, carports, and additions, installed with proper drainage to keep water moving off the roof.</p>
+        <a href="flat-roofing.html">Flat roofing details →</a>
+      </div>
+      <div class="svc">
+        <h3>Commercial &amp; Agricultural Buildings</h3>
+        <p>Roof replacement and repair for small businesses and commercial buildings in and around Godley.</p>
+        <a href="commercial-roofing.html">Commercial roofing details →</a>
+      </div>
+      <div class="svc">
+        <h3>Free Roof Inspections in Godley</h3>
+        <p>A full roof inspection with photos and a plain-English explanation — always free, with no pressure and no obligation.</p>
+        <a href="index.html#inspection-form">Book a free roof inspection →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHAT GODLEY ROOFS ARE UP AGAINST ===== -->
+  <section class="rr-row">
+    <h2>What Godley Roofs Are Up Against</h2>
+    <div>
+      <p>Out in western Johnson County, there's not much between your roof and an incoming storm. These are the problems we see most often on Godley properties.</p>
+      <div class="cond-grid">
+        <div>
+          <h3>Hail on Open Land</h3>
+          <p>Hailstorms sweep across open pasture with nothing to slow them down. Hail cracks shingles, strips granules, and dents metal panels — often without obvious signs from the ground.</p>
+        </div>
+        <div>
+          <h3>High Winds</h3>
+          <p>Strong gusts can lift shingle edges, break seals, and loosen fasteners on metal roofs, creating openings for leaks on homes and outbuildings alike.</p>
+        </div>
+        <div>
+          <h3>Aging Barn and Shop Roofs</h3>
+          <p>Older metal roofs on barns and shops develop rust, loose screws, and worn sealant over time. Catching it early can prevent leaks that damage equipment and feed.</p>
+        </div>
+        <div>
+          <h3>Summer Heat</h3>
+          <p>Long Texas summers bake shingles and push attic temperatures up. Good ventilation helps your roof last longer and keeps cooling costs down.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HOW A PROJECT WORKS ===== -->
+  <section class="rr-row">
+    <h2>How a Roofing Project Works With 4P Roofing</h2>
+    <div>
+      <ul class="steps">
+        <li><strong>Free roof inspection in Godley.</strong> We inspect your roof — and your shop or barn if you'd like — photograph any damage, and explain what we find.</li>
+        <li><strong>Written, itemized estimate.</strong> You'll see the full cost of your roof repair or replacement, including materials, decking, and cleanup, before anything starts.</li>
+        <li><strong>Storm damage documentation.</strong> If hail or wind caused the damage, our photos and report give you clear records for your insurance company.</li>
+        <li><strong>Roof installation.</strong> We protect your property, tear off to the decking, fix what's underneath, and install your new roof to manufacturer specifications.</li>
+        <li><strong>Cleanup and final walkthrough.</strong> We clean up the site and walk the finished roof with you before we call the job done.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== HOW TO PICK A ROOFER ===== -->
+  <section class="rr-row">
+    <h2>How to Choose a Roofing Contractor in Godley</h2>
+    <div>
+      <p>In a small town, word gets around — good and bad. After a storm, here's how to make sure you're hiring a roofer you can trust.</p>
+      <ul>
+        <li><strong>Hire a local roofer.</strong> A company based in Johnson County will be there for warranty questions long after storm crews leave.</li>
+        <li><strong>Verify insurance.</strong> Ask for a current insurance certificate before work begins.</li>
+        <li><strong>Get an itemized written estimate.</strong> It should spell out materials, labor, decking, and cleanup.</li>
+        <li><strong>Know the warranty.</strong> Ask how long the workmanship warranty lasts and how it works with the manufacturer warranty.</li>
+        <li><strong>Avoid deductible deals.</strong> In Texas it's illegal for a roofer to pay, waive, or rebate your insurance deductible.</li>
+        <li><strong>Ask your neighbors.</strong> Local referrals and Google reviews from Godley and Johnson County homeowners say a lot.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== WARRANTY ===== -->
+  <section class="rr-row">
+    <h2>Roof Replacement Warranty</h2>
+    <div>
+      <p>Every roof replacement we complete in Godley includes a 5-year workmanship warranty under its written terms. We explain how it works alongside your manufacturer warranty, so you know exactly how your roof is protected.</p>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <!-- If you change an answer here, change it in the FAQ code near the top of the page too. -->
+  <section class="rr-row">
+    <h2>Godley Roofing FAQ</h2>
+    <div class="faq">
+      <details>
+        <summary>Do you serve rural properties outside Godley city limits?</summary>
+        <p>Yes. We serve homes in town and rural properties on acreage throughout the Godley area. Roof inspections are always free.</p>
+      </details>
+      <details>
+        <summary>Do you install metal roofs on barns and shops in Godley?</summary>
+        <p>Yes. We install metal roofing on homes, shops, barns, and outbuildings around Godley. Metal is a durable, long-lasting option for rural properties exposed to wind and hail.</p>
+      </details>
+      <details>
+        <summary>How much does a roof replacement cost in Godley, TX?</summary>
+        <p>Roof replacement cost depends on the size and pitch of the roof, the shingles or metal you choose, and how much decking needs replacing. After a free roof inspection, we give you a written, itemized estimate so you know the full cost up front.</p>
+      </details>
+      <details>
+        <summary>How do I know if hail damaged my roof?</summary>
+        <p>Look for dents in gutters, vents, or metal panels, and shingle granules collecting at downspouts. Most hail damage to shingles can't be seen from the ground, so a free roof inspection is the best way to know.</p>
+      </details>
+      <details>
+        <summary>Can a roofer pay my insurance deductible?</summary>
+        <p>No. In Texas it is illegal for a roofing contractor to pay, waive, or rebate a homeowner's insurance deductible. Any roofer who offers is a red flag.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ===== OTHER AREAS ===== -->
+  <section class="rr-row">
+    <h2>Other Areas We Serve</h2>
+    <div>
+      <div class="area-links">
+        <a href="burleson-roofing.html">Burleson</a>
+        <a href="alvarado-roofing.html">Alvarado</a>
+        <a href="arlington-roofing.html">Arlington</a>
+        <a href="cleburne-roofing.html">Cleburne</a>
+        <a href="crowley-roofing.html">Crowley</a>
+        <a href="fort-worth-roofing.html">Fort Worth</a>
+        <a href="granbury-roofing.html">Granbury</a>
+        <a href="joshua-roofing.html">Joshua</a>
+        <a href="mansfield-roofing.html">Mansfield</a>
+      </div>
+      <p style="margin-top:1rem;">You can also see all of our <a href="service-areas.html" style="color:#146EAB;font-weight:600;">service areas</a>.</p>
+    </div>
+  </section>
+
+</div>
+</div>
+
+<section class="page-cta">
+  <div class="container cta-wrap">
+    <div>
+      <h2>Need a Roofer in Godley?</h2>
+      <p>Get a free roof inspection for your home, shop, or barn from a local, family-owned roofing contractor.</p>
+    </div>
+    <a href="index.html#inspection-form" class="btn btn-primary btn-glow">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Schedule My Free Inspection
+    </a>
   </div>
 </section>
 
 {% include footer.html %}
 
 {% include nav-script.html %}
+
 </body>
 </html>
